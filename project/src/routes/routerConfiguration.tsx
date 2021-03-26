@@ -2,7 +2,8 @@ import * as React from 'react';
 import { Switch, Route, useLocation } from "react-router-dom";
 
 import HomePage from '../pages';
-import Parallax from '../pages/playground/parallax';
+import ParallaxTemplate1 from '../pages/playground/parallaxTemplate1';
+import ParallaxTemplate2 from '../pages/playground/parallaxTemplate2';
 
 
 const RouterConfiguration: React.FunctionComponent = () => {
@@ -11,7 +12,8 @@ const RouterConfiguration: React.FunctionComponent = () => {
   return (
     <Switch location={location}>
         <Route exact path="/" children={<HomePage />}></Route>
-        <Route path="/playground/parallax" children={<Parallax />}></Route>
+        <Route path="/playground/ParallaxTemplate1" children={<ParallaxTemplate1 />}></Route>
+        <Route path="/playground/ParallaxTemplate2" children={<ParallaxTemplate2 />}></Route>
     </Switch>
   )
 }
