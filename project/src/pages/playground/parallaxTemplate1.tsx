@@ -37,7 +37,7 @@ const ParallaxTemplate1: React.FunctionComponent = () => {
                 </p>
                 <div style={{ clear: 'both' }}></div>
             </div>
-            <div className="parallax" id="trans2">
+            <div className="parallaxTemplate1" id="trans2">
                 <div className="txt left">
                     Happiness
                 </div>
@@ -54,7 +54,7 @@ const ParallaxTemplate1: React.FunctionComponent = () => {
                 <p>Comprehensum, quod cognitum non habet? Sint ista Graecorum; Quantum Aristoxeni ingenium consumptum videmus in musicis? Sequitur disserendi ratio cognitioque naturae; </p>
                 <div style={{ clear: 'both' }}></div>
             </div>
-            <div className="parallax" id="trans3">
+            <div className="parallaxTemplate1" id="trans3">
                 <div className="txt left">
                     and they lived...
                 </div>
