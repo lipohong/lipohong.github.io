@@ -8,13 +8,18 @@ const HomePage: React.FunctionComponent = () => {
             <header><h3>Parallax Templates!</h3></header>
             <ul>
                 <li>
-                    <Link to="/playground/ParallaxTemplate1">
+                    <Link to="/playground/parallaxTemplate1">
                         Parallax Template1
                     </Link>
                 </li>
                 <li>
-                    <Link to="/playground/ParallaxTemplate2">
+                    <Link to="/playground/parallaxTemplate2">
                         Parallax Template2
+                    </Link>
+                </li>
+                <li>
+                    <Link to="/playground/parallaxTemplate3">
+                        Parallax Template3
                     </Link>
                 </li>
             </ul>

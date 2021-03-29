@@ -2,12 +2,12 @@ import * as React from 'react';
 
 const ParallaxTemplate1: React.FunctionComponent = () => {
     return (
-        <div className="parallax">
+        <div className="parallaxTemplate1">
             <div id="header">
                 <h1 style={{ padding:0, margin:0 }}>Mr. & Mrs. Rogers</h1>
                 Est. 2011
             </div>
-            <div className="parallaxTemplate1" id="trans1">
+            <div className="parallax" id="trans1">
                 <div className="txt right">
                     &#10085;Live<br/>
                     Laugh<br/>
@@ -37,7 +37,7 @@ const ParallaxTemplate1: React.FunctionComponent = () => {
                 </p>
                 <div style={{ clear: 'both' }}></div>
             </div>
-            <div className="parallaxTemplate1" id="trans2">
+            <div className="parallax" id="trans2">
                 <div className="txt left">
                     Happiness
                 </div>
@@ -54,7 +54,7 @@ const ParallaxTemplate1: React.FunctionComponent = () => {
                 <p>Comprehensum, quod cognitum non habet? Sint ista Graecorum; Quantum Aristoxeni ingenium consumptum videmus in musicis? Sequitur disserendi ratio cognitioque naturae; </p>
                 <div style={{ clear: 'both' }}></div>
             </div>
-            <div className="parallaxTemplate1" id="trans3">
+            <div className="parallax" id="trans3">
                 <div className="txt left">
                     and they lived...
                 </div>

@@ -1,7 +1,4 @@
-.parallax {
-    width: 100%;
-    height: 100%;
-    background-color: #253237;
+.parallaxTemplate1 {
     #header {
         box-sizing: border-box;
         -moz-box-sizing: border-box;
@@ -18,7 +15,7 @@
         border-bottom: 3px solid #000;
     }
 
-    .parallaxTemplate1 {
+    .parallax {
         position: relative;
         z-index: 1;
         height: 450px;
@@ -129,5 +126,24 @@
         -webkit-box-shadow: 90px 6px 5px rgba(50, 50, 50, 0.75);
         -moz-box-shadow: 90px 6px 5px rgba(50, 50, 50, 0.75);
         box-shadow: 90px 6px 5px rgba(50, 50, 50, 0.75);
+    }
+}
+
+.parallaxTemplate2 {
+    width: 100%;
+    height: 100%;
+    background-color: #253237;
+}
+
+.parallaxTemplate3 {
+    height: 500vh;
+    background: #000;
+    canvas {
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        max-width: 100vw;
+        max-height: 100vh;
     }
 }
