@@ -4,7 +4,7 @@ const { Parallax, ParallaxLayer } = require('react-spring/renderprops-addons');
 
 const url = (name: string, wrap = false) => `${wrap ? 'url(' : ''}https://awv3node-homepage.surge.sh/build/assets/${name}.svg${wrap ? ')' : ''}`;
 
-const ParallaxTemplate2: React.FunctionComponent = () => {
+const ParallaxDemo2: React.FunctionComponent = () => {
     let parallaxEl: any;
 
     useEffect(() => {
@@ -12,7 +12,7 @@ const ParallaxTemplate2: React.FunctionComponent = () => {
     }, []);
   
     return (
-        <div className="parallaxTemplate2">
+        <div className="parallaxDemo2">
             <Parallax pages={3} ref={(ref: any) => { parallaxEl = ref }}>
                 <ParallaxLayer offset={1} speed={1} style={{ backgroundColor: '#805E73' }} />
                 <ParallaxLayer offset={2} speed={1} style={{ backgroundColor: '#87BCDE' }} />
@@ -88,4 +88,4 @@ const ParallaxTemplate2: React.FunctionComponent = () => {
     )
 }
 
-export default ParallaxTemplate2;
+export default ParallaxDemo2;

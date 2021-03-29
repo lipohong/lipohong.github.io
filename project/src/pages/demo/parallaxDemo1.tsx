@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-const ParallaxTemplate1: React.FunctionComponent = () => {
+const ParallaxDemo1: React.FunctionComponent = () => {
     return (
-        <div className="parallaxTemplate1">
+        <div className="parallaxDemo1">
             <div id="header">
                 <h1 style={{ padding:0, margin:0 }}>Mr. & Mrs. Rogers</h1>
                 Est. 2011
@@ -72,4 +72,4 @@ const ParallaxTemplate1: React.FunctionComponent = () => {
     );
 }
 
-export default ParallaxTemplate1;
+export default ParallaxDemo1;

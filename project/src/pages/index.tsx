@@ -5,21 +5,21 @@ const HomePage: React.FunctionComponent = () => {
 
     return (
         <div className="home">
-            <header><h3>Parallax Templates!</h3></header>
+            <header><h3>Parallax Demos!</h3></header>
             <ul>
                 <li>
-                    <Link to="/playground/parallaxTemplate1">
-                        Parallax Template1
+                    <Link to="/demo/parallaxDemo1">
+                        Parallax Demo1
                     </Link>
                 </li>
                 <li>
-                    <Link to="/playground/parallaxTemplate2">
-                        Parallax Template2
+                    <Link to="/demo/parallaxDemo2">
+                        Parallax Demo2
                     </Link>
                 </li>
                 <li>
-                    <Link to="/playground/parallaxTemplate3">
-                        Parallax Template3
+                    <Link to="/demo/parallaxDemo3">
+                        Parallax Demo3
                     </Link>
                 </li>
             </ul>

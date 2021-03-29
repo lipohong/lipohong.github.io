@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useEffect } from 'react';
 
-const ParallaxTemplate3: React.FunctionComponent = () => {
+const ParallaxDemo3: React.FunctionComponent = () => {
     useEffect(() => {
         
         const frameCount = 147;
@@ -47,10 +47,10 @@ const ParallaxTemplate3: React.FunctionComponent = () => {
     }, []);
     
     return (
-        <div className="parallaxTemplate3">
+        <div className="parallaxDemo3">
             <canvas id="hero-lightpass" />
         </div>
     )
 }
 
-export default ParallaxTemplate3;
+export default ParallaxDemo3;
