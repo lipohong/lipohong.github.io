@@ -4,6 +4,10 @@ const ParallaxDemo1: React.FunctionComponent = () => {
     return (
         <div className="parallaxDemo1">
             <div id="header">
+                <div id="homeButton">
+                    <span className="material-icons" style={{ color: 'white' }}>home</span>
+                </div>
+
                 <h1 style={{ padding:0, margin:0 }}>Mr. & Mrs. Rogers</h1>
                 Est. 2011
             </div>

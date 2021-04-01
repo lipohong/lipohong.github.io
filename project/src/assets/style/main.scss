@@ -10,5 +10,22 @@ body,
 a {
     text-decoration: none;
 }
+#homeButton {
+    $homeButtonColor: #fe1a00;
+
+    cursor: pointer;
+    position: fixed;
+    display: inline;
+    top: 0.5rem;
+    left: 0.5rem;
+    border-radius: 50%;
+    background-color: $homeButtonColor;
+    padding: 0.5rem;
+    text-shadow: 0px 1px 0px #528009;
+    box-shadow: 0px 10px 14px -7px #276873, inset 0px 1px 0px 0px #f29c93;
+    &:hover {
+        background-color: darken($homeButtonColor, 10);
+    }
+}
 @import "home.scss";
 @import "parallax.scss";
