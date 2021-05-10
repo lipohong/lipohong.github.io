@@ -1,4 +1,5 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: './src/app.tsx',
@@ -27,15 +28,20 @@ module.exports = {
       },
     ],
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './src/index.html'
+    })
+  ],
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
   },
   output: {
     filename: 'main.js',
-    path: path.resolve(__dirname, '..')
+    path: path.resolve(__dirname, './docs')
   },
   devServer: {
-    contentBase: path.join(__dirname, '..'),
+    contentBase: path.join(__dirname, './docs'),
     compress: true,
     historyApiFallback: true,
     hot: true,

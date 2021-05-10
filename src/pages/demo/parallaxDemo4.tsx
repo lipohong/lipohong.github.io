@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-const ParallaxDemo3: React.FunctionComponent = () => {
+const ParallaxDemo4: React.FunctionComponent = () => {
     
     return (
         <div className="parallaxDemo4">
@@ -56,4 +56,4 @@ const ParallaxDemo3: React.FunctionComponent = () => {
     )
 }
 
-export default ParallaxDemo3;
+export default ParallaxDemo4;

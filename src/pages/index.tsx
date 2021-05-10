@@ -27,6 +27,11 @@ const HomePage: React.FunctionComponent = () => {
                         Parallax Demo4
                     </Link>
                 </li>
+                <li>
+                    <Link to="/demo/parallaxDemo5">
+                        Parallax Demo5
+                    </Link>
+                </li>
             </ul>
         </div>
     )
