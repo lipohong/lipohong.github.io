@@ -6,6 +6,7 @@ body,
     margin: 0;
     padding: 0;
     background: #f0f0f0;
+    box-sizing: border-box;
 }
 a {
     text-decoration: none;
@@ -29,3 +30,4 @@ a {
 }
 @import "home.scss";
 @import "parallax.scss";
+@import "components.scss";

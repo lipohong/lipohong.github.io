@@ -5,11 +5,14 @@ import { HashRouter as Router } from "react-router-dom";
 import "./assets/style/main.scss";
 
 import RouterConfiguration from './routes/routerConfiguration';
+import SiteBar from './components/siteBar';
+
 
 const App: React.FunctionComponent = () => {
 
   return (
     <Router>
+        <SiteBar />
         <RouterConfiguration />
     </Router>
   );
