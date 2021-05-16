@@ -18,7 +18,7 @@ git init
 git add -A
 git commit -m 'Update and deploy'
 
-git push git@github.com:lipohong/lipohong.github.io.git master:gh-pages
+git push -f git@github.com:lipohong/lipohong.github.io.git master:gh-pages
 
 # back to previous directory
 cd -
