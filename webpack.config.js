@@ -26,6 +26,14 @@ module.exports = {
           "sass-loader", // Compiles Sass to CSS
         ],
       },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif|ico)$/i,
+        loader: 'file-loader',
+        options: {
+          name: '[name].[ext]',
+          esModule: false
+        },
+      }
     ],
   },
   plugins: [
@@ -38,7 +46,8 @@ module.exports = {
   },
   output: {
     filename: 'main.js',
-    path: path.resolve(__dirname, './docs')
+    path: path.resolve(__dirname, './docs'),
+    clean: true,
   },
   devServer: {
     contentBase: path.join(__dirname, './docs'),

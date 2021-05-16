@@ -13,6 +13,7 @@
   "license": "MIT",
   "devDependencies": {
     "css-loader": "^5.1.0",
+    "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.3.1",
     "sass": "^1.32.8",
     "sass-loader": "^11.0.1",

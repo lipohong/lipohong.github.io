@@ -3,7 +3,6 @@
         box-sizing: border-box;
         -moz-box-sizing: border-box;
         z-index: 3;
-        position: fixed;
         top: 0;
         width: 100%;
         background: #fd62a9;
@@ -139,6 +138,7 @@
     height: 500vh;
     background: #000;
     canvas {
+        margin-top: 3rem;
         position: fixed;
         left: 50%;
         top: 50%;
