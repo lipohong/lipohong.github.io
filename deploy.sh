@@ -9,7 +9,7 @@ npm run build
 git add .
 read -p "Enter your commit message: " commitMessage
 git commit -m "$commitMessage"
-git push origin master
+git push origin main
 
 # navigate into the build output directory
 cd ./docs
