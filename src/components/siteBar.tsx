@@ -1,8 +1,11 @@
 import * as React from 'react';
+import { useState, MouseEvent  } from 'react';
 import { Link, useLocation } from "react-router-dom";
 import logo from "../assets/file/logo.png";
+import MenuButton from "./menuButton";
 
 const SideBar: React.FunctionComponent = () => {
+  let [menuOpened, setMenuOpened] = useState<boolean>(false);
   const location = useLocation();  
   let choseTab = null;
   switch (location.pathname.split('/')[1]) {
@@ -25,6 +28,11 @@ const SideBar: React.FunctionComponent = () => {
     break;
   }
 
+  const handleMenuButtonClick = (event: MouseEvent) => {
+    event.preventDefault();
+    setMenuOpened(!menuOpened);
+  }
+
   return (
     <nav className="siteBar">
       <header>
@@ -34,9 +42,9 @@ const SideBar: React.FunctionComponent = () => {
         </Link>
       </header>
       <Link to="/profile">
-      <section className={choseTab === 'profile' ? 'choose' : ''}>
-        Profile
-      </section>
+        <section className={choseTab === 'profile' ? 'choose' : ''}>
+          Profile
+        </section>
       </Link>
       <Link to="/projects">
         <section className={choseTab === 'projects' ? 'choose' : ''}>
@@ -58,6 +66,9 @@ const SideBar: React.FunctionComponent = () => {
           Knowledge
         </section>
       </Link>
+      <aside onClick={handleMenuButtonClick}>
+        <MenuButton menuOpened={menuOpened} />
+      </aside>
     </nav>
   )
 }
