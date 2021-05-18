@@ -1,44 +1,74 @@
 .siteBar {
-  position: relative;
-  background-image: linear-gradient(90deg,rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0.1));
-  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.15);
-  height: 3rem;
-  display: flex;
-  align-items: center;
-  .choose {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.08));
-  }
-  section {
-    cursor: pointer;
-    padding: 1rem;
-    font-family: sans-serif;
-    &:hover {
-      background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.08));
-    }
-    /* medium-sized screens */
-    @media only screen and (max-width: $break-point-md) {
-      display: none;
-    }
-  }
   a {
     color: black;
   }
-  header {
-    padding: 1rem;
-    font-family: 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
-    margin-right: 1.2rem;
-    a {
+  .largeNavBar {
+    position: relative;
+    background-image: linear-gradient(90deg,rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0.1));
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.15);
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    .choose {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.08));
+    }
+    section {
+      cursor: pointer;
+      padding: 1rem 0.8rem;
+      font-family: sans-serif;
+      &:hover {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.08));
+      }
+    }
+    header {
+      padding: 1rem;
+      font-family: 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+      margin-right: 0.5rem;
+      a {
+        display: flex;
+        align-items: center;
+        span {
+          font-size: 1.2rem;
+          padding: 0.2rem;
+        }
+        img {
+          width: 1.5em;
+          height: 1.5rem;
+          margin-right: 0.1rem;
+        }
+      }
+    }
+    main {
       display: flex;
-      align-items: center;
-      span {
-        font-size: 1.2rem;
-        padding: 0.2rem;
+      /* medium-sized screens */
+      @media only screen and (max-width: $break-point-sm) {
+        display: none;
       }
-      img {
-        width: 1.5em;
-        height: 1.5rem;
-        margin-right: 0.1rem;
+    }
+  }
+  .smallNavBar {
+    position: relative;
+    width: 100%;
+    height:auto;
+    max-height: 100vh;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    transition: max-height 1s linear;
+    .choose {
+      background-image: linear-gradient(-90deg,rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.03));
+    }
+    section {
+      cursor: pointer;
+      padding: 1rem 0.8rem;
+      font-family: sans-serif;
+      &:hover {
+        background-image: linear-gradient(-90deg,rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.03));
       }
+    }
+    &.hide {
+      max-height: 0;
+      transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
     }
   }
 }
@@ -55,29 +85,87 @@
   height: 100%;
   width: 3rem;
   /* medium screens */
-  @media only screen and (min-width: $break-point-md) {
+  @media only screen and (min-width: $break-point-sm + 1px) {
     display: none;
+  }
+  @keyframes topBarClose {
+    0% {
+      transform: rotate(-45deg) translateY(1px);
+    }
+    50% {
+      transform: rotate(0) translateY(1px);
+    }
+    100% {
+      transform: rotate(0) translateY(4px);
+    }
+  }
+  @keyframes bottomBarClose {
+    0% {
+      transform: rotate(45deg) translateY(-1px);
+    }
+    50% {
+      transform: rotate(0) translateY(-1px);
+    }
+    100% {
+      transform: rotate(0) translateY(-4px);
+    }
+  }
+  @keyframes topBarOpen {
+    0% {
+      transform: rotate(0) translateY(4px);
+    }
+    50% {
+      transform: rotate(0) translateY(1px);
+    }
+    100% {
+      transform: rotate(-45deg) translateY(1px);
+    }
+  }
+  @keyframes bottomBarOpen {
+    0% {
+      transform: rotate(0) translateY(-4px);
+    }
+    50% {
+      transform: rotate(0) translateY(-1px);
+    }
+    100% {
+      transform: rotate(45deg) translateY(-1px);
+    }
   }
   .topBar {
     width: 20px;
     height: 2px;
     background-color: rgba(0, 0, 0, 1);
-    transition: 0.5s;
-    transform: translateY(4px);
+    transform: rotate(0) translateY(4px);
   }
   .bottomBar {
     width: 20px;
     height: 2px;
     background-color: rgba(0, 0, 0, 1);
-    transition: 0.5s;
-    transform: translateY(-4px);
+    transform: rotate(0) translateY(-4px);
   }
-  &:hover {
-    .topBar {
-      transform: rotate(-45deg) translateY(1px);
-    }
-    .bottomBar {
-      transform: rotate(45deg) translateY(-1px);
-    }
+  .topBarClose {
+    animation-name: topBarClose;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
+  }
+  .bottomBarClose {
+    animation-name: bottomBarClose;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
+  }
+  .topBarOpen {
+    animation-name: topBarOpen;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
+  }
+  .bottomBarOpen {
+    animation-name: bottomBarOpen;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
   }
 }
