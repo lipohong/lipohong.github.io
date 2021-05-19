@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const ParalaxHomePage: React.FunctionComponent = () => {
 
   return (
-    <div>
+    <section>
       <header><h3>Parallax Demos!</h3></header>
       <ul>
         <li>
@@ -33,7 +33,7 @@ const ParalaxHomePage: React.FunctionComponent = () => {
           </Link>
         </li>
       </ul>
-    </div>
+    </section>
   )
 }
 

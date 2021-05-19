@@ -13,6 +13,7 @@
       background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.08));
     }
     section {
+      font-weight: lighter;
       cursor: pointer;
       padding: 1rem 0.8rem;
       font-family: sans-serif;
@@ -49,7 +50,7 @@
   .smallNavBar {
     position: relative;
     width: 100%;
-    height:auto;
+    height: auto;
     max-height: 100vh;
     background-image: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
@@ -59,6 +60,7 @@
       background-image: linear-gradient(-90deg,rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.03));
     }
     section {
+      font-weight: lighter;
       cursor: pointer;
       padding: 1rem 0.8rem;
       font-family: sans-serif;

@@ -6,6 +6,7 @@ import "./assets/style/main.scss";
 import "./assets/file/favicon.ico";
 import RouterConfiguration from './routes/routerConfiguration';
 import SiteBar from './components/siteBar';
+import Foot from './components/foot';
 
 
 const App: React.FunctionComponent = () => {
@@ -14,6 +15,7 @@ const App: React.FunctionComponent = () => {
     <Router>
       <SiteBar />
       <RouterConfiguration />
+      <Foot />
     </Router>
   );
 }
