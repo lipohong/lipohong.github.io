@@ -13,7 +13,15 @@ a {
 }
 #app {
   .main {
-    min-height: 85vh;
+    min-height: 90vh;
+  }
+  .foot {
+    padding: 1rem;
+    font-size: large;
+    text-align: center;
+    a {
+      color: black;
+    }
   }
 }
 $break-point-xs: 480px;

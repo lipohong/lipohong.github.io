@@ -22,16 +22,6 @@ const ParalaxHomePage: React.FunctionComponent = () => {
             Parallax Demo3
           </Link>
         </li>
-        <li>
-          <Link to="/demo/parallaxDemo4">
-            Parallax Demo4
-          </Link>
-        </li>
-        <li>
-          <Link to="/demo/parallaxDemo5">
-            Parallax Demo5
-          </Link>
-        </li>
       </ul>
     </section>
   )

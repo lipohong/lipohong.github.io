@@ -129,16 +129,10 @@
 }
 
 .parallaxDemo2 {
-    width: 100%;
-    height: 100%;
-    background-color: #253237;
-}
-
-.parallaxDemo3 {
     height: 500vh;
     background: #000;
     canvas {
-        margin-top: 3rem;
+        margin-top: 2.3rem;
         position: fixed;
         left: 50%;
         top: 50%;
@@ -148,142 +142,7 @@
     }
 }
 
-.parallaxDemo4 {
-    color: hsl(0, 0%, 95%);
-    background-color: hsl(5, 15%, 5%);
-    font-size: clamp(1.2rem, 5vw, 1.5rem);
-    font-family: "Lato", sans-serif;
-    line-height: 1.6;
-
-    * {
-        box-sizing: border-box;
-    }
-
-    a {
-        color: hsl(65, 80%, 60%);
-        text-decoration: none;
-    }
-
-    a:hover,
-    a:focus {
-        text-decoration: underline;
-    }
-
-    .page-title {
-        text-align: center;
-    }
-
-    .page-title::after {
-        content: "↓";
-        display: block;
-        font-size: 2em;
-        opacity: 0;
-        transform: translateY(-24px);
-        animation: fadein 800ms 500ms cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-    }
-
-    .header,
-    .footer {
-        display: grid;
-        place-items: center;
-        height: 100vh;
-    }
-
-    .section {
-        transform-origin: center top;
-        transform: scaleY(0.9);
-    }
-
-    .section > * {
-        transform-origin: center top;
-        transform: scaleY(calc(1 / 0.9));
-    }
-
-    .section-title {
-        font-family: "Playfair Display", serif;
-        font-size: clamp(2.5rem, 6vw, 4.5rem);
-        font-weight: bold;
-        line-height: 1.125;
-    }
-
-    .byline {
-        display: block;
-        font-size: 0.6em;
-        margin: 0 0;
-    }
-
-    .content {
-        position: relative;
-        margin: -50vh auto 0;
-        padding: 8vmin;
-        max-width: 55ch;
-        width: calc(100% - 8vmin);
-        background: hsla(5, 15%, 5%, 0.9);
-    }
-
-    .content > * + * {
-        margin-top: 2rem;
-    }
-
-    figure {
-        margin: 0;
-    }
-
-    .image-container {
-        position: sticky;
-        top: 0;
-        width: 100vw;
-        height: 100vh;
-        z-index: 0;
-    }
-
-    .image-container img {
-        display: block;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
-    .image-container::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 50%;
-        background: linear-gradient(
-            to bottom,
-            hsla(5, 15%, 5%, 0) 0%,
-            hsla(5, 15%, 5%, 0.013) 8.1%,
-            hsla(5, 15%, 5%, 0.049) 15.5%,
-            hsla(5, 15%, 5%, 0.104) 22.5%,
-            hsla(5, 15%, 5%, 0.175) 29%,
-            hsla(5, 15%, 5%, 0.259) 35.3%,
-            hsla(5, 15%, 5%, 0.352) 41.2%,
-            hsla(5, 15%, 5%, 0.45) 47.1%,
-            hsla(5, 15%, 5%, 0.55) 52.9%,
-            hsla(5, 15%, 5%, 0.648) 58.8%,
-            hsla(5, 15%, 5%, 0.741) 64.7%,
-            hsla(5, 15%, 5%, 0.825) 71%,
-            hsla(5, 15%, 5%, 0.896) 77.5%,
-            hsla(5, 15%, 5%, 0.951) 84.5%,
-            hsla(5, 15%, 5%, 0.987) 91.9%,
-            hsl(5, 15%, 5%) 100%
-        );
-    }
-
-    @keyframes fadein {
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-}
-
-.parallaxDemo5 {
+.parallaxDemo3 {
     /* layout */
     display: flex;
     justify-content: center;

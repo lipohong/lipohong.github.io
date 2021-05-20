@@ -1,89 +1,54 @@
 import * as React from 'react';
 import { useEffect } from 'react';
-const { Parallax, ParallaxLayer } = require('react-spring/renderprops-addons');
-
-const url = (name: string, wrap = false) => `${wrap ? 'url(' : ''}https://awv3node-homepage.surge.sh/build/assets/${name}.svg${wrap ? ')' : ''}`;
 
 const ParallaxDemo2: React.FunctionComponent = () => {
-    let parallaxEl: any;
-
     useEffect(() => {
         
+        const frameCount = 147;
+        const currentFrame = (index: Number) => (
+            `https://www.apple.com/105/media/us/airpods-pro/2019/1299e2f5_9206_4470_b28e_08307a42f19b/anim/sequence/large/01-hero-lightpass/${index.toString().padStart(4, '0')}.jpg`
+        );
+        const preloadImages = () => {
+            for (let i = 1; i < frameCount; i++) {
+                const img = new Image();
+                img.src = currentFrame(i);
+            }
+        };
+        
+        const canvas =  document.getElementById("hero-lightpass") as HTMLCanvasElement;
+        const context = canvas.getContext("2d");
+        canvas.width = 1158;
+        canvas.height = 770;
+
+        const img = new Image()
+        img.src = currentFrame(1);
+        img.onload = function(){
+            context.drawImage(img, 0, 0);
+        }
+
+        const updateImage = (index: Number) => {
+            img.src = currentFrame(index);
+            context.drawImage(img, 0, 0);
+        }
+
+        const html = document.documentElement;
+        window.onscroll = () => {
+            const scrollTop = html.scrollTop;            
+            const maxScrollTop = html.scrollHeight - window.innerHeight;
+            const scrollFraction = scrollTop / maxScrollTop;
+            const frameIndex = Math.min(
+                frameCount - 1,
+                Math.ceil(scrollFraction * frameCount)
+            );
+
+            requestAnimationFrame(() => updateImage(frameIndex + 1));
+        }
+        preloadImages();
     }, []);
-  
+    
     return (
         <div className="parallaxDemo2">
-            <Parallax pages={3} ref={(ref: any) => { parallaxEl = ref }}>
-                <ParallaxLayer offset={1} speed={1} style={{ backgroundColor: '#805E73' }} />
-                <ParallaxLayer offset={2} speed={1} style={{ backgroundColor: '#87BCDE' }} />
-                <ParallaxLayer offset={0} speed={0} factor={3} style={{ backgroundImage: url('stars', true), backgroundSize: 'cover' }} />
-                <ParallaxLayer offset={1.3} speed={-0.3} style={{ pointerEvents: 'none' }}>
-                    <img src={url('satellite4')} style={{ width: '15%', marginLeft: '70%' }} />
-                </ParallaxLayer>
-                <ParallaxLayer offset={1} speed={0.8} style={{ opacity: 0.1 }}>
-                    <img src={url('cloud')} style={{ display: 'block', width: '20%', marginLeft: '55%' }} />
-                    <img src={url('cloud')} style={{ display: 'block', width: '10%', marginLeft: '15%' }} />
-                </ParallaxLayer>
-
-                <ParallaxLayer offset={1.75} speed={0.5} style={{ opacity: 0.1 }}>
-                    <img src={url('cloud')} style={{ display: 'block', width: '20%', marginLeft: '70%' }} />
-                    <img src={url('cloud')} style={{ display: 'block', width: '20%', marginLeft: '40%' }} />
-                </ParallaxLayer>
-
-                <ParallaxLayer offset={1} speed={0.2} style={{ opacity: 0.2 }}>
-                    <img src={url('cloud')} style={{ display: 'block', width: '10%', marginLeft: '10%' }} />
-                    <img src={url('cloud')} style={{ display: 'block', width: '20%', marginLeft: '75%' }} />
-                </ParallaxLayer>
-
-                <ParallaxLayer offset={1.6} speed={-0.1} style={{ opacity: 0.4 }}>
-                    <img src={url('cloud')} style={{ display: 'block', width: '20%', marginLeft: '60%' }} />
-                    <img src={url('cloud')} style={{ display: 'block', width: '25%', marginLeft: '30%' }} />
-                    <img src={url('cloud')} style={{ display: 'block', width: '10%', marginLeft: '80%' }} />
-                </ParallaxLayer>
-
-                <ParallaxLayer offset={2.6} speed={0.4} style={{ opacity: 0.6 }}>
-                    <img src={url('cloud')} style={{ display: 'block', width: '20%', marginLeft: '5%' }} />
-                    <img src={url('cloud')} style={{ display: 'block', width: '15%', marginLeft: '75%' }} />
-                </ParallaxLayer>
-
-                <ParallaxLayer offset={2.5} speed={-0.4} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', pointerEvents: 'none' }}>
-                    <img src={url('earth')} style={{ width: '60%' }} />
-                </ParallaxLayer>
-
-                <ParallaxLayer
-                    offset={2}
-                    speed={-0.3}
-                    style={{
-                        backgroundSize: '80%',
-                        backgroundPosition: 'center',
-                        backgroundImage: url('clients', true)
-                    }}
-                />
-
-                <ParallaxLayer
-                    offset={0}
-                    speed={0.1}
-                    onClick={() => parallaxEl.scrollTo(1)}
-                    style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    <img src={url('server')} style={{ width: '20%' }} />
-                </ParallaxLayer>
-
-                <ParallaxLayer
-                    offset={1}
-                    speed={0.1}
-                    onClick={() => parallaxEl.scrollTo(2)}
-                    style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    <img src={url('bash')} style={{ width: '40%' }} />
-                </ParallaxLayer>
-
-                <ParallaxLayer
-                    offset={2}
-                    speed={-0}
-                    style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
-                    onClick={() => parallaxEl.scrollTo(0)}>
-                    <img src={url('clients-main')} style={{ width: '40%' }} />
-                </ParallaxLayer>
-            </Parallax>
+            <canvas id="hero-lightpass" />
         </div>
     )
 }
