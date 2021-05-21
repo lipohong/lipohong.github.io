@@ -171,3 +171,36 @@
     animation-timing-function: linear;
   }
 }
+.operationSign {
+  position: relative;
+  display: inline-block;
+  .additionContainer {
+    position: absolute;
+    filter: drop-shadow(5px 0 5px rgba(0, 0, 0, 0.3));
+    .addition {
+      clip-path: polygon(35% 0%,65% 0%,65% 35%,100% 35%,100% 60%,65% 60%,65% 100%,35% 100%,35% 60%,0% 60%,0% 35%,35% 35%);  // plus shape
+    }
+  }
+  .subtraction {
+    position: absolute;
+    box-shadow: 5px 0 5px rgba(0, 0, 0, 0.2), -5px 0 5px rgba(0, 0, 0, 0.2);
+  }
+  .division {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .upperDot {
+      box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2), 0 -5px 5px rgba(0, 0, 0, 0.2);
+      border-radius: 100rem;
+    }
+    .middleBar {
+      margin: 0.5rem 0;
+      box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2), 0 -5px 5px rgba(0, 0, 0, 0.2);
+    }
+    .lowerDot {
+      box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2), 0 -5px 5px rgba(0, 0, 0, 0.2);
+      border-radius: 100rem;
+    }
+  }
+}

@@ -1,0 +1,31 @@
+enum LinerColor {
+  "grade-grey" = "liner-color-grade-grey",
+  "witching-hour" = "liner-color-witching-hour",
+  "dark-ocean" = "liner-color-dark-ocean",
+  "evening-sunshine" = "liner-color-evening-sunshine",
+  "piggy-pink" = "liner-color-piggy-pink",
+  "sunrise" = "liner-color-sunrise",
+  "yoda" = "liner-color-yoda",
+  "flare" = "liner-color-flare",
+  "neuromancer" = "liner-color-neuromancer",
+  "amin" = "liner-color-amin",
+  "metapolis" = "liner-color-metapolis",
+  "harvey" = "liner-color-harvey",
+  "aqua-marine" = "liner-color-aqua-marine",
+  "aubergine" = "liner-color-aubergine",
+  "bloody-mary" = "liner-color-bloody-mary",
+  "mango-pulp" = "liner-color-mango-pulp",
+  "frozen" = "liner-color-frozen",
+  "rose-water" = "liner-color-rose-water",
+  "horizon" = "liner-color-horizon",
+  "cool-blues" = "liner-color-cool-blues",
+  "monte-carlo" = "liner-color-monte-carlo",
+  "mega-tron" = "liner-color-mega-tron",
+  "moonlit-asteroid" = "liner-color-moonlit-asteroid",
+  "j-shine" = "liner-color-j-shine",
+  "cool-sky" = "liner-color-cool-sky",
+  "azur-lane" = "liner-color-azur-lane" ,
+  "memariani" = "liner-color-memariani"
+}
+
+export default LinerColor;

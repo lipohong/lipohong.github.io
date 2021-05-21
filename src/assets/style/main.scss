@@ -24,11 +24,50 @@ a {
     }
   }
 }
+/* break points */
 $break-point-xs: 480px;
 $break-point-sm: 576px;
 $break-point-md: 768px;
 $break-point-lg: 1024px;
 $break-point-xl: 1280px;
+
+/* liner color */
+$liner-color: (
+  grade-grey: '#bdc3c7, #2c3e50',
+  witching-hour: '#c31432, #240b36',
+  dark-ocean: '#373B44, #4286f4',
+  evening-sunshine: '#b92b27, #1565C0',
+  piggy-pink: '#ee9ca7, #ffdde1',
+  sunrise: '#FF512F, #F09819',
+  yoda: '#FF0099, #493240',
+  flare: '#f12711, #f5af19',
+  neuromancer: '#f953c6, #b91d73',
+  amin: '#8E2DE2, #4A00E0',
+  metapolis: '#659999, #f4791f',
+  harvey: '#1f4037, #99f2c8',
+  aqua-marine: '#1A2980, #26D0CE',
+  aubergine: '#AA076B, #61045F',
+  bloody-mary: '#FF512F, #DD2476',
+  mango-pulp: '#F09819, #EDDE5D',
+  frozen: '#403B4A, #E7E9BB',
+  rose-water: '#E55D87, #5FC3E4',
+  horizon: '#003973, #E5E5BE',
+  cool-blues: '#2193b0, #6dd5ed',
+  monte-carlo: '#CC95C0, #DBD4B4, #7AA1D2',
+  mega-tron: '#C6FFDD, #FBD786, #f7797d',
+  moonlit-asteroid: '#0F2027, #203A43, #f7797d',
+  j-shine: '#12c2e9, #c471ed, #f7797d',
+  cool-sky: '#2980B9, #6DD5FA, #FFFFFF',
+  azur-lane: '#7F7FD5, #86A8E7, #91EAE4',
+  memariani: '#aa4b6b, #6b6b83, #3b8d99'
+);
+
+@each $name, $value in $liner-color {
+  .liner-color-#{$name} {
+    background-color: #aaa; /* For browsers that do not support gradients */
+    background-image: linear-gradient(#{$value});
+  }
+}
 
 @import "home.scss";
 @import "parallax.scss";

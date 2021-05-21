@@ -16,7 +16,7 @@ cd ./docs
 
 git init
 git add -A
-git commit -m 'Update and deploy'
+git commit -m "Update and deploy"
 
 git push -f git@github.com:lipohong/lipohong.github.io.git master:gh-pages
 
