@@ -134,6 +134,11 @@
       transform: rotate(45deg) translateY(-1px);
     }
   }
+  @mixin bar-animation-static-setting {
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
+  }
   .topBar {
     width: 20px;
     height: 2px;
@@ -148,27 +153,19 @@
   }
   .topBarClose {
     animation-name: topBarClose;
-    animation-duration: 0.5s;
-    animation-fill-mode: forwards;
-    animation-timing-function: linear;
+    @include bar-animation-static-setting;
   }
   .bottomBarClose {
     animation-name: bottomBarClose;
-    animation-duration: 0.5s;
-    animation-fill-mode: forwards;
-    animation-timing-function: linear;
+    @include bar-animation-static-setting;
   }
   .topBarOpen {
     animation-name: topBarOpen;
-    animation-duration: 0.5s;
-    animation-fill-mode: forwards;
-    animation-timing-function: linear;
+    @include bar-animation-static-setting;
   }
   .bottomBarOpen {
     animation-name: bottomBarOpen;
-    animation-duration: 0.5s;
-    animation-fill-mode: forwards;
-    animation-timing-function: linear;
+    @include bar-animation-static-setting;
   }
 }
 .operationSign {
