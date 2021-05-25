@@ -14,9 +14,6 @@ a {
   text-decoration: none;
 }
 #app {
-  .main {
-    min-height: 90vh;
-  }
   .foot {
     padding: 1rem;
     font-size: large;
@@ -25,6 +22,15 @@ a {
       color: black;
     }
   }
+}
+.lazyLoading {
+  font-size: 3rem;
+  font-weight: bolder;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 /* break points */
 $break-point-xs: 480px;
@@ -81,6 +87,11 @@ $liner-color: (
 }
 
 @import "home.scss";
+@import "profile.scss";
+@import "project.scss";
+@import "spa.scss";
+@import "demo.scss";
+@import "knowledge.scss";
 @import "parallax.scss";
 @import "components.scss";
 

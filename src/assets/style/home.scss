@@ -1,4 +1,5 @@
-.main {
+.home {
+  min-height: 90vh;
   .firstSection {
     position: relative;
     width: 100%;
@@ -43,6 +44,7 @@
         box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.2), -0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.2);
         width: 30rem;
         height: 40rem;
+        opacity: 0.9;
       }
       .operationSignGroup-1 {
         position: absolute;
@@ -73,37 +75,43 @@
     height: 40rem;
     display: flex;
     align-items: center;
-    .goToProfileButton {
-      transition: 1s;
-      text-align: center;
-      cursor: pointer;
-      background-image: linear-gradient(map-get($liner-color, 'yoda'));
-      background-color: purple;
-      box-shadow: 0.1rem 0.1rem 1rem rgba(0, 0, 0, 0.3);
-      border-radius: 5px;
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: white;
-      padding: 0.5rem 1.5rem;
-      left: 20rem;
-      &:hover {
-        background-image: linear-gradient(darken-colors('yoda', 5%));
+    justify-content: center;
+    main {
+      header {
+        font-size: 2rem;
       }
-      &.hide {
-        transform: scale(0);
-        opacity: 0;
+      p {
+        font-size: 1.3rem;
       }
-      &.show {
-        transform: scale(1);
-        opacity: 1;
+      .goToProfileButton {
+        transition: 1s;
+        text-align: center;
+        cursor: pointer;
+        background-image: linear-gradient(map-get($liner-color, 'yoda'));
+        background-color: purple;
+        box-shadow: 0.1rem 0.1rem 1rem rgba(0, 0, 0, 0.3);
+        border-radius: 5px;
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: white;
+        display: inline-block;
+        padding: 0.5rem 4rem;
+        &:hover {
+          background-image: linear-gradient(darken-colors('yoda', 5%));
+        }
+        &.hide {
+          transform: scale(0);
+          opacity: 0;
+        }
+        &.show {
+          transform: scale(1);
+          opacity: 1;
+        }
       }
     }
     .operationSignGroup-4 {
-      position: absolute;
-      left: 50%;
-      transition: 1s;
-      height: 100%;
-      top: -4rem;
+      position: fixed;
+      left: 90%;
       z-index: 2;
     }
   }
@@ -114,7 +122,7 @@
 }
 /* large screens */
 @media only screen and (max-width: $break-point-xl) and (min-width: $break-point-lg) {
-  .main {
+  .home {
     .firstSection {
       height: 30rem;
       .container {
@@ -163,7 +171,7 @@
     }
     .secondSection {
       .operationSignGroup-4 {
-        transform-origin: center 1rem;
+        transform-origin: center top;
         transform: scale(0.7);
       }
     }
@@ -171,7 +179,7 @@
 }
 /* medium-sized screens */
 @media only screen and (max-width: $break-point-lg) and (min-width: $break-point-md) {
-  .main {
+  .home {
     .firstSection {
       height: 28rem;
       .container {
@@ -220,7 +228,7 @@
     }
     .secondSection {
       .operationSignGroup-4 {
-        transform-origin: center 2rem;
+        transform-origin: center top;
         transform: scale(0.6);
       }
     }
@@ -228,7 +236,7 @@
 }
 /* small screens */
 @media only screen and (max-width: $break-point-md) and (min-width: $break-point-sm) {
-  .main {
+  .home {
     .firstSection {
       height: 25rem;
       .container {
@@ -276,7 +284,7 @@
     }
     .secondSection {
       .operationSignGroup-4 {
-        transform-origin: center 3rem;
+        transform-origin: center top;
         transform: scale(0.5);
       }
     }
@@ -284,7 +292,7 @@
 }
 /* x small screens */
 @media only screen and (max-width: $break-point-sm) {
-  .main {
+  .home {
     .firstSection {
       height: 23rem;
       .container {
@@ -325,13 +333,16 @@
           transform: scale(0.5);
         }
         .operationSignGroup-3 {
-          display: none;
+          position: absolute;
+          top: -5rem;
+          left: -5rem;
+          transform: scale(0.5);
         }
       }
     }
     .secondSection {
       .operationSignGroup-4 {
-        transform-origin: center 3rem;
+        transform-origin: center top;
         transform: scale(0.4);
       }
     }
