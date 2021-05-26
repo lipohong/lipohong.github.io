@@ -67,7 +67,12 @@ $liner-color: (
   j-shine: (#12c2e9, #c471ed, #f7797d),
   cool-sky: (#2980B9, #6DD5FA, #FFFFFF),
   azur-lane: (#7F7FD5, #86A8E7, #91EAE4),
-  memariani: (#aa4b6b, #6b6b83, #3b8d99)
+  memariani: (#aa4b6b, #6b6b83, #3b8d99),
+  very-blue: (#0964be, #052dbd),
+  vice-city: (#3494E6, #EC6EAD),
+  lawrencium: (#0f0c29, #302b63, #24243e),
+  joomla: (#1e3c72, #2a5298),
+  blue-sky: (#56CCF2, #2F80ED)
 );
 
 @each $name, $values in $liner-color {
@@ -89,7 +94,6 @@ $liner-color: (
 @import "home.scss";
 @import "profile.scss";
 @import "project.scss";
-@import "spa.scss";
 @import "demo.scss";
 @import "knowledge.scss";
 @import "parallax.scss";

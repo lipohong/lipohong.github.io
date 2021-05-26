@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useState, useEffect  } from 'react';
 import { Link, useLocation } from "react-router-dom";
-import logo from "../assets/file/logo.png";
+import logo from "../assets/file/image/logo.png";
 import MenuButton from "./menuButton";
 
 const SideBar: React.FunctionComponent = () => {
@@ -15,9 +15,6 @@ const SideBar: React.FunctionComponent = () => {
     break;
     case 'projects':
       choseTab = 'projects';
-    break;
-    case 'spa':
-      choseTab = 'spa';
     break;
     case 'demo':
       choseTab = 'demo';
@@ -57,11 +54,6 @@ const SideBar: React.FunctionComponent = () => {
               Projects
             </section>
           </Link>
-          <Link to="/spa">
-            <section className={choseTab === 'spa' ? 'choose' : ''}>
-              SPA
-            </section>
-          </Link>
           <Link to="/demo">
             <section className={choseTab === 'demo' ? 'choose' : ''}>
               Demos
@@ -86,11 +78,6 @@ const SideBar: React.FunctionComponent = () => {
         <Link to="/projects">
           <section className={choseTab === 'projects' ? 'choose' : ''}>
             Projects
-          </section>
-        </Link>
-        <Link to="/spa">
-          <section className={choseTab === 'spa' ? 'choose' : ''}>
-            SPA
           </section>
         </Link>
         <Link to="/demo">

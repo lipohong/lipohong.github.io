@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import LinerColor from '../models/enum/linerColor';
 const OperationSign = React.lazy(() => import('../components/operationSign'));
 import OperationSignType from '../models/enum/operationSignType';
+import project1 from "../assets/file/image/iwebsite-project1.png";
 
 
 const threshold100 = 100;
@@ -14,14 +15,14 @@ const HomePage: React.FunctionComponent = () => {
     const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);  //get viewpoint height
 
     // animate
-    const goToProfileButton = document.querySelector('#goToProfile');
-    const goToProfileButtonRect = goToProfileButton.getBoundingClientRect();
-    if (goToProfileButtonRect.top > vh) {
-      goToProfileButton.classList.remove('show');
-      goToProfileButton.classList.add('hide');
-    } else if (goToProfileButtonRect.top < vh - threshold100) {
-      goToProfileButton.classList.remove('hide');
-      goToProfileButton.classList.add('show');
+    const goToProjectButton = document.querySelector('#goToProject');
+    const goToProjectButtonRect = goToProjectButton.getBoundingClientRect();
+    if (goToProjectButtonRect.top > vh) {
+      goToProjectButton.classList.remove('show');
+      goToProjectButton.classList.add('hide');
+    } else if (goToProjectButtonRect.top < vh - threshold100) {
+      goToProjectButton.classList.remove('hide');
+      goToProjectButton.classList.add('show');
     }
     
     // paralax
@@ -94,18 +95,23 @@ const HomePage: React.FunctionComponent = () => {
         </section>
         <section id="secondSection" className="secondSection">
           <main>
-            <header>Profile</header>
-            <p>Introduction of Stan!</p>
-            <Link to='/profile'>
-              <div id="goToProfile" className="goToProfileButton">GO</div>
+            <header>Projects</header>
+            <p>Showcase for all projects created</p>
+            <Link to='/projects'>
+              <div id="goToProject" className="goToProjectButton">GO</div>
             </Link>
           </main>
+          <img src={project1} alt="project1" />
+          <section className="backgroundCover"></section>
           <section id="operationSignGroup4" className="operationSignGroup-4">
             <OperationSign type={OperationSignType.addition} size={3} color={LinerColor.coolSky} rotation={90} zIndex={1} top={0} left={1.5} />
             <OperationSign type={OperationSignType.addition} size={3} color={LinerColor.witchingHour} rotation={45} zIndex={2} top={1} left={5} />
             <OperationSign type={OperationSignType.subtraction} size={3} color={LinerColor.bloodyMary} rotation={90} zIndex={3} top={3.5} left={4.5} />
             <OperationSign type={OperationSignType.division} size={3} color={LinerColor.moonlitAsteroid} rotation={135} zIndex={4} top={2.5} left={-0.5} />
           </section>
+        </section>
+        <section id="thirdSection" className="thirdSection">
+          
         </section>
       </main>
     </Suspense>

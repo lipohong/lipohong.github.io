@@ -1,3 +1,47 @@
 .project {
   min-height: 90vh;
+  .firstSection {
+    height: 25rem;
+    background-color: blueviolet;
+    background-image: linear-gradient(map-get($liner-color, 'very-blue'));
+    border-bottom-left-radius: 50% 10%;
+    border-bottom-right-radius: 50% 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    main {
+      color: white;
+      header {
+        font-family: fantasy, sans-serif, Georgia, serif, "Gill Sans";
+        font-size: 2.5rem;
+      }
+      .getStartButton {
+        cursor: pointer;
+        box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.3);
+        margin: 1rem 0;
+        font-family: sans-serif, Georgia, serif, "Gill Sans";
+        display: inline-block;
+        font-weight: bold;
+        text-align: center;
+        padding: 1rem 3rem;
+        background-color: aqua;
+        background-image: linear-gradient(map-get($liner-color, 'blue-sky'));
+        border-radius: 5rem;
+        &:hover {
+          background-image: linear-gradient(darken-colors('blue-sky', 5%));
+        }
+      }
+    }
+    .imageContainer {
+      margin: 5rem;
+      position: relative;
+      img {
+        position: relative;
+        box-shadow: 1rem 1rem 1rem rgba(0, 0, 0, 0.5);
+        margin: -4rem;
+        width: 15rem;
+        transform: perspective(60rem) rotateY(45deg);
+      }
+    }
+  }
 }

@@ -4,7 +4,7 @@
     position: relative;
     width: 100%;
     height: 40rem;
-    background-image: linear-gradient(#0f0c29, #302b63, #24243e);
+    background-image: linear-gradient(map-get($liner-color, 'lawrencium'));
     overflow: hidden;
     display: flex;
     justify-content: center;
@@ -16,7 +16,8 @@
         position: relative;
         z-index: 2;
         top: 10rem;
-        background-image: linear-gradient(#1e3c72, #2a5298e8);
+        background-image: linear-gradient(map-get($liner-color, 'joomla'));
+        opacity: 0.95;
         box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.3);
         width: 40rem;
         color: white;
@@ -40,7 +41,7 @@
         z-index: 1;
         top: 7rem;
         left: 18rem;
-        background-image: linear-gradient(#3494E6, #EC6EAD);
+        background-image: linear-gradient(map-get($liner-color, 'vice-city'));
         box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.2), -0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.2);
         width: 30rem;
         height: 40rem;
@@ -76,18 +77,21 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 1;
     main {
+      z-index: 1;
+      margin: 3rem;
       header {
         font-size: 2rem;
       }
       p {
         font-size: 1.3rem;
       }
-      .goToProfileButton {
+      .goToProjectButton {
         transition: 1s;
         text-align: center;
         cursor: pointer;
-        background-image: linear-gradient(map-get($liner-color, 'yoda'));
+        background-image: linear-gradient(map-get($liner-color, 'aubergine'));
         background-color: purple;
         box-shadow: 0.1rem 0.1rem 1rem rgba(0, 0, 0, 0.3);
         border-radius: 5px;
@@ -95,9 +99,9 @@
         font-weight: bold;
         color: white;
         display: inline-block;
-        padding: 0.5rem 4rem;
+        padding: 0.8rem 4rem;
         &:hover {
-          background-image: linear-gradient(darken-colors('yoda', 5%));
+          background-image: linear-gradient(darken-colors('aubergine', 2%));
         }
         &.hide {
           transform: scale(0);
@@ -109,11 +113,31 @@
         }
       }
     }
+    img {
+      z-index: 1;
+      display: inline-block;
+      box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.3);
+      width: 30rem;
+    }
+    .backgroundCover {
+      position: absolute;
+      background-color: rgba(255, 255, 255, 0.5);
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 50%;
+      z-index: 0;
+    }
     .operationSignGroup-4 {
       position: absolute;
       left: 80%;
       z-index: 2;
     }
+  }
+  .thirdSection {
+    height: 40rem;
+    background-color: #3494E6;
+    background-image: linear-gradient(-90deg, map-get($liner-color, 'j-shine'));
   }
 }
 /* x large screens */
@@ -170,9 +194,18 @@
       }
     }
     .secondSection {
+      height: 30rem;
+      main {
+        .goToProjectButton {
+          padding: 0.8rem 3.8rem;
+        }
+      }
       .operationSignGroup-4 {
         transform: scale(0.7);
       }
+    }
+    .thirdSection {
+      height: 30rem;
     }
   }
 }
@@ -226,9 +259,18 @@
       }
     }
     .secondSection {
+      height: 28rem;
+      main {
+        .goToProjectButton {
+          padding: 0.7rem 3.5rem;
+        }
+      }
       .operationSignGroup-4 {
         transform: scale(0.6);
       }
+    }
+    .thirdSection {
+      height: 28rem;
     }
   }
 }
@@ -281,9 +323,18 @@
       }
     }
     .secondSection {
+      height: 25rem;
+      main {
+        .goToProjectButton {
+          padding: 0.7rem 3rem;
+        }
+      }
       .operationSignGroup-4 {
         transform: scale(0.5);
       }
+    }
+    .thirdSection {
+      height: 25rem;
     }
   }
 }
@@ -338,9 +389,21 @@
       }
     }
     .secondSection {
+      height: 23rem;
+      main {
+        .goToProjectButton {
+          padding: 0.6rem 2.5rem;
+        }
+      }
+      .backgroundCover {
+        display: none;
+      }
       .operationSignGroup-4 {
         transform: scale(0.4);
       }
+    }
+    .thirdSection {
+      height: 23rem;
     }
   }
 }

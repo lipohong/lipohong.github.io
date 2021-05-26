@@ -3,7 +3,7 @@ import * as ReactDOM from 'react-dom';
 import { HashRouter as Router } from "react-router-dom";
 
 import "./assets/style/main.scss";
-import "./assets/file/favicon.ico";
+import "./assets/file/image/favicon.ico";
 import RouterConfiguration from './routes/routerConfiguration';
 import SiteBar from './components/siteBar';
 import Foot from './components/foot';

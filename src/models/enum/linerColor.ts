@@ -25,7 +25,12 @@ enum LinerColor {
   "jShine" = "liner-color-j-shine",
   "coolSky" = "liner-color-cool-sky",
   "azurLane" = "liner-color-azur-lane" ,
-  "memariani" = "liner-color-memariani"
+  "memariani" = "liner-color-memariani",
+  "veryBlue" = "liner-color-very-blue",
+  "viceCity" = "liner-color-vice-city",
+  "lawrencium" = "liner-color-lawrencium",
+  "joomla" = "liner-color-joomla",
+  "blueSky" = "liner-color-blue-sky"
 }
 
 export default LinerColor;
