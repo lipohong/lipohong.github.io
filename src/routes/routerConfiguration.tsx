@@ -18,11 +18,11 @@ const RouterConfiguration: React.FunctionComponent = () => {
   return (
     <Switch location={location}>
       <Route exact path="/" children={<HomePage />}></Route>
-      <Route exact path="/profile" children={<ProfilePage />}></Route>
       <Route exact path="/projects" children={<ProjectPage />}></Route>
       <Route exact path="/spa" children={<SpaPage />}></Route>
       <Route exact path="/demo" children={<DemoPage />}></Route>
       <Route exact path="/knowledge" children={<KnowledgePage />}></Route>
+      <Route exact path="/profile" children={<ProfilePage />}></Route>
       <Route path="/demo/parallaxDemo1" children={<ParallaxDemo1 />}></Route>
       <Route path="/demo/parallaxDemo2" children={<ParallaxDemo2 />}></Route>
       <Route path="/demo/parallaxDemo3" children={<ParallaxDemo3 />}></Route>

@@ -9,20 +9,8 @@ import OperationSignType from '../models/enum/operationSignType';
 const threshold100 = 100;
 
 const HomePage: React.FunctionComponent = () => {
-  const init = () => {
-    // paralax
-    const operationSignGroup2 = document.getElementById('operationSignGroup2');
-    const operationSignGroup3 = document.getElementById('operationSignGroup3');
-    const operationSignGroup4= document.getElementById('operationSignGroup4');
-    const firstSection = document.querySelector('#firstSection');
-    const secondSection = document.querySelector('#secondSection');
-    const firstSectionRect = firstSection.getBoundingClientRect();
-    const secondSectionRect = secondSection.getBoundingClientRect();
-    operationSignGroup2.style.top = String(`${firstSectionRect.top * 0.2}px`);
-    operationSignGroup3.style.top = String(`${firstSectionRect.top * 0.3}px`);
-    operationSignGroup4.style.top = String(`${secondSectionRect.top * 0.7 + threshold100}px`);
-  }
-  const handleScrollAndResize = () => {
+
+  const handleEffect = () => {
     const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);  //get viewpoint height
 
     // animate
@@ -46,18 +34,16 @@ const HomePage: React.FunctionComponent = () => {
     const secondSectionRect = secondSection.getBoundingClientRect();
     operationSignGroup2.style.top = String(`${firstSectionRect.top * 0.2}px`);
     operationSignGroup3.style.top = String(`${firstSectionRect.top * 0.3}px`);
-    operationSignGroup4.style.top = String(`${secondSectionRect.top * 0.7 + threshold100}px`);
+    operationSignGroup4.style.top = String(`${secondSectionRect.top * 0.3}px`);
   }
   useEffect(() => {
     if (!!window && 'IntersectionObserver' in window) {
-      window.addEventListener('load', init);
-      window.addEventListener('resize', init);
-      window.addEventListener('scroll', handleScrollAndResize);
+      window.addEventListener('load', handleEffect);
+      window.addEventListener('scroll', handleEffect);
     }
     return () => {
-      window.removeEventListener('load', init);
-      window.removeEventListener('resize', init);
-      window.removeEventListener('scroll', handleScrollAndResize);
+      window.removeEventListener('load', handleEffect);
+      window.removeEventListener('scroll', handleEffect);
     }
   }, []);
 

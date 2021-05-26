@@ -52,11 +52,6 @@ const SideBar: React.FunctionComponent = () => {
           </Link>
         </header>
         <main>
-          <Link to="/profile">
-            <section className={choseTab === 'profile' ? 'choose' : ''}>
-              Profile
-            </section>
-          </Link>
           <Link to="/projects">
             <section className={choseTab === 'projects' ? 'choose' : ''}>
               Projects
@@ -77,17 +72,17 @@ const SideBar: React.FunctionComponent = () => {
               Knowledge
             </section>
           </Link>
+          <Link to="/profile">
+            <section className={choseTab === 'profile' ? 'choose' : ''}>
+              Profile
+            </section>
+          </Link>
         </main>
         <aside onClick={handleMenuButtonClick}>
           <MenuButton menuOpened={menuOpened} />
         </aside>
       </div>
       <div className={smallNavClass} onClick={handleSmallNavBarClick}>
-        <Link to="/profile">
-          <section className={choseTab === 'profile' ? 'choose' : ''}>
-            Profile
-          </section>
-        </Link>
         <Link to="/projects">
           <section className={choseTab === 'projects' ? 'choose' : ''}>
             Projects
@@ -106,6 +101,11 @@ const SideBar: React.FunctionComponent = () => {
         <Link to="/knowledge">
           <section className={choseTab === 'knowledge' ? 'choose' : ''}>
             Knowledge
+          </section>
+        </Link>
+        <Link to="/profile">
+          <section className={choseTab === 'profile' ? 'choose' : ''}>
+            Profile
           </section>
         </Link>
       </div>
