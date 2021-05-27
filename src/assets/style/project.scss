@@ -1,14 +1,17 @@
 .project {
   min-height: 90vh;
   .firstSection {
+    position: relative;
     padding: 3rem 0;
     background-color: blueviolet;
-    background-image: linear-gradient(map-get($liner-color, 'very-blue'));
+    background-image: linear-gradient(map-get($liner-color, 'vice-city'));
     border-bottom-left-radius: 50% 10%;
     border-bottom-right-radius: 50% 10%;
     display: flex;
     justify-content: center;
     align-items: center;
+    opacity: 0.9;
+    z-index: 2;
     main {
       color: white;
       header {
@@ -37,17 +40,50 @@
       display: flex;
       img {
         position: relative;
-        box-shadow: 1rem 1rem 1rem rgba(0, 0, 0, 0.5);
+        box-shadow: 1rem 1rem 1rem rgba(0, 0, 0, 0.3);
         margin: -4rem;
         width: 15rem;
         height: 15rem;
-        object-fit: cover;
         transform: perspective(60rem) rotateY(45deg);
       }
     }
   }
   .secondSection {
-    height: 100vh;
+    z-index: 1;
+    main {
+      .firstProject {
+        position: relative;
+        height: 40rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .imageContainer {
+          position: relative;
+          z-index: 1;
+          img {
+            box-shadow: 1rem 1rem 1rem rgba(0, 0, 0, 0.3);
+            width: 15rem;
+            height: 15rem;
+            margin-left: -12rem;
+            transform: perspective(60rem) rotate3d(1, 1, -1, 45deg);
+          }
+        }
+        .backgroundCover {
+          position: absolute;
+          background-color: rgba(255, 255, 255, 0.5);
+          top: -10rem;
+          bottom: 0;
+          left: 0;
+          right: 50%;
+          z-index: 0;
+        }
+      }
+      .secondProject {
+        height: 40rem;
+        background-color: aquamarine;
+        background-image: linear-gradient(map-get($liner-color, 'memariani'));
+      }
+    }
   }
 }
 /* x large screens */

@@ -18,7 +18,9 @@ const ProjectPage: React.FunctionComponent = () => {
     const secondSection = document.getElementById('secondSection');
     const secondSectionRect = secondSection.getBoundingClientRect();
     const rectTop = secondSectionRect.top;
-    if (rectTop > 0) {
+    if (!window.requestAnimationFrame) {
+      window.scrollTo(0, rectTop);  // for browser that not support requestAnimationFrame
+    } else if (rectTop > 0) {
       window.requestAnimationFrame(handleGetStartClick);
       window.scrollTo(0, bodyScrollTop + Math.ceil(rectTop / 10));
     }
@@ -40,7 +42,21 @@ const ProjectPage: React.FunctionComponent = () => {
           </section>
         </section>
         <section id="secondSection" className="secondSection">
-
+          <main>
+            <section className="firstProject">
+              <section className="imageContainer">
+                <img src={iblog3} alt="iblog3" />
+                <img src={iblog2} alt="iblog2" />
+                <img src={iblog1} alt="iblog1" />
+              </section>
+              <main>
+                <header>iBlog</header>
+                <p>iBlog is a blogging website</p>
+              </main>
+              <div className="backgroundCover"></div>
+            </section>
+            <section className="secondProject"></section>
+          </main>
         </section>
       </main>
     </Suspense>
