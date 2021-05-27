@@ -34,11 +34,14 @@
     }
     .imageContainer {
       margin: 5rem;
+      display: flex;
       img {
         position: relative;
         box-shadow: 1rem 1rem 1rem rgba(0, 0, 0, 0.5);
         margin: -4rem;
-        width: 15rem;
+        width: 16rem;
+        height: 18rem;
+        object-fit: cover;
         transform: perspective(60rem) rotateY(45deg);
       }
     }
@@ -58,6 +61,7 @@
         img {
           margin: -4rem;
           width: 14rem;
+          height: 16rem;
         }
       }
     }
@@ -81,6 +85,7 @@
         img {
           margin: -4rem;
           width: 13rem;
+          height: 15rem;
         }
       }
     }
@@ -111,6 +116,7 @@
         img {
           margin: -3rem;
           width: 12rem;
+          height: 14rem;
         }
       }
     }
@@ -137,6 +143,7 @@
         img {
           margin: -3.5rem;
           width: 10.5rem;
+          height: 12rem;
         }
       }
     }
