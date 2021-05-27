@@ -104,18 +104,18 @@ $liner-color: (
     
 }
 /* large screens */
-@media only screen and (max-width: $break-point-xl - 1px) and (min-width: $break-point-lg) {
+@media only screen and (max-width: $break-point-xl) and (min-width: $break-point-lg) {
 
 }
 /* medium-sized screens */
-@media only screen and (max-width: $break-point-lg - 1px) and (min-width: $break-point-md) {
+@media only screen and (max-width: $break-point-lg) and (min-width: $break-point-md) {
 
 }
 /* small screens */
-@media only screen and (max-width: $break-point-md - 1px) and (min-width: $break-point-sm) {
+@media only screen and (max-width: $break-point-md) and (min-width: $break-point-sm) {
     
 }
 /* x small screens */
-@media only screen and (max-width: $break-point-sm - 1px) {
+@media only screen and (max-width: $break-point-sm) {
     
 }

@@ -1,7 +1,7 @@
 .project {
   min-height: 90vh;
   .firstSection {
-    height: 25rem;
+    padding: 3rem 0;
     background-color: blueviolet;
     background-image: linear-gradient(map-get($liner-color, 'very-blue'));
     border-bottom-left-radius: 50% 10%;
@@ -18,7 +18,7 @@
       .getStartButton {
         cursor: pointer;
         box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.3);
-        margin: 1rem 0;
+        margin: 2rem 0;
         font-family: sans-serif, Georgia, serif, "Gill Sans";
         display: inline-block;
         font-weight: bold;
@@ -34,13 +34,111 @@
     }
     .imageContainer {
       margin: 5rem;
-      position: relative;
+      display: flex;
       img {
         position: relative;
         box-shadow: 1rem 1rem 1rem rgba(0, 0, 0, 0.5);
         margin: -4rem;
         width: 15rem;
         transform: perspective(60rem) rotateY(45deg);
+      }
+    }
+  }
+}
+/* x large screens */
+@media only screen and (min-width: $break-point-xl) {
+    
+}
+/* large screens */
+@media only screen and (max-width: $break-point-xl) and (min-width: $break-point-lg) {
+  .project {
+    .firstSection {
+      border-bottom-left-radius: 50% 9%;
+      border-bottom-right-radius: 50% 9%;
+      .imageContainer {
+        img {
+          margin: -4rem;
+          width: 14rem;
+        }
+      }
+    }
+  }
+}
+/* medium-sized screens */
+@media only screen and (max-width: $break-point-lg) and (min-width: $break-point-md) {
+  .project {
+    .firstSection {
+      border-bottom-left-radius: 50% 8%;
+      border-bottom-right-radius: 50% 8%;
+      main {
+        header {
+          font-size: 2rem;
+        }
+        .getStartButton {
+          padding: 0.8rem 2.8rem;
+        }
+      }
+      .imageContainer {
+        img {
+          margin: -4rem;
+          width: 13rem;
+        }
+      }
+    }
+  }
+}
+/* small screens */
+@media only screen and (max-width: $break-point-md) and (min-width: $break-point-sm) {
+  .project {
+    .firstSection {
+      border-bottom-left-radius: 50% 7%;
+      border-bottom-right-radius: 50% 7%;
+      flex-direction: column-reverse;
+      main {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 1rem;
+        header {
+          font-size: 1.8rem;
+        }
+        .getStartButton {
+          margin: 1rem;
+          padding: 0.8rem 2.8rem;
+        }
+      }
+      .imageContainer {
+        margin: 3rem;
+        img {
+          margin: -3rem;
+          width: 12rem;
+        }
+      }
+    }
+  }
+}
+/* x small screens */
+@media only screen and (max-width: $break-point-sm) {
+  .project {
+    .firstSection {
+      border-bottom-left-radius: 50% 6%;
+      border-bottom-right-radius: 50% 6%;
+      flex-direction: column-reverse;
+      main {
+        margin-top: 1rem;
+        header {
+          font-size: 1.5rem;
+        }
+        .getStartButton {
+          margin: 1.2rem 0;
+          padding: 0.8rem 2.8rem;
+        }
+      }
+      .imageContainer {
+        img {
+          margin: -3.5rem;
+          width: 10.5rem;
+        }
       }
     }
   }

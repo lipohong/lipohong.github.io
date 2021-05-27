@@ -113,11 +113,27 @@
         }
       }
     }
-    img {
-      z-index: 1;
+    .imageContainer {
+      position: relative;
       display: inline-block;
-      box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.3);
-      width: 30rem;
+      img {
+        z-index: 1;
+        display: inline-block;
+        box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.3);
+        width: 30rem;
+      }
+      &::after {
+        position: absolute;
+        box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.3);
+        display: block;
+        background-color: #3494E6;
+        content: "";
+        width: 95%;
+        height: 100%;
+        top: 1rem;
+        left: 3rem;
+        z-index: -1;
+      }
     }
     .backgroundCover {
       position: absolute;
@@ -126,11 +142,11 @@
       bottom: 0;
       left: 0;
       right: 50%;
-      z-index: 0;
+      z-index: -2;
     }
     .operationSignGroup-4 {
       position: absolute;
-      left: 80%;
+      left: 40%;
       z-index: 2;
     }
   }
@@ -201,6 +217,7 @@
         }
       }
       .operationSignGroup-4 {
+        left: 40%;
         transform: scale(0.7);
       }
     }
@@ -261,11 +278,21 @@
     .secondSection {
       height: 28rem;
       main {
+        margin: 2rem;
         .goToProjectButton {
           padding: 0.7rem 3.5rem;
         }
       }
+      .imageContainer {
+        img {
+          width: 22rem;
+        }
+        &::after {
+          left: 2rem;
+        }
+      }
       .operationSignGroup-4 {
+        left: 44%;
         transform: scale(0.6);
       }
     }
@@ -324,12 +351,30 @@
     }
     .secondSection {
       height: 25rem;
+      flex-direction: column-reverse;
       main {
+        p {
+          margin: 2rem 2rem 0 0;
+          display: inline;
+        }
         .goToProjectButton {
+          position: relative;
+          display: inline;
+          top: -1rem;
           padding: 0.7rem 3rem;
         }
       }
+      .imageContainer {
+        margin-top: 3rem;
+        img {
+          width: 22rem;
+        }
+        &::after {
+          left: 2rem;
+        }
+      }
       .operationSignGroup-4 {
+        left: 80%;
         transform: scale(0.5);
       }
     }
@@ -389,16 +434,34 @@
       }
     }
     .secondSection {
-      height: 23rem;
+      height: auto;
+      flex-direction: column-reverse;
       main {
+        header {
+          font-size: 1.8rem;
+        }
+        p {
+          font-size: 1.2rem;
+        }
         .goToProjectButton {
-          padding: 0.6rem 2.5rem;
+          padding: 0.8rem 4rem;
+        }
+      }
+      .imageContainer {
+        margin-top: 3rem;
+        img {
+          width: 80vw;
+        }
+        &::after {
+          top: 3vw;
+          left: 8vw;
         }
       }
       .backgroundCover {
         display: none;
       }
       .operationSignGroup-4 {
+        left: 5%;
         transform: scale(0.4);
       }
     }

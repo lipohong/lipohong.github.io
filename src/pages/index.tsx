@@ -7,7 +7,7 @@ import OperationSignType from '../models/enum/operationSignType';
 import project1 from "../assets/file/image/iwebsite-project1.png";
 
 
-const threshold100 = 100;
+const threshold50 = 50;
 
 const HomePage: React.FunctionComponent = () => {
 
@@ -15,12 +15,12 @@ const HomePage: React.FunctionComponent = () => {
     const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);  //get viewpoint height
 
     // animate
-    const goToProjectButton = document.querySelector('#goToProject');
+    const goToProjectButton = document.querySelector('#goToProjectButton');
     const goToProjectButtonRect = goToProjectButton.getBoundingClientRect();
     if (goToProjectButtonRect.top > vh) {
       goToProjectButton.classList.remove('show');
       goToProjectButton.classList.add('hide');
-    } else if (goToProjectButtonRect.top < vh - threshold100) {
+    } else if (goToProjectButtonRect.top < vh - threshold50) {
       goToProjectButton.classList.remove('hide');
       goToProjectButton.classList.add('show');
     }
@@ -61,14 +61,14 @@ const HomePage: React.FunctionComponent = () => {
                 <p>Github Pages, Single Page Applications, Responsive, Parallax</p>
               </main>
             </section>
-            <section className="backgroundCover"></section>
-            <section id="operationSignGroup1" className="operationSignGroup-1">
+            <div className="backgroundCover"></div>
+            <div id="operationSignGroup1" className="operationSignGroup-1">
               <OperationSign type={OperationSignType.addition} size={3} color={LinerColor.flare} rotation={0} zIndex={1} top={4} left={-3} />
               <OperationSign type={OperationSignType.addition} size={3} color={LinerColor.darkOcean} rotation={135} zIndex={2} top={4} left={1} />
               <OperationSign type={OperationSignType.subtraction} size={3} color={LinerColor.frozen} rotation={90} zIndex={3} top={0.5} left={-2} />
               <OperationSign type={OperationSignType.division} size={3} color={LinerColor.aquaMarine} rotation={135} zIndex={4} top={0} left={1} />
-            </section>
-            <section id="operationSignGroup2" className="operationSignGroup-2">
+            </div>
+            <div id="operationSignGroup2" className="operationSignGroup-2">
               <OperationSign type={OperationSignType.addition} size={8} color={LinerColor.frozen} rotation={0} zIndex={1} top={-5} left={-5} />
               <OperationSign type={OperationSignType.addition} size={13} color={LinerColor.eveningSunshine} rotation={0} zIndex={1} top={12} left={-43} />
               <OperationSign type={OperationSignType.addition} size={10} color={LinerColor.metapolis} rotation={45} zIndex={2} top={32} left={-35} />
@@ -81,8 +81,8 @@ const HomePage: React.FunctionComponent = () => {
               <OperationSign type={OperationSignType.division} size={10} color={LinerColor.jShine} rotation={135} zIndex={9} top={-5} left={10} />
               <OperationSign type={OperationSignType.division} size={12} color={LinerColor.neuromancer} rotation={135} zIndex={10} top={37} left={-18} />
               <OperationSign type={OperationSignType.division} size={15} color={LinerColor.darkOcean} rotation={90} zIndex={11} top={-5} left={-32} />
-            </section>
-            <section id="operationSignGroup3" className="operationSignGroup-3">
+            </div>
+            <div id="operationSignGroup3" className="operationSignGroup-3">
               <OperationSign type={OperationSignType.subtraction} size={10} color={LinerColor.amin} rotation={45} zIndex={1} top={-5} left={50} />
               <OperationSign type={OperationSignType.subtraction} size={12} color={LinerColor.yoda} rotation={45} zIndex={1} top={-5} left={65} />
               <OperationSign type={OperationSignType.subtraction} size={17} color={LinerColor.sunrise} rotation={45} zIndex={1} top={0} left={75} />
@@ -90,7 +90,7 @@ const HomePage: React.FunctionComponent = () => {
               <OperationSign type={OperationSignType.subtraction} size={13} color={LinerColor.witchingHour} rotation={45} zIndex={1} top={20} left={66} />
               <OperationSign type={OperationSignType.subtraction} size={15} color={LinerColor.moonlitAsteroid} rotation={-135} zIndex={1} top={30} left={50} />
               <OperationSign type={OperationSignType.subtraction} size={21} color={LinerColor.bloodyMary} rotation={-135} zIndex={1} top={30} left={70} />
-            </section>
+            </div>
           </div>
         </section>
         <section id="secondSection" className="secondSection">
@@ -98,17 +98,19 @@ const HomePage: React.FunctionComponent = () => {
             <header>Projects</header>
             <p>Showcase for all projects created</p>
             <Link to='/projects'>
-              <div id="goToProject" className="goToProjectButton">GO</div>
+              <div id="goToProjectButton" className="goToProjectButton">GO</div>
             </Link>
           </main>
-          <img src={project1} alt="project1" />
-          <section className="backgroundCover"></section>
-          <section id="operationSignGroup4" className="operationSignGroup-4">
+          <div className="imageContainer">
+            <img src={project1} alt="project1" />
+          </div>
+          <div className="backgroundCover"></div>
+          <div id="operationSignGroup4" className="operationSignGroup-4">
             <OperationSign type={OperationSignType.addition} size={3} color={LinerColor.coolSky} rotation={90} zIndex={1} top={0} left={1.5} />
             <OperationSign type={OperationSignType.addition} size={3} color={LinerColor.witchingHour} rotation={45} zIndex={2} top={1} left={5} />
             <OperationSign type={OperationSignType.subtraction} size={3} color={LinerColor.bloodyMary} rotation={90} zIndex={3} top={3.5} left={4.5} />
             <OperationSign type={OperationSignType.division} size={3} color={LinerColor.moonlitAsteroid} rotation={135} zIndex={4} top={2.5} left={-0.5} />
-          </section>
+          </div>
         </section>
         <section id="thirdSection" className="thirdSection">
           
