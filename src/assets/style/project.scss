@@ -34,7 +34,6 @@
     }
     .imageContainer {
       margin: 5rem;
-      display: flex;
       img {
         position: relative;
         box-shadow: 1rem 1rem 1rem rgba(0, 0, 0, 0.5);
@@ -121,8 +120,8 @@
 @media only screen and (max-width: $break-point-sm) {
   .project {
     .firstSection {
-      border-bottom-left-radius: 50% 6%;
-      border-bottom-right-radius: 50% 6%;
+      border-bottom-left-radius: 50% 3%;
+      border-bottom-right-radius: 50% 3%;
       flex-direction: column-reverse;
       main {
         margin-top: 1rem;

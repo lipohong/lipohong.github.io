@@ -1,11 +1,17 @@
 import * as React from 'react';
-import { Suspense }from 'react';
+import { useEffect, Suspense }from 'react';
 import iblog1 from "../../assets/file/image/iblog1.png";
 import iblog2 from "../../assets/file/image/iblog2.png";
 import iblog3 from "../../assets/file/image/iblog3.png";
 import iblog4 from "../../assets/file/image/iblog4.png";
 
 const ProjectPage: React.FunctionComponent = () => {
+  useEffect(() => {
+    if (window) {
+      window.scrollTo(0, 0);
+    }
+  });
+
   return (
     <Suspense fallback={<main className="lazyLoading">loading...</main>}>
       <main className="project">
