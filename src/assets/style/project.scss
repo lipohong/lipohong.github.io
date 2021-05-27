@@ -39,12 +39,15 @@
         position: relative;
         box-shadow: 1rem 1rem 1rem rgba(0, 0, 0, 0.5);
         margin: -4rem;
-        width: 16rem;
-        height: 18rem;
+        width: 15rem;
+        height: 15rem;
         object-fit: cover;
         transform: perspective(60rem) rotateY(45deg);
       }
     }
+  }
+  .secondSection {
+    height: 100vh;
   }
 }
 /* x large screens */
@@ -61,7 +64,7 @@
         img {
           margin: -4rem;
           width: 14rem;
-          height: 16rem;
+          height: 14rem;
         }
       }
     }
@@ -85,7 +88,7 @@
         img {
           margin: -4rem;
           width: 13rem;
-          height: 15rem;
+          height: 13rem;
         }
       }
     }
@@ -116,7 +119,7 @@
         img {
           margin: -3rem;
           width: 12rem;
-          height: 14rem;
+          height: 12rem;
         }
       }
     }
@@ -143,7 +146,7 @@
         img {
           margin: -3.5rem;
           width: 10.5rem;
-          height: 12rem;
+          height: 10.5rem;
         }
       }
     }

@@ -10,7 +10,19 @@ const ProjectPage: React.FunctionComponent = () => {
     if (window) {
       window.scrollTo(0, 0);
     }
-  });
+  }, []);
+
+  const handleGetStartClick = () => {
+    // scroll animation
+    const bodyScrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+    const secondSection = document.getElementById('secondSection');
+    const secondSectionRect = secondSection.getBoundingClientRect();
+    const rectTop = secondSectionRect.top;
+    if (rectTop > 0) {
+      window.requestAnimationFrame(handleGetStartClick);
+      window.scrollTo(0, bodyScrollTop + Math.ceil(rectTop / 10));
+    }
+  }
 
   return (
     <Suspense fallback={<main className="lazyLoading">loading...</main>}>
@@ -18,7 +30,7 @@ const ProjectPage: React.FunctionComponent = () => {
         <section className="firstSection">
           <main>
             <header>Projects Showcase</header>
-            <div className="getStartButton">Get Started</div>
+            <div className="getStartButton" onClick={handleGetStartClick}>Get Started</div>
           </main>
           <section className="imageContainer">
             <img src={iblog4} alt="iblog4" />
@@ -26,6 +38,9 @@ const ProjectPage: React.FunctionComponent = () => {
             <img src={iblog2} alt="iblog2" />
             <img src={iblog1} alt="iblog1" />
           </section>
+        </section>
+        <section id="secondSection" className="secondSection">
+
         </section>
       </main>
     </Suspense>
