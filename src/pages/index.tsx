@@ -35,10 +35,11 @@ const HomePage: React.FunctionComponent = () => {
     const secondSectionRect = secondSection.getBoundingClientRect();
     operationSignGroup2.style.top = String(`${firstSectionRect.top * 0.1}px`);
     operationSignGroup3.style.top = String(`${firstSectionRect.top * 0.1}px`);
-    operationSignGroup4.style.top = String(`${secondSectionRect.top * 0.1}px`);
+    operationSignGroup4.style.top = String(`${secondSectionRect.top * 0.1}px`);    
   }
   useEffect(() => {
     if (!!window && 'IntersectionObserver' in window) {
+      handleEffect();
       window.addEventListener('load', handleEffect);
       window.addEventListener('scroll', handleEffect);
     }
