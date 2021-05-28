@@ -52,7 +52,14 @@ const ProjectPage: React.FunctionComponent = () => {
               <main>
                 <header>iBlog</header>
                 <p>iBlog is a blogging website for stories sharing</p>
-                <div className="readMoreButton">Read more</div>
+                <ul>
+                  <li>Light / Dark mode</li>
+                  <li>Multiple Themes</li>
+                  <li>Mobile Friendly</li>
+                  <li>Register / Login</li>
+                  <li>Blog Posting Freely</li>
+                </ul>
+                <div className="readMoreButton">Read More</div>
               </main>
               <div className="backgroundCover"></div>
             </section>
