@@ -3,12 +3,32 @@ import { useEffect, Suspense }from 'react';
 import iblog1 from "../../assets/file/image/iblog1.png";
 import iblog2 from "../../assets/file/image/iblog2.png";
 import iblog3 from "../../assets/file/image/iblog3.png";
-import iblog4 from "../../assets/file/image/iblog4.png";
+import iwebsiteHome from "../../assets/file/image/iwebsite-home.png";
+import project1 from "../../assets/file/image/iwebsite-project1.png";
+
+const threshold50 = 50;
 
 const ProjectPage: React.FunctionComponent = () => {
+  const handleEffect = () => {
+    // paralax
+    const iwebsiteImage = document.getElementById('iwebsiteImage');
+    const secondProject = document.querySelector('#secondProject');
+    const secondProjectRect = secondProject.getBoundingClientRect();
+    iwebsiteImage.style.top = String(`${secondProjectRect.top * 0.1}px`);
+  }
+
   useEffect(() => {
     if (window) {
       window.scrollTo(0, 0);
+    }
+    if (!!window && 'IntersectionObserver' in window) {
+      handleEffect();
+      window.addEventListener('load', handleEffect);
+      window.addEventListener('scroll', handleEffect);
+    }
+    return () => {
+      window.removeEventListener('load', handleEffect);
+      window.removeEventListener('scroll', handleEffect);
     }
   }, []);
 
@@ -35,8 +55,8 @@ const ProjectPage: React.FunctionComponent = () => {
             <div className="getStartButton" onClick={handleGetStartClick}>Get Started</div>
           </main>
           <section className="imageContainer">
-            <img src={iblog4} alt="iblog4" />
-            <img src={iblog3} alt="iblog3" />
+            <img src={project1} alt="project1" />
+            <img src={iwebsiteHome} alt="iwebsite-home" />
             <img src={iblog2} alt="iblog2" />
             <img src={iblog1} alt="iblog1" />
           </section>
@@ -49,7 +69,7 @@ const ProjectPage: React.FunctionComponent = () => {
                 <img src={iblog2} alt="iblog2" />
                 <img src={iblog1} alt="iblog1" />
               </section>
-              <main>
+              <main className="projectDescription">
                 <header>iBlog</header>
                 <p>iBlog is a blogging website for stories sharing</p>
                 <ul>
@@ -63,7 +83,25 @@ const ProjectPage: React.FunctionComponent = () => {
               </main>
               <div className="backgroundCover"></div>
             </section>
-            <section className="secondProject"></section>
+            <section id="secondProject" className="secondProject">
+              <main className="projectDescription">
+                <header>iWebsite</header>
+                <p>iWebsite is a site for showcasing my projects</p>
+                <ul>
+                  <li>HTML5 CSS3</li>
+                  <li>Parallax</li>
+                  <li>Mobile Friendly</li>
+                  <li>Projects Showcase</li>
+                </ul>
+                <div className="readMoreButton">Read More</div>
+              </main>
+              <section className="imageContainer">
+                <img id="iwebsiteImage" src={iwebsiteHome} alt="iwebsite-home" />
+              </section>
+            </section>
+            <section id="thirdProject" className="thirdProject">
+
+            </section>
           </main>
         </section>
       </main>

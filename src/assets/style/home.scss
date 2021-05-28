@@ -362,7 +362,7 @@
       }
     }
     .secondSection {
-      height: 25rem;
+      height: auto;
       flex-direction: column-reverse;
       main {
         p {
@@ -386,7 +386,7 @@
         }
       }
       .operationSignGroup-4 {
-        left: 80%;
+        left: 15%;
         transform: scale(0.5);
       }
     }
