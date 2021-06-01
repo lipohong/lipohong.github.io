@@ -25,6 +25,17 @@ const ProjectPage: React.FunctionComponent = () => {
         button.classList.add('show');
       }
     });
+    const imageList = document.querySelectorAll('.imageAnimation');
+    imageList.forEach(image => {
+      const rect = image.getBoundingClientRect();
+      if (rect.top > vh) {
+        image.classList.remove('show');
+        image.classList.add('hide');
+      } else if (rect.top < vh - threshold50) {
+        image.classList.remove('hide');
+        image.classList.add('show');
+      }
+    });
 
     // paralax
     const iwebsiteImage = document.getElementById('iwebsiteImage');
@@ -112,12 +123,12 @@ const ProjectPage: React.FunctionComponent = () => {
                 <div id="readMoreButton2" className="readMoreButton">Read More</div>
               </main>
               <section className="imageContainer">
-                <img id="iwebsiteImage" src={iwebsiteHome} alt="iwebsite-home" />
+                <img className="imageAnimation" id="iwebsiteImage" src={iwebsiteHome} alt="iwebsite-home" />
               </section>
             </section>
             <section id="thirdProject" className="thirdProject">
               <div>
-                <img id="iwebsiteImage" src={iwebsiteHome} alt="iwebsite-home" />
+                <img className="imageAnimation" id="iwebsiteImage" src={iwebsiteHome} alt="iwebsite-home" />
                 <main className="projectDescription">
                   <header>
                     More are Comming Soon

@@ -111,6 +111,7 @@
         .imageContainer {
           position: relative;
           img {
+            transition: 1s;
             position: relative;
             width: 30rem;
             object-fit: cover;
@@ -145,6 +146,7 @@
         align-items: center;
         div {
           img {
+            transition: 1s;
             position: relative;
             display: block;
             width: 40rem;
@@ -213,6 +215,16 @@
     }
     &.show {
       left: 0;
+      opacity: 1;
+    }
+  }
+  .imageAnimation {
+    &.hide {
+      transform: scale(0);
+      opacity: 0;
+    }
+    &.show {
+      transform: scale(1);
       opacity: 1;
     }
   }
