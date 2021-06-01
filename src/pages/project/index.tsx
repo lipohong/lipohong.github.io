@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { useEffect, Suspense }from 'react';
+import { Link } from "react-router-dom";
 import iblog1 from "../../assets/file/image/iblog1.png";
 import iblog2 from "../../assets/file/image/iblog2.png";
 import iblog3 from "../../assets/file/image/iblog3.png";
@@ -10,6 +11,21 @@ const threshold50 = 50;
 
 const ProjectPage: React.FunctionComponent = () => {
   const handleEffect = () => {
+    const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);  //get viewpoint height
+
+    // animate
+    const buttonList = document.querySelectorAll('.readMoreButton');
+    buttonList.forEach(button => {
+      const rect = button.getBoundingClientRect();
+      if (rect.top > vh) {
+        button.classList.remove('show');
+        button.classList.add('hide');
+      } else if (rect.top < vh - threshold50) {
+        button.classList.remove('hide');
+        button.classList.add('show');
+      }
+    });
+
     // paralax
     const iwebsiteImage = document.getElementById('iwebsiteImage');
     const secondProject = document.querySelector('#secondProject');
@@ -93,14 +109,26 @@ const ProjectPage: React.FunctionComponent = () => {
                   <li>Mobile Friendly</li>
                   <li>Projects Showcase</li>
                 </ul>
-                <div className="readMoreButton">Read More</div>
+                <div id="readMoreButton2" className="readMoreButton">Read More</div>
               </main>
               <section className="imageContainer">
                 <img id="iwebsiteImage" src={iwebsiteHome} alt="iwebsite-home" />
               </section>
             </section>
             <section id="thirdProject" className="thirdProject">
-
+              <div>
+                <img id="iwebsiteImage" src={iwebsiteHome} alt="iwebsite-home" />
+                <main className="projectDescription">
+                  <header>
+                    More are Comming Soon
+                  </header>
+                  <p>Please follow the website and get the latest updates</p>
+                  <Link to='/'>
+                    <div className="readMoreButton">Back To Home</div>
+                  </Link>
+                </main>
+                <div className="backgroundCover"></div>
+              </div>
             </section>
           </main>
         </section>

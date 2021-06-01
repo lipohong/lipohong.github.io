@@ -37,7 +37,11 @@ const HomePage: React.FunctionComponent = () => {
     operationSignGroup3.style.top = String(`${firstSectionRect.top * 0.1}px`);
     operationSignGroup4.style.top = String(`${secondSectionRect.top * 0.1}px`);    
   }
+
   useEffect(() => {
+    if (window) {
+      window.scrollTo(0, 0);
+    }
     if (!!window && 'IntersectionObserver' in window) {
       handleEffect();
       window.addEventListener('load', handleEffect);
