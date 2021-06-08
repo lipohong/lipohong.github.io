@@ -1,15 +1,79 @@
 import * as React from 'react';
-import { Suspense }from 'react';
+import { Suspense, useEffect }from 'react';
 import Icon from '@mdi/react';
 import { mdiGithub, mdiLinkedin } from '@mdi/js';
 import profile from "../assets/file/image/profile.png";
 
 const ProfilePage: React.FunctionComponent = () => {
+
+  const convertRemToPixels = (rem: number) => {    
+    return rem * parseFloat(getComputedStyle(document.documentElement).fontSize);
+  }
+
+  const handleLargeNavBarClick = (e: React.MouseEvent<HTMLElement>) => {
+    const largeNavBar = document.getElementById('largeNavBar');
+    const tabs = largeNavBar.getElementsByTagName('section');
+    // remove all chose style
+    for (let i = 0; i < tabs.length; i++) {
+      tabs[i].classList.remove('chose');
+    }
+    // set chose style
+    e.currentTarget.classList.add('chose');
+    const id = e.currentTarget.dataset.name;
+    // scroll to animation
+    scrollAnimation(id);
+  }
+
+  const scrollAnimation = (id: string) => {
+    // scroll animation
+    const bodyScrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+    const targetSection = document.getElementById(id);
+    const targetSectionRectTop  = targetSection.getBoundingClientRect().top;
+    const scrollTo = bodyScrollTop + targetSectionRectTop - convertRemToPixels(3);   // add some space to make a proper position
+      window.scrollTo({
+        top: scrollTo,
+        left: 0,
+        behavior: 'smooth'
+      });
+  }
+
+  const handleScroll = () => {
+    const largeNavBar = document.getElementById('largeNavBar');
+    const tabs = largeNavBar.getElementsByTagName('section');
+    let closestIndex = 0;
+    for (let i = 0; i < tabs.length; i++) {
+      tabs[i].classList.remove('positioning');
+      const targetSection = document.getElementById(tabs[i].dataset.name);
+      const position = targetSection.getBoundingClientRect().top - convertRemToPixels(3.5);
+      if (position <= 0) {
+        closestIndex = i;
+      }
+    }
+    tabs[closestIndex].classList.add('positioning');    
+  }
+
+  useEffect(() => {
+    if (!!window) {
+      window.scrollTo(0, 0);
+      handleScroll();
+      window.addEventListener('scroll', handleScroll)
+    }
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+
   return (
     <Suspense fallback={<main className="lazyLoading">loading...</main>}>
       <main className="profile">
+        <nav id="largeNavBar">
+          <section onClick={handleLargeNavBarClick} data-name="summary">Summary</section>
+          <section onClick={handleLargeNavBarClick} data-name="workExperience">Work Experience</section>
+          <section onClick={handleLargeNavBarClick} data-name="education">Education</section>
+          <section onClick={handleLargeNavBarClick} data-name="skills">Skills</section>
+        </nav>
         <div className='container'>
-          <section className="firstSection">
+          <section id="summary" className="firstSection">
             <main>
               <header>
                 <hr />
@@ -36,19 +100,24 @@ const ProfilePage: React.FunctionComponent = () => {
             </div>
           </section>
           <section className="secondSection">
-            <header className="title">Work Experience</header>
+            <header id="workExperience" className="title">Work Experience</header>
             <main>
-              <section>
-                
-              </section>
-              <section></section>
+              <article>
+                <aside>
+                  <section></section>
+                </aside>
+                <main></main>
+              </article>
+              <article>
+
+              </article>
             </main>
           </section>
           <section className="thirdSection">
-            <header className="title">Education</header>
+            <header id="education" className="title">Education</header>
           </section>
           <section className="forthSection">
-            <header className="title">Skills</header>
+            <header id="skills" className="title">Skills</header>
           </section>
         </div>
       </main>

@@ -1,7 +1,6 @@
 .profile {
   $themeColor: rgb(22, 112, 85);
   min-height: 90vh;
-  padding: 5rem;
   a {
     color: black;
     margin-right: 1rem;
@@ -10,10 +9,73 @@
     font-size: 4rem;
     font-weight: bolder;
     font-family: "Times New Roman", Times, serif;
-    margin-bottom: 2rem;
+    margin: 2rem 0;
+  }
+  nav {
+    background-color: $themeColor;
+    position: -webkit-sticky;
+    position: sticky;
+    padding: 1rem 0;
+    z-index: 10;
+    top: 0;
+    display: flex;
+    justify-content: flex-end;
+    transition: 0.5s;
+    opacity: 0.8;
+    &:hover {
+      opacity: 1;
+    }
+    section {
+      position: relative;
+      transition: 0.5s;
+      cursor: pointer;
+      padding: 0 2rem;
+      color: darken(white, 30);
+      &:hover {
+        color: white;
+        &::before {
+          opacity: 1;
+          left: 1rem;
+        }
+        &::after {
+          opacity: 1;
+          right: 1rem;
+        }
+      }
+      &::before {
+        transition: 0.5s;
+        position: absolute;
+        color: cyan;
+        content: "|";
+        left: 2rem;
+        opacity: 0;
+      }
+      &::after {
+        transition: 0.5s;
+        position: absolute;
+        color: cyan;
+        content: "|";
+        right: 2rem;
+        opacity: 0;
+      }
+      &.chose {
+        &::before {
+          left: 1rem;
+          opacity: 1;
+        }
+        &::after {
+          opacity: 1;
+          right: 1rem;
+        }
+      }
+      &.positioning {
+        color: cyan;
+      }
+    }
   }
   .container {
-    margin: 0 auto;
+    padding: 0 5rem;
+    margin: 3rem auto;
     .firstSection {
       position: relative;
       display: flex;
@@ -85,11 +147,18 @@
       }
     }
     .secondSection {
+      height: 40rem;
       main {
         display: flex;
         justify-content: center;
         align-items: center;
       }
+    }
+    .thirdSection {
+      height: 40rem;
+    }
+    .forthSection {
+      height: 40rem;
     }
   }
 }

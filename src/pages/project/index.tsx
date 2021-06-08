@@ -66,7 +66,7 @@ const ProjectPage: React.FunctionComponent = () => {
     const secondSectionRect = secondSection.getBoundingClientRect();
     const rectTop = secondSectionRect.top;
     if (!window.requestAnimationFrame) {
-      window.scrollTo(0, rectTop);  // for browser that not support requestAnimationFrame
+      window.scrollTo(0, bodyScrollTop + rectTop);  // for browser that not support requestAnimationFrame
     } else if (rectTop > 0) {
       window.requestAnimationFrame(handleGetStartClick);
       window.scrollTo(0, bodyScrollTop + Math.ceil(rectTop / 10));
