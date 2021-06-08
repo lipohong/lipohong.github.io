@@ -68,6 +68,7 @@ const ProfilePage: React.FunctionComponent = () => {
       handleScroll();
       window.addEventListener('scroll', handleScroll)
     }
+    // fix scroll to smoothly not working for safari
     smoothscroll.polyfill();
 
     return () => window.removeEventListener('scroll', handleScroll);
@@ -116,19 +117,102 @@ const ProfilePage: React.FunctionComponent = () => {
               <main>
                 <article>
                   <aside>
-                    <section></section>
+                    <section className="period">
+                      <span>2019<small>June</small></span>
+                      <span> - </span>
+                      <span>Present</span>
+                    </section>
+                    <section className="firstRow">Front-End Developer</section>
+                    <section className="secondRow">Success Base Engineering Limited</section>
                   </aside>
                   <main>
-
+                    <header>JOB DESCRIPTION</header>
+                    <main>
+                      <ul>
+                        <li>Phasellus nec gravida purus. Aliquam ac enim vel ipsum consectetur vulputate.</li>
+                        <li>Duis quis feugiat neque.</li>
+                        <li>Pellentesque eleifend, nisi vel mattis vestibulum.</li>
+                        <li>Nulla luctus, urna eu congue pellentesque, sapien arcu interdum lorem.</li>
+                        <li>Pellentesque eleifend, nisi vel mattis vestibulum.</li>
+                        <li> est lacus pretium quam, ut faucibus lorem mi a lacus.</li>
+                        <li>Pellentesque eleifend, nisi vel mattis vestibulum.</li>
+                        <li> est lacus pretium quam, ut faucibus lorem mi a lacus.</li>
+                        <li>Nulla luctus, urna eu congue pellentesque, sapien arcu interdum lorem.</li>
+                        <li>Pellentesque eleifend, nisi vel mattis vestibulum.</li>
+                        <li> est lacus pretium quam, ut faucibus lorem mi a lacus.</li>
+                        <li>Nulla luctus, urna eu congue pellentesque, sapien arcu interdum lorem.</li>
+                      </ul>
+                    </main>
                   </main>
                 </article>
                 <article>
-
+                  <aside>
+                    <section className="period">
+                      <span>2015<small>September</small></span>
+                      <span> - </span>
+                      <span>2018<small>May</small></span>
+                    </section>
+                    <section className="firstRow">Process Engineer</section>
+                    <section className="secondRow">BOE Varitronix Limited</section>
+                  </aside>
+                  <main>
+                    <header>JOB DESCRIPTION</header>
+                    <main>
+                      <ul>
+                        <li>Duis quis feugiat neque.</li>
+                        <li> est lacus pretium quam, ut faucibus lorem mi a lacus.</li>
+                        <li>Nulla luctus, urna eu congue pellentesque, sapien arcu interdum lorem.</li>
+                        <li>Pellentesque eleifend, nisi vel mattis vestibulum.</li>
+                        <li> est lacus pretium quam, ut faucibus lorem mi a lacus.</li>
+                        <li>Nulla luctus, urna eu congue pellentesque, sapien arcu interdum lorem.</li>
+                        <li>Pellentesque eleifend, nisi vel mattis vestibulum.</li>
+                        <li> est lacus pretium quam, ut faucibus lorem mi a lacus.</li>
+                        <li>Nulla luctus, urna eu congue pellentesque, sapien arcu interdum lorem.</li>
+                        <li>Pellentesque eleifend, nisi vel mattis vestibulum.</li>
+                        <li> est lacus pretium quam, ut faucibus lorem mi a lacus.</li>
+                        <li>Nulla luctus, urna eu congue pellentesque, sapien arcu interdum lorem.</li>
+                      </ul>
+                    </main>
+                  </main>
                 </article>
               </main>
             </section>
             <section className="thirdSection">
               <header id="education" className="title">Education</header>
+              <main>
+                <article>
+                  <aside>
+                    <section className="period">
+                      <span>2011<small>September</small></span>
+                      <span> - </span>
+                      <span>2015<small>June</small></span>
+                    </section>
+                    <section className="firstRow">Degree of Automation</section>
+                    <section className="secondRow">Taiyuan University of Technology, Shanxi Province, China</section>
+                  </aside>
+                  <main>
+                    <header>SCHOOL PROFILE DESCRIPTION</header>
+                    <main>
+                      <ul>
+                        <li>Phasellus nec gravida purus. Aliquam ac enim vel ipsum consectetur vulputate.</li>
+                        <li>Duis quis feugiat neque.</li>
+                        <li>Pellentesque eleifend, nisi vel mattis vestibulum.</li>
+                        <li> est lacus pretium quam, ut faucibus lorem mi a lacus.</li>
+                        <li>Nulla luctus, urna eu congue pellentesque, sapien arcu interdum lorem.</li>
+                        <li>Pellentesque eleifend, nisi vel mattis vestibulum.</li>
+                        <li> est lacus pretium quam, ut faucibus lorem mi a lacus.</li>
+                        <li>Nulla luctus, urna eu congue pellentesque, sapien arcu interdum lorem.</li>
+                        <li>Pellentesque eleifend, nisi vel mattis vestibulum.</li>
+                        <li> est lacus pretium quam, ut faucibus lorem mi a lacus.</li>
+                        <li>Nulla luctus, urna eu congue pellentesque, sapien arcu interdum lorem.</li>
+                        <li>Pellentesque eleifend, nisi vel mattis vestibulum.</li>
+                        <li> est lacus pretium quam, ut faucibus lorem mi a lacus.</li>
+                        <li>Nulla luctus, urna eu congue pellentesque, sapien arcu interdum lorem.</li>
+                      </ul>
+                    </main>
+                  </main>
+                </article>
+              </main>
             </section>
             <section className="forthSection">
               <header id="skills" className="title">Skills</header>

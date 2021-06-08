@@ -2,16 +2,98 @@
   position: relative;
   $themeColor: rgb(22, 112, 85);
   $barColor: rgb(252, 206, 1);
+  $textColor: rgb(0, 136, 160);
   min-height: 90vh;
   a {
     color: black;
     margin-right: 1rem;
   }
+  article {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    color: $textColor;
+    aside {
+      flex-grow: 1;
+      flex-shrink: 1;
+      flex-basis: 0;
+      padding: 2rem 2rem 0 0;
+      text-align: right;
+      .period {
+        position: relative;
+        margin-bottom: 2rem;
+        span {
+          position: relative;
+          color: $themeColor;
+          font-size: 1.6rem;
+          font-weight: 900;
+          text-transform: uppercase;
+          small {
+            position: absolute;
+            text-transform: uppercase;
+            font-size: 1rem;
+            font-weight: 500;
+            top: -1rem;
+            right: 0;
+            color: $textColor;
+          }
+        }
+      }
+      .firstRow {
+        position: relative;
+        display: inline-block;
+        color: black;
+        font-weight: bolder;
+        &::before {
+          position: absolute;
+          top: -1rem;
+          left: 0;
+          content: '';
+          width: 100%;
+          height: 1px;
+          background-color: rgba(0, 0, 0, 0.1);
+        }
+      }
+      .secondRow {
+        margin-top: 1rem;
+        font-weight: bold;
+      }
+    }
+    main {
+      flex-grow: 3;
+      flex-shrink: 3;
+      flex-basis: 0;
+      display: block;
+      margin-top: 0;
+      border-left: 1px solid rgba(0, 0, 0, 0.1);
+      padding: 1rem 2rem;
+      header {
+        color: black;
+        text-align: left;
+        font-weight: bold;
+      }
+      main {
+        padding: 0;
+        border: none;
+      }
+    }
+    &:not(:last-child) {
+      margin-bottom: 4rem;
+      &::after {
+        position: absolute;
+        bottom: -2rem;
+        content: '';
+        width: 100%;
+        height: 1px;
+        background-color: rgba(0, 0, 0, 0.1);
+      }
+    }
+  }
   .title {
     font-size: 4rem;
     font-weight: bolder;
     font-family: "Times New Roman", Times, serif;
-    margin: 2rem 0;
+    margin: 4rem 0 2rem 0;
   }
   nav {
     background-color: $themeColor;
@@ -178,15 +260,8 @@
         }
       }
       .secondSection {
-        height: 40rem;
-        main {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
       }
       .thirdSection {
-        height: 40rem;
       }
       .forthSection {
         height: 40rem;
