@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Suspense, useEffect }from 'react';
 import Icon from '@mdi/react';
 import { mdiGithub, mdiLinkedin } from '@mdi/js';
+import * as smoothscroll from 'smoothscroll-polyfill';
 import profile from "../assets/file/image/profile.png";
 
 const ProfilePage: React.FunctionComponent = () => {
@@ -67,6 +68,7 @@ const ProfilePage: React.FunctionComponent = () => {
       handleScroll();
       window.addEventListener('scroll', handleScroll)
     }
+    smoothscroll.polyfill();
 
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);

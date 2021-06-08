@@ -12,6 +12,7 @@
   "author": "stanli",
   "license": "MIT",
   "devDependencies": {
+    "@types/smoothscroll-polyfill": "^0.3.1",
     "copy-webpack-plugin": "^8.1.1",
     "css-loader": "^5.1.0",
     "file-loader": "^6.2.0",
@@ -39,6 +40,7 @@
     "lodash": "^4.17.21",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "react-router-dom": "^5.2.0"
+    "react-router-dom": "^5.2.0",
+    "smoothscroll-polyfill": "^0.4.4"
   }
 }
