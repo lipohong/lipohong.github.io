@@ -19,9 +19,6 @@ const SideBar: React.FunctionComponent = () => {
     case 'demo':
       choseTab = 'demo';
     break;
-    case 'knowledge':
-      choseTab = 'knowledge';
-    break;
     default:
     break;
   }
@@ -59,11 +56,6 @@ const SideBar: React.FunctionComponent = () => {
               Demos
             </section>
           </Link>
-          <Link to="/knowledge">
-            <section className={choseTab === 'knowledge' ? 'choose' : ''}>
-              Knowledge
-            </section>
-          </Link>
           <Link to="/profile">
             <section className={choseTab === 'profile' ? 'choose' : ''}>
               Profile
@@ -83,11 +75,6 @@ const SideBar: React.FunctionComponent = () => {
         <Link to="/demo">
           <section className={choseTab === 'demo' ? 'choose' : ''}>
             Demos
-          </section>
-        </Link>
-        <Link to="/knowledge">
-          <section className={choseTab === 'knowledge' ? 'choose' : ''}>
-            Knowledge
           </section>
         </Link>
         <Link to="/profile">

@@ -3,7 +3,6 @@ import { Switch, Route, useLocation } from "react-router-dom";
 
 import HomePage from '../pages';
 import ProjectPage from '../pages/project/index';
-import KnowledgePage from '../pages/knowledge/index';
 import ProfilePage from '../pages/profile';
 import DemoPage from '../pages/demo/index';
 import ParallaxDemo1 from '../pages/demo/parallaxDemo1';
@@ -18,7 +17,6 @@ const RouterConfiguration: React.FunctionComponent = () => {
     <Switch location={location}>
       <Route exact path="/" children={<HomePage />}></Route>
       <Route exact path="/projects" children={<ProjectPage />}></Route>
-      <Route exact path="/knowledge" children={<KnowledgePage />}></Route>
       <Route exact path="/profile" children={<ProfilePage />}></Route>
       <Route exact path="/demo" children={<DemoPage />}></Route>
       <Route path="/demo/parallaxDemo1" children={<ParallaxDemo1 />}></Route>
