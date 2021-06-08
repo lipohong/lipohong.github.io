@@ -30,14 +30,11 @@ const ProfilePage: React.FunctionComponent = () => {
     const targetSection = document.getElementById(id);
     const targetSectionRectTop  = targetSection.getBoundingClientRect().top;
     const scrollTo = bodyScrollTop + targetSectionRectTop - convertRemToPixels(3);   // add some space to make a proper position
-      window.scrollTo({
-        top: scrollTo,
-        left: 0,
-        behavior: 'smooth'
-      });
+    window.scrollTo({ top: scrollTo, behavior: 'smooth' });
   }
 
   const handleScroll = () => {
+    // show positon of the page
     const largeNavBar = document.getElementById('largeNavBar');
     const tabs = largeNavBar.getElementsByTagName('section');
     let closestIndex = 0;
@@ -49,7 +46,19 @@ const ProfilePage: React.FunctionComponent = () => {
         closestIndex = i;
       }
     }
-    tabs[closestIndex].classList.add('positioning');    
+    tabs[closestIndex].classList.add('positioning');
+    // hide or show to top button
+    const bodyScrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+    const toTopButton = document.getElementsByClassName('toTopButton');
+    if (bodyScrollTop > convertRemToPixels(3)) {
+      toTopButton[0].classList.remove('hide');
+    } else {
+      toTopButton[0].classList.add('hide');
+    }
+  }
+
+  const handleToTopButtonClick = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   useEffect(() => {
@@ -72,54 +81,63 @@ const ProfilePage: React.FunctionComponent = () => {
           <section onClick={handleLargeNavBarClick} data-name="education">Education</section>
           <section onClick={handleLargeNavBarClick} data-name="skills">Skills</section>
         </nav>
-        <div className='container'>
-          <section id="summary" className="firstSection">
-            <main>
-              <header>
-                <hr />
-                <span>Stan</span>
-                <span>Li</span>
-                <hr />
-              </header>
-              <section className="upperSection">
-                <a href="https://github.com/lipohong">
-                  <Icon path={mdiGithub} size={1.5} />
-                </a>
-                <a href="https://www.linkedin.com/in/stan-li-245a5b182">
-                  <Icon path={mdiLinkedin} size={1.5} />
-                </a>
-              </section>
-              <section className="lowerSection">
-                <header>Summary</header>
-                <hr />
-                <p>A front-end developer, with back-end development skills and experience as well.</p>
-              </section>
-            </main>
-            <div className="profileContainer">
-              <img src={profile} title="profile" alt="profile"></img>
-            </div>
-          </section>
-          <section className="secondSection">
-            <header id="workExperience" className="title">Work Experience</header>
-            <main>
-              <article>
-                <aside>
-                  <section></section>
-                </aside>
-                <main></main>
-              </article>
-              <article>
+        <main>
+          <div className='container'>
+            <section id="summary" className="firstSection">
+              <main>
+                <header>
+                  <hr />
+                  <span>Stan</span>
+                  <span>Li</span>
+                  <hr />
+                </header>
+                <section className="upperSection">
+                  <a href="https://github.com/lipohong">
+                    <Icon path={mdiGithub} size={1.5} />
+                  </a>
+                  <a href="https://www.linkedin.com/in/stan-li-245a5b182">
+                    <Icon path={mdiLinkedin} size={1.5} />
+                  </a>
+                </section>
+                <section className="lowerSection">
+                  <header>Summary</header>
+                  <hr />
+                  <p>A front-end developer, with back-end development skills and experience as well.</p>
+                </section>
+              </main>
+              <div className="profileContainer">
+                <img src={profile} title="profile" alt="profile"></img>
+              </div>
+            </section>
+            <section className="secondSection">
+              <header id="workExperience" className="title">Work Experience</header>
+              <main>
+                <article>
+                  <aside>
+                    <section></section>
+                  </aside>
+                  <main>
 
-              </article>
-            </main>
-          </section>
-          <section className="thirdSection">
-            <header id="education" className="title">Education</header>
-          </section>
-          <section className="forthSection">
-            <header id="skills" className="title">Skills</header>
-          </section>
-        </div>
+                  </main>
+                </article>
+                <article>
+
+                </article>
+              </main>
+            </section>
+            <section className="thirdSection">
+              <header id="education" className="title">Education</header>
+            </section>
+            <section className="forthSection">
+              <header id="skills" className="title">Skills</header>
+            </section>
+          </div>
+        </main>
+        <footer>
+          <div className="toTopButton" onClick={handleToTopButtonClick}>
+            <span>Top</span>
+          </div>
+        </footer>
       </main>
     </Suspense>
   )
