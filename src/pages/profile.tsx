@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Suspense, useEffect }from 'react';
 import Icon from '@mdi/react';
-import { mdiGithub, mdiLinkedin } from '@mdi/js';
+import { mdiGithub, mdiLinkedin, mdiStar, mdiStarOutline } from '@mdi/js';
 import * as smoothscroll from 'smoothscroll-polyfill';
 import profile from "../assets/file/image/profile.png";
 
@@ -124,23 +124,16 @@ const ProfilePage: React.FunctionComponent = () => {
                     </section>
                     <section className="firstRow">Front-End Developer</section>
                     <section className="secondRow">Success Base Engineering Limited</section>
+                    <section className="thirdRow">Kwun Tong, Kowloon, Hong Kong</section>
                   </aside>
                   <main>
                     <header>JOB DESCRIPTION</header>
                     <main>
                       <ul>
-                        <li>Phasellus nec gravida purus. Aliquam ac enim vel ipsum consectetur vulputate.</li>
-                        <li>Duis quis feugiat neque.</li>
-                        <li>Pellentesque eleifend, nisi vel mattis vestibulum.</li>
-                        <li>Nulla luctus, urna eu congue pellentesque, sapien arcu interdum lorem.</li>
-                        <li>Pellentesque eleifend, nisi vel mattis vestibulum.</li>
-                        <li> est lacus pretium quam, ut faucibus lorem mi a lacus.</li>
-                        <li>Pellentesque eleifend, nisi vel mattis vestibulum.</li>
-                        <li> est lacus pretium quam, ut faucibus lorem mi a lacus.</li>
-                        <li>Nulla luctus, urna eu congue pellentesque, sapien arcu interdum lorem.</li>
-                        <li>Pellentesque eleifend, nisi vel mattis vestibulum.</li>
-                        <li> est lacus pretium quam, ut faucibus lorem mi a lacus.</li>
-                        <li>Nulla luctus, urna eu congue pellentesque, sapien arcu interdum lorem.</li>
+                        <li>Features development for the admin panel of the e-commerce website.</li>
+                        <li>In charge of module by module development both from front end and back end for the project.</li>
+                        <li>Performance enhancement for the code.</li>
+                        <li>Bug fix for the code.</li>
                       </ul>
                     </main>
                   </main>
@@ -154,23 +147,14 @@ const ProfilePage: React.FunctionComponent = () => {
                     </section>
                     <section className="firstRow">Process Engineer</section>
                     <section className="secondRow">BOE Varitronix Limited</section>
+                    <section className="thirdRow">Kwun Tong, Kowloon, Hong Kong</section>
                   </aside>
                   <main>
                     <header>JOB DESCRIPTION</header>
                     <main>
                       <ul>
-                        <li>Duis quis feugiat neque.</li>
-                        <li> est lacus pretium quam, ut faucibus lorem mi a lacus.</li>
-                        <li>Nulla luctus, urna eu congue pellentesque, sapien arcu interdum lorem.</li>
-                        <li>Pellentesque eleifend, nisi vel mattis vestibulum.</li>
-                        <li> est lacus pretium quam, ut faucibus lorem mi a lacus.</li>
-                        <li>Nulla luctus, urna eu congue pellentesque, sapien arcu interdum lorem.</li>
-                        <li>Pellentesque eleifend, nisi vel mattis vestibulum.</li>
-                        <li> est lacus pretium quam, ut faucibus lorem mi a lacus.</li>
-                        <li>Nulla luctus, urna eu congue pellentesque, sapien arcu interdum lorem.</li>
-                        <li>Pellentesque eleifend, nisi vel mattis vestibulum.</li>
-                        <li> est lacus pretium quam, ut faucibus lorem mi a lacus.</li>
-                        <li>Nulla luctus, urna eu congue pellentesque, sapien arcu interdum lorem.</li>
+                        <li>Promoting LCD production yield rate by defect analysing and trouble shooting.</li>
+                        <li>Developing programme for LCD glass scribing.</li>
                       </ul>
                     </main>
                   </main>
@@ -187,27 +171,40 @@ const ProfilePage: React.FunctionComponent = () => {
                       <span> - </span>
                       <span>2015<small>June</small></span>
                     </section>
-                    <section className="firstRow">Degree of Automation</section>
-                    <section className="secondRow">Taiyuan University of Technology, Shanxi Province, China</section>
+                    <section className="firstRow">Balchelor's Degree of Automation</section>
+                    <section className="secondRow">Taiyuan University of Technology</section>
+                    <section className="thirdRow">Shanxi Province, China</section>
                   </aside>
                   <main>
                     <header>SCHOOL PROFILE DESCRIPTION</header>
                     <main>
                       <ul>
-                        <li>Phasellus nec gravida purus. Aliquam ac enim vel ipsum consectetur vulputate.</li>
-                        <li>Duis quis feugiat neque.</li>
-                        <li>Pellentesque eleifend, nisi vel mattis vestibulum.</li>
-                        <li> est lacus pretium quam, ut faucibus lorem mi a lacus.</li>
-                        <li>Nulla luctus, urna eu congue pellentesque, sapien arcu interdum lorem.</li>
-                        <li>Pellentesque eleifend, nisi vel mattis vestibulum.</li>
-                        <li> est lacus pretium quam, ut faucibus lorem mi a lacus.</li>
-                        <li>Nulla luctus, urna eu congue pellentesque, sapien arcu interdum lorem.</li>
-                        <li>Pellentesque eleifend, nisi vel mattis vestibulum.</li>
-                        <li> est lacus pretium quam, ut faucibus lorem mi a lacus.</li>
-                        <li>Nulla luctus, urna eu congue pellentesque, sapien arcu interdum lorem.</li>
-                        <li>Pellentesque eleifend, nisi vel mattis vestibulum.</li>
-                        <li> est lacus pretium quam, ut faucibus lorem mi a lacus.</li>
-                        <li>Nulla luctus, urna eu congue pellentesque, sapien arcu interdum lorem.</li>
+                        <li>The university is one of the <strong>211 projects universities</strong> in China.</li>
+                        <li>Automation is a major that focus on the automation theory and technology apply to many relative domains like mechanical, electrical and electronical industries.</li>
+                        <li>Adwarded 1st Prize in Shanxi Province area for National Electronic Design Contest of Universities in 2013.</li>
+                      </ul>
+                    </main>
+                  </main>
+                </article>
+                <article>
+                  <aside>
+                    <section className="period">
+                      <span>2008<small>September</small></span>
+                      <span> - </span>
+                      <span>2011<small>July</small></span>
+                    </section>
+                    <section className="firstRow">High School Diploma</section>
+                    <section className="secondRow">He Shan First High School</section>
+                    <section className="thirdRow">Heshan city, Guangdong Province, China</section>
+                  </aside>
+                  <main>
+                    <header>SCHOOL PROFILE DESCRIPTION</header>
+                    <main>
+                      <ul>
+                        <li>The school is the best local high school.</li>
+                        <li>With the most universities entry rate.</li>
+                        <li>With the most primary universities entry rate in the Jiangmen area.</li>
+                        <li>With alumnus from TsingHua university and Peking university.</li>
                       </ul>
                     </main>
                   </main>
@@ -216,6 +213,124 @@ const ProfilePage: React.FunctionComponent = () => {
             </section>
             <section className="forthSection">
               <header id="skills" className="title">Skills</header>
+              <main>
+                <section>
+                  <header className="skillsTitle">Front End Development Skills</header>
+                  <main>
+                    <table>
+                      <thead>
+                        <tr>
+                          <th>Skills</th>
+                          <th>Personal Ratings</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>HTML</td>
+                          <td>
+                            <Icon path={mdiStar} size={1} />
+                            <Icon path={mdiStar} size={1} />
+                            <Icon path={mdiStar} size={1} />
+                            <Icon path={mdiStar} size={1} />
+                            <Icon path={mdiStarOutline} size={1} />
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>css</td>
+                          <td>
+                            <Icon path={mdiStar} size={1} />
+                            <Icon path={mdiStar} size={1} />
+                            <Icon path={mdiStar} size={1} />
+                            <Icon path={mdiStar} size={1} />
+                            <Icon path={mdiStarOutline} size={1} />
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>JavaScript</td>
+                          <td>
+                            <Icon path={mdiStar} size={1} />
+                            <Icon path={mdiStar} size={1} />
+                            <Icon path={mdiStar} size={1} />
+                            <Icon path={mdiStarOutline} size={1} />
+                            <Icon path={mdiStarOutline} size={1} />
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Vue.js</td>
+                          <td>
+                            <Icon path={mdiStar} size={1} />
+                            <Icon path={mdiStar} size={1} />
+                            <Icon path={mdiStar} size={1} />
+                            <Icon path={mdiStarOutline} size={1} />
+                            <Icon path={mdiStarOutline} size={1} />
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Nuxt.js</td>
+                          <td>
+                            <Icon path={mdiStar} size={1} />
+                            <Icon path={mdiStar} size={1} />
+                            <Icon path={mdiStar} size={1} />
+                            <Icon path={mdiStarOutline} size={1} />
+                            <Icon path={mdiStarOutline} size={1} />
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </main>
+                </section>
+                <section>
+                  <header className="skillsTitle">Back End Development Skills</header>
+                  <main>
+                    <table>
+                      <thead>
+                        <tr>
+                          <th>Skills</th>
+                          <th>Personal Ratings</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>Node.js</td>
+                          <td>
+                            <Icon path={mdiStar} size={1} />
+                            <Icon path={mdiStar} size={1} />
+                            <Icon path={mdiStar} size={1} />
+                            <Icon path={mdiStar} size={1} />
+                            <Icon path={mdiStarOutline} size={1} />
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Express.js</td>
+                          <td>
+                            <Icon path={mdiStar} size={1} />
+                            <Icon path={mdiStar} size={1} />
+                            <Icon path={mdiStar} size={1} />
+                            <Icon path={mdiStar} size={1} />
+                            <Icon path={mdiStarOutline} size={1} />
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Back End Strcture</td>
+                          <td>
+                            <Icon path={mdiStar} size={1} />
+                            <Icon path={mdiStar} size={1} />
+                            <Icon path={mdiStar} size={1} />
+                            <Icon path={mdiStarOutline} size={1} />
+                            <Icon path={mdiStarOutline} size={1} />
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </main>
+                </section>
+                <section>
+                  <header className="skillsTitle">Programming Relavant Skills</header>
+                </section>
+                <section>
+                  <header className="skillsTitle">Language Skills</header>
+                </section>
+              </main>
             </section>
           </div>
         </main>

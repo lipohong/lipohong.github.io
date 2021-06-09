@@ -117,6 +117,7 @@
             object-fit: cover;
             display: inline-block;
             z-index: 1;
+            box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.2);
           }
           &::after {
             position: absolute;
@@ -151,6 +152,7 @@
             display: block;
             width: 40rem;
             z-index: 2;
+            box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.2);
           }
           main {
             position: relative;
@@ -159,6 +161,7 @@
             background-color: white;
             margin-top: -22rem;
             margin-left: 28rem;
+            box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.2);
             header {
               font-family: system-ui, cursive;
             }
@@ -174,6 +177,7 @@
             margin-top: -8rem;
             margin-left: 28rem;
             z-index: 1;
+            box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.2);
           }
         }
       }

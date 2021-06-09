@@ -61,8 +61,8 @@ const HomePage: React.FunctionComponent = () => {
             <section className="mainCover">
               <header>iWebsite</header>
               <main>
-                <h2>A site For Showcasing My Projects</h2>
-                <p>HTML | css | JavaScript | webpack | reactjs | nodejs</p>
+                <h2>A site For Showcasing My Profile and Projects</h2>
+                <p>HTML | css | JavaScript | webpack | React.js | Node.js</p>
                 <p>Github Pages, Single Page Applications, Responsive, Parallax</p>
               </main>
             </section>

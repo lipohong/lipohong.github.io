@@ -16,9 +16,6 @@ const SideBar: React.FunctionComponent = () => {
     case 'projects':
       choseTab = 'projects';
     break;
-    case 'demo':
-      choseTab = 'demo';
-    break;
     default:
     break;
   }
@@ -46,19 +43,14 @@ const SideBar: React.FunctionComponent = () => {
           </Link>
         </header>
         <main>
+        <Link to="/profile">
+            <section className={choseTab === 'profile' ? 'choose' : ''}>
+              Profile
+            </section>
+          </Link>
           <Link to="/projects">
             <section className={choseTab === 'projects' ? 'choose' : ''}>
               Projects
-            </section>
-          </Link>
-          <Link to="/demo">
-            <section className={choseTab === 'demo' ? 'choose' : ''}>
-              Demos
-            </section>
-          </Link>
-          <Link to="/profile">
-            <section className={choseTab === 'profile' ? 'choose' : ''}>
-              Profile
             </section>
           </Link>
         </main>
@@ -67,19 +59,14 @@ const SideBar: React.FunctionComponent = () => {
         </aside>
       </div>
       <div className={smallNavClass} onClick={handleSmallNavBarClick}>
-        <Link to="/projects">
-          <section className={choseTab === 'projects' ? 'choose' : ''}>
-            Projects
-          </section>
-        </Link>
-        <Link to="/demo">
-          <section className={choseTab === 'demo' ? 'choose' : ''}>
-            Demos
-          </section>
-        </Link>
         <Link to="/profile">
           <section className={choseTab === 'profile' ? 'choose' : ''}>
             Profile
+          </section>
+        </Link>
+        <Link to="/projects">
+          <section className={choseTab === 'projects' ? 'choose' : ''}>
+            Projects
           </section>
         </Link>
       </div>

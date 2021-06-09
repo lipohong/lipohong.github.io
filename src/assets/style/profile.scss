@@ -2,7 +2,7 @@
   position: relative;
   $themeColor: rgb(22, 112, 85);
   $barColor: rgb(252, 206, 1);
-  $textColor: rgb(0, 136, 160);
+  $textColor: rgb(0, 127, 150);
   min-height: 90vh;
   a {
     color: black;
@@ -13,10 +13,15 @@
     display: flex;
     justify-content: center;
     color: $textColor;
+    width: 60vw;
+    ul {
+      padding-left: 1.5rem;
+      li {
+        margin-top: 0.5rem;
+      }
+    }
     aside {
-      flex-grow: 1;
-      flex-shrink: 1;
-      flex-basis: 0;
+      flex: 2 2 0;
       padding: 2rem 2rem 0 0;
       text-align: right;
       .period {
@@ -58,11 +63,13 @@
         margin-top: 1rem;
         font-weight: bold;
       }
+      .thirdRow {
+        margin-top: 1rem;
+        font-style: italic;
+      }
     }
     main {
-      flex-grow: 3;
-      flex-shrink: 3;
-      flex-basis: 0;
+      flex: 4 4 0;
       display: block;
       margin-top: 0;
       border-left: 1px solid rgba(0, 0, 0, 0.1);
@@ -90,7 +97,7 @@
     }
   }
   .title {
-    font-size: 4rem;
+    font-size: 3.5rem;
     font-weight: bolder;
     font-family: "Times New Roman", Times, serif;
     margin: 4rem 0 2rem 0;
@@ -259,12 +266,38 @@
           }
         }
       }
-      .secondSection {
-      }
-      .thirdSection {
-      }
       .forthSection {
-        height: 40rem;
+        main {
+          display: flex;
+          flex-wrap: wrap;
+          flex-direction: row;
+          align-items: flex-start;
+          section {
+            display: block;
+            flex: 1 1 0;
+            margin: 1rem;
+            min-width: 30rem;
+            .skillsTitle {
+              font-weight: 500;
+              font-size: 1.8rem;
+              text-transform: uppercase;
+            }
+            main {
+              table {
+                width: 100%;
+                border-collapse: collapse;
+                td, th {
+                  border: 1px solid rgba(0, 0, 0, 0.1);
+                  text-align: left;
+                  padding: 0.5rem;
+                }
+                tr:nth-child(even) {
+                  background-color: rgba(0, 0, 0, 0.1);
+                }
+              }
+            }
+          }
+        }
       }
     }
   }
