@@ -268,31 +268,83 @@
       }
       .forthSection {
         main {
-          display: flex;
-          flex-wrap: wrap;
-          flex-direction: row;
-          align-items: flex-start;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          column-gap: 2rem;
+          row-gap: 2rem;
+          align-items: start;
           section {
-            display: block;
-            flex: 1 1 0;
-            margin: 1rem;
-            min-width: 30rem;
             .skillsTitle {
-              font-weight: 500;
-              font-size: 1.8rem;
+              font-weight: 600;
+              font-size: 1.5rem;
               text-transform: uppercase;
+              margin-bottom: 1rem;
+            }
+            .developmentSkillSection {
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+              column-gap: 2rem;
+              section {
+                ul {
+                  list-style: none;
+                  padding-left: 1rem;
+                  color: $textColor;
+                  li:before {
+                    content: '✓';
+                    margin-right: 0.5rem;
+                  }
+                }
+              }
+            }
+            .languageSkillSection {
+              display: flex;
+              flex-direction: row;
             }
             main {
+              display: block;
+              margin: 0;
               table {
                 width: 100%;
                 border-collapse: collapse;
-                td, th {
+                th, td {
                   border: 1px solid rgba(0, 0, 0, 0.1);
-                  text-align: left;
                   padding: 0.5rem;
                 }
-                tr:nth-child(even) {
-                  background-color: rgba(0, 0, 0, 0.1);
+                thead {
+                  background-color: $themeColor;
+                  color: white;
+                  th {
+                    text-align: center;
+                  }
+                }
+                tbody {
+                  td {
+                    text-align: left;
+                  }
+                  tr:nth-child(odd) {
+                    background-color: rgba(0, 0, 0, 0.1);
+                  }
+                }
+              }
+              svg {
+                width: 8rem;
+                height: 8rem;
+                circle {
+                  transition: 0.35s stroke-dashoffset;
+                  r: 3.6rem;
+                  cx: 4rem;
+                  cy: 4rem;
+                  stroke-width: 0.5rem;
+                  // axis compensation
+                  transform: rotate(-90deg);
+                  transform-origin: center center;
+                  stroke: $themeColor;
+                }
+                text {
+                  stroke-width: 1px;
+                  font-size: 1.2rem;
+                  fill: $textColor;
+                  text-transform: capitalize;
                 }
               }
             }
@@ -305,21 +357,22 @@
     .toTopButton {
       position: fixed;
       right: 0;
-      bottom: 0;
+      bottom: 2rem;
       cursor: pointer;
       width: 0;
       height: 0;
       border-style: solid;
       border-color: transparent transparent $themeColor transparent;
-      border-width: 0 0 5rem 5rem;
+      border-width: 0 2rem 3rem 2rem;
       transition: 0.5s;
       opacity: 0.5;
       z-index: 100;
       span {
         color: white;
         position: relative;
-        top: 2.7rem;
-        right: 2rem;
+        top: 1.4rem;
+        right: 0.6rem;
+        font-size: 0.8rem;
       }
       &:hover {
         opacity: 1;

@@ -62,6 +62,48 @@ const ProfilePage: React.FunctionComponent = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
+  const data = {
+    frontendSkills: [
+      { name: 'HTML', stars: 4 },
+      { name: 'css', stars: 4 },
+      { name: 'scss', stars: 3 },
+      { name: 'JavaScript', stars: 4 },
+      { name: 'Vue.js', stars: 4 },
+      { name: 'Nuxt.js', stars: 3 },
+      { name: 'React.js', stars: 3 },
+      { name: 'Responsive Design', stars: 3 },
+    ],
+    backendSkills: [
+      { name: 'Node.js', stars: 4 },
+      { name: 'Express.js', stars: 4 },
+      { name: 'Typescript', stars: 3 },
+    ],
+    developmentSkills: [
+      ['Git', 'Webpack', 'Docker'],
+      [ 'Server Side Rendering', 'Agile', 'Search Engine Optimization']
+    ],
+    languageSkills: [
+      { name: 'cantonese', percent: 100 },
+      { name: 'mandarin', percent: 90 },
+      { name: 'english', percent: 80 }
+    ]
+  }
+
+  const starsGenerate = (stars: number) => {
+    let components: JSX.Element[] = [];
+    if (stars > 5) {
+      stars = 5;
+    }
+    for (let i = 0; i < stars; i++) {
+      components.push(<Icon key={i} path={mdiStar} size={1} />);
+    }
+    for (let i = 0; i < 5 - stars; i++) {
+      components.push(<Icon key={i + stars} path={mdiStarOutline} size={1} />);
+    }
+    
+    return components;
+  }
+
   useEffect(() => {
     if (!!window) {
       window.scrollTo(0, 0);
@@ -225,56 +267,14 @@ const ProfilePage: React.FunctionComponent = () => {
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <td>HTML</td>
-                          <td>
-                            <Icon path={mdiStar} size={1} />
-                            <Icon path={mdiStar} size={1} />
-                            <Icon path={mdiStar} size={1} />
-                            <Icon path={mdiStar} size={1} />
-                            <Icon path={mdiStarOutline} size={1} />
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>css</td>
-                          <td>
-                            <Icon path={mdiStar} size={1} />
-                            <Icon path={mdiStar} size={1} />
-                            <Icon path={mdiStar} size={1} />
-                            <Icon path={mdiStar} size={1} />
-                            <Icon path={mdiStarOutline} size={1} />
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>JavaScript</td>
-                          <td>
-                            <Icon path={mdiStar} size={1} />
-                            <Icon path={mdiStar} size={1} />
-                            <Icon path={mdiStar} size={1} />
-                            <Icon path={mdiStarOutline} size={1} />
-                            <Icon path={mdiStarOutline} size={1} />
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>Vue.js</td>
-                          <td>
-                            <Icon path={mdiStar} size={1} />
-                            <Icon path={mdiStar} size={1} />
-                            <Icon path={mdiStar} size={1} />
-                            <Icon path={mdiStarOutline} size={1} />
-                            <Icon path={mdiStarOutline} size={1} />
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>Nuxt.js</td>
-                          <td>
-                            <Icon path={mdiStar} size={1} />
-                            <Icon path={mdiStar} size={1} />
-                            <Icon path={mdiStar} size={1} />
-                            <Icon path={mdiStarOutline} size={1} />
-                            <Icon path={mdiStarOutline} size={1} />
-                          </td>
-                        </tr>
+                        {
+                          data.frontendSkills.map((skillData, index) => (
+                            <tr key={index}>
+                              <td>{ skillData.name }</td>
+                              <td>{ starsGenerate(skillData.stars) }</td>
+                            </tr>
+                          ))
+                        }
                       </tbody>
                     </table>
                   </main>
@@ -290,45 +290,55 @@ const ProfilePage: React.FunctionComponent = () => {
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <td>Node.js</td>
-                          <td>
-                            <Icon path={mdiStar} size={1} />
-                            <Icon path={mdiStar} size={1} />
-                            <Icon path={mdiStar} size={1} />
-                            <Icon path={mdiStar} size={1} />
-                            <Icon path={mdiStarOutline} size={1} />
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>Express.js</td>
-                          <td>
-                            <Icon path={mdiStar} size={1} />
-                            <Icon path={mdiStar} size={1} />
-                            <Icon path={mdiStar} size={1} />
-                            <Icon path={mdiStar} size={1} />
-                            <Icon path={mdiStarOutline} size={1} />
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>Back End Strcture</td>
-                          <td>
-                            <Icon path={mdiStar} size={1} />
-                            <Icon path={mdiStar} size={1} />
-                            <Icon path={mdiStar} size={1} />
-                            <Icon path={mdiStarOutline} size={1} />
-                            <Icon path={mdiStarOutline} size={1} />
-                          </td>
-                        </tr>
+                        {
+                          data.backendSkills.map((skillData, index) => (
+                            <tr key={index}>
+                              <td>{ skillData.name }</td>
+                              <td>{ starsGenerate(skillData.stars) }</td>
+                            </tr>
+                          ))
+                        }
                       </tbody>
                     </table>
                   </main>
                 </section>
                 <section>
-                  <header className="skillsTitle">Programming Relavant Skills</header>
+                  <header className="skillsTitle">Development Skills</header>
+                  <main className="developmentSkillSection">
+                    <section>
+                      <ul>
+                        {
+                          data.developmentSkills[0].map((skillData, index) => (
+                            <li key={index}>{ skillData }</li>
+                          ))
+                        }
+                      </ul>
+                    </section>
+                    <section>
+                      <ul>
+                        {
+                          data.developmentSkills[1].map((skillData, index) => (
+                            <li key={index}>{ skillData }</li>
+                          ))
+                        }
+                      </ul>
+                    </section>
+                  </main>
                 </section>
                 <section>
                   <header className="skillsTitle">Language Skills</header>
+                  <main className="languageSkillSection">
+                    {
+                      data.languageSkills.map((skillData, index) => (
+                        <section key={index}>
+                          <svg>
+                            <circle fill="transparent" />
+                            <text x="50%" y="50%" textAnchor="middle">{ skillData.name }</text>
+                          </svg>
+                        </section>
+                      ))
+                    }
+                  </main>
                 </section>
               </main>
             </section>
