@@ -1,19 +1,55 @@
 import * as React from 'react';
 import { Suspense, useEffect }from 'react';
+import { Link } from "react-router-dom";
 import Icon from '@mdi/react';
 import { mdiGithub, mdiLinkedin, mdiStar, mdiStarOutline } from '@mdi/js';
 import * as smoothscroll from 'smoothscroll-polyfill';
 import profile from "../assets/file/image/profile.png";
+import project1 from "../assets/file/image/iwebsite-project1.png";
 
 const ProfilePage: React.FunctionComponent = () => {
+
+  const data = {
+    navBar: [
+      { content: 'Summary', dataName: 'summary' },
+      { content: 'Work Experience', dataName: 'workExperience' },
+      { content: 'Education', dataName: 'education' },
+      { content: 'Skills', dataName: 'skills' },
+    ],
+    frontendSkills: [
+      { name: 'HTML', stars: 4 },
+      { name: 'css', stars: 4 },
+      { name: 'scss', stars: 3 },
+      { name: 'JavaScript', stars: 4 },
+      { name: 'Vue.js', stars: 4 },
+      { name: 'Nuxt.js', stars: 3 },
+      { name: 'React.js', stars: 3 },
+      { name: 'Responsive Design', stars: 3 },
+    ],
+    backendSkills: [
+      { name: 'Node.js', stars: 4 },
+      { name: 'Express.js', stars: 4 },
+      { name: 'MongoDB', stars: 4 },
+      { name: 'MySQL', stars: 3 },
+    ],
+    developmentSkills: [
+      ['TypeScript', 'Git', 'Webpack', 'Docker'],
+      [ 'Server Side Rendering', 'Agile', 'SEO', 'MVC', 'RESTful api']
+    ],
+    languageSkills: [
+      { name: 'cantonese', percent: 100 },
+      { name: 'mandarin', percent: 90 },
+      { name: 'english', percent: 70 }
+    ]
+  }
 
   const convertRemToPixels = (rem: number) => {    
     return rem * parseFloat(getComputedStyle(document.documentElement).fontSize);
   }
 
   const handleLargeNavBarClick = (e: React.MouseEvent<HTMLElement>) => {
-    const largeNavBar = document.getElementById('largeNavBar');
-    const tabs = largeNavBar.getElementsByTagName('section');
+    const navBar = document.getElementById('navBar');
+    const tabs = navBar.getElementsByTagName('section');
     // remove all chose style
     for (let i = 0; i < tabs.length; i++) {
       tabs[i].classList.remove('chose');
@@ -36,8 +72,8 @@ const ProfilePage: React.FunctionComponent = () => {
 
   const handleScroll = () => {
     // show positon of the page
-    const largeNavBar = document.getElementById('largeNavBar');
-    const tabs = largeNavBar.getElementsByTagName('section');
+    const navBar = document.getElementById('navBar');
+    const tabs = navBar.getElementsByTagName('section');
     let closestIndex = 0;
     for (let i = 0; i < tabs.length; i++) {
       tabs[i].classList.remove('positioning');
@@ -56,37 +92,39 @@ const ProfilePage: React.FunctionComponent = () => {
     } else {
       toTopButton[0].classList.add('hide');
     }
+
+    // show content
+    const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);  //get viewpoint height
+    const threshold50 = 50;
+    const articleList = document.querySelectorAll('article');
+    articleList.forEach(article => {
+      const rect = article.getBoundingClientRect();
+      if (rect.top < vh - threshold50 && !article.classList.contains('show')) {
+        article.classList.add('show');
+      }
+    });
+    const skillSectionList = document.querySelectorAll('.skillSection');
+    skillSectionList.forEach(skillSection => {
+      const rect = skillSection.getBoundingClientRect();
+      if (rect.top < vh - threshold50 && !skillSection.classList.contains('show')) {
+        skillSection.classList.add('show');
+      }
+    });
+  }
+
+  const handleResize = () => {
+    // recalculate the circumference for the circles
+    const circleList = document.querySelectorAll<SVGCircleElement>('.mainCircle');
+    circleList.forEach((circle, index) => {
+      const radius = circle.getBoundingClientRect().width / 2;
+      const circumference = radius * 2 * Math.PI;
+      circle.style.strokeDasharray = `${circumference} ${circumference}`;
+      circle.style.strokeDashoffset = `${circumference * ( 1 - data.languageSkills[index]['percent'] / 100 )}`;
+    });
   }
 
   const handleToTopButtonClick = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-
-  const data = {
-    frontendSkills: [
-      { name: 'HTML', stars: 4 },
-      { name: 'css', stars: 4 },
-      { name: 'scss', stars: 3 },
-      { name: 'JavaScript', stars: 4 },
-      { name: 'Vue.js', stars: 4 },
-      { name: 'Nuxt.js', stars: 3 },
-      { name: 'React.js', stars: 3 },
-      { name: 'Responsive Design', stars: 3 },
-    ],
-    backendSkills: [
-      { name: 'Node.js', stars: 4 },
-      { name: 'Express.js', stars: 4 },
-      { name: 'Typescript', stars: 3 },
-    ],
-    developmentSkills: [
-      ['Git', 'Webpack', 'Docker'],
-      [ 'Server Side Rendering', 'Agile', 'Search Engine Optimization']
-    ],
-    languageSkills: [
-      { name: 'cantonese', percent: 100 },
-      { name: 'mandarin', percent: 90 },
-      { name: 'english', percent: 80 }
-    ]
   }
 
   const starsGenerate = (stars: number) => {
@@ -108,23 +146,29 @@ const ProfilePage: React.FunctionComponent = () => {
     if (!!window) {
       window.scrollTo(0, 0);
       handleScroll();
-      window.addEventListener('scroll', handleScroll)
+      handleResize();
+      window.addEventListener('scroll', handleScroll);
+      window.addEventListener('resize', handleResize);
     }
     // fix scroll to smoothly not working for safari
     smoothscroll.polyfill();
 
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
 
 
   return (
     <Suspense fallback={<main className="lazyLoading">loading...</main>}>
       <main className="profile">
-        <nav id="largeNavBar">
-          <section onClick={handleLargeNavBarClick} data-name="summary">Summary</section>
-          <section onClick={handleLargeNavBarClick} data-name="workExperience">Work Experience</section>
-          <section onClick={handleLargeNavBarClick} data-name="education">Education</section>
-          <section onClick={handleLargeNavBarClick} data-name="skills">Skills</section>
+        <nav id="navBar">
+          {
+            data.navBar.map((data, index) => (
+              <section onClick={handleLargeNavBarClick} data-name={data.dataName}>{data.content}</section>
+            ))
+          }
         </nav>
         <main>
           <div className='container'>
@@ -256,7 +300,7 @@ const ProfilePage: React.FunctionComponent = () => {
             <section className="forthSection">
               <header id="skills" className="title">Skills</header>
               <main>
-                <section>
+                <section className="skillSection">
                   <header className="skillsTitle">Front End Development Skills</header>
                   <main>
                     <table>
@@ -279,7 +323,7 @@ const ProfilePage: React.FunctionComponent = () => {
                     </table>
                   </main>
                 </section>
-                <section>
+                <section className="skillSection">
                   <header className="skillsTitle">Back End Development Skills</header>
                   <main>
                     <table>
@@ -302,7 +346,7 @@ const ProfilePage: React.FunctionComponent = () => {
                     </table>
                   </main>
                 </section>
-                <section>
+                <section className="skillSection">
                   <header className="skillsTitle">Development Skills</header>
                   <main className="developmentSkillSection">
                     <section>
@@ -325,21 +369,39 @@ const ProfilePage: React.FunctionComponent = () => {
                     </section>
                   </main>
                 </section>
-                <section>
+                <section className="skillSection">
                   <header className="skillsTitle">Language Skills</header>
                   <main className="languageSkillSection">
                     {
                       data.languageSkills.map((skillData, index) => (
                         <section key={index}>
                           <svg>
-                            <circle fill="transparent" />
-                            <text x="50%" y="50%" textAnchor="middle">{ skillData.name }</text>
+                            <circle fill="transparent" stroke="#aaa" />
+                            <circle className="mainCircle" fill="transparent" />
+                            <text x="50%" y="52%" textAnchor="middle">{ skillData.name }</text>
                           </svg>
                         </section>
                       ))
                     }
                   </main>
                 </section>
+              </main>
+            </section>
+            <section className="fifthSection">
+              <header className="title">Projects</header>
+              <main>
+                <div className="contentContainer">
+                  <header>View all projects</header>
+                  <main>I made a web page for showcasing all my projects. Just click the button bellow and you can jump to view them.</main>
+                  <footer>
+                    <Link to='/projects'>
+                      <div className="goToProjectButton">go to project page</div>
+                    </Link>
+                  </footer>
+                </div>
+                <div className="imageContainer">
+                  <img src={project1} alt="project1" />
+                </div>
               </main>
             </section>
           </div>
