@@ -12,9 +12,10 @@ const ProfilePage: React.FunctionComponent = () => {
   const data = {
     navBar: [
       { content: 'Summary', dataName: 'summary' },
-      { content: 'Work Experience', dataName: 'workExperience' },
+      { content: 'Experience', dataName: 'workExperience' },
       { content: 'Education', dataName: 'education' },
       { content: 'Skills', dataName: 'skills' },
+      { content: 'Projects', dataName: 'projects' },
     ],
     frontendSkills: [
       { name: 'HTML', stars: 4 },
@@ -92,22 +93,14 @@ const ProfilePage: React.FunctionComponent = () => {
     } else {
       toTopButton[0].classList.add('hide');
     }
-
     // show content
     const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);  //get viewpoint height
     const threshold50 = 50;
-    const articleList = document.querySelectorAll('article');
-    articleList.forEach(article => {
-      const rect = article.getBoundingClientRect();
-      if (rect.top < vh - threshold50 && !article.classList.contains('show')) {
-        article.classList.add('show');
-      }
-    });
-    const skillSectionList = document.querySelectorAll('.skillSection');
-    skillSectionList.forEach(skillSection => {
-      const rect = skillSection.getBoundingClientRect();
-      if (rect.top < vh - threshold50 && !skillSection.classList.contains('show')) {
-        skillSection.classList.add('show');
+    const animationElementList = document.querySelectorAll('.showAndHideAnimation');
+    animationElementList.forEach(animationElement => {
+      const rect = animationElement.getBoundingClientRect();
+      if (rect.top < vh - threshold50 && !animationElement.classList.contains('show')) {
+        animationElement.classList.add('show');
       }
     });
   }
@@ -166,7 +159,7 @@ const ProfilePage: React.FunctionComponent = () => {
         <nav id="navBar">
           {
             data.navBar.map((data, index) => (
-              <section onClick={handleLargeNavBarClick} data-name={data.dataName}>{data.content}</section>
+              <section onClick={handleLargeNavBarClick} data-name={data.dataName} key={index}>{data.content}</section>
             ))
           }
         </nav>
@@ -202,7 +195,7 @@ const ProfilePage: React.FunctionComponent = () => {
               <header id="workExperience" className="title">Work Experience</header>
               <main>
                 <article>
-                  <aside>
+                  <aside className="showAndHideAnimation rightToLeftAnimation">
                     <section className="period">
                       <span>2019<small>June</small></span>
                       <span> - </span>
@@ -212,7 +205,7 @@ const ProfilePage: React.FunctionComponent = () => {
                     <section className="secondRow">Success Base Engineering Limited</section>
                     <section className="thirdRow">Kwun Tong, Kowloon, Hong Kong</section>
                   </aside>
-                  <main>
+                  <main className="showAndHideAnimation leftToRightAnimation">
                     <header>JOB DESCRIPTION</header>
                     <main>
                       <ul>
@@ -225,7 +218,7 @@ const ProfilePage: React.FunctionComponent = () => {
                   </main>
                 </article>
                 <article>
-                  <aside>
+                  <aside className="showAndHideAnimation rightToLeftAnimation">
                     <section className="period">
                       <span>2015<small>September</small></span>
                       <span> - </span>
@@ -235,7 +228,7 @@ const ProfilePage: React.FunctionComponent = () => {
                     <section className="secondRow">BOE Varitronix Limited</section>
                     <section className="thirdRow">Kwun Tong, Kowloon, Hong Kong</section>
                   </aside>
-                  <main>
+                  <main className="showAndHideAnimation leftToRightAnimation">
                     <header>JOB DESCRIPTION</header>
                     <main>
                       <ul>
@@ -251,7 +244,7 @@ const ProfilePage: React.FunctionComponent = () => {
               <header id="education" className="title">Education</header>
               <main>
                 <article>
-                  <aside>
+                  <aside className="showAndHideAnimation rightToLeftAnimation">
                     <section className="period">
                       <span>2011<small>September</small></span>
                       <span> - </span>
@@ -261,7 +254,7 @@ const ProfilePage: React.FunctionComponent = () => {
                     <section className="secondRow">Taiyuan University of Technology</section>
                     <section className="thirdRow">Shanxi Province, China</section>
                   </aside>
-                  <main>
+                  <main className="showAndHideAnimation leftToRightAnimation">
                     <header>SCHOOL PROFILE DESCRIPTION</header>
                     <main>
                       <ul>
@@ -273,7 +266,7 @@ const ProfilePage: React.FunctionComponent = () => {
                   </main>
                 </article>
                 <article>
-                  <aside>
+                  <aside className="showAndHideAnimation rightToLeftAnimation">
                     <section className="period">
                       <span>2008<small>September</small></span>
                       <span> - </span>
@@ -283,7 +276,7 @@ const ProfilePage: React.FunctionComponent = () => {
                     <section className="secondRow">He Shan First High School</section>
                     <section className="thirdRow">Heshan city, Guangdong Province, China</section>
                   </aside>
-                  <main>
+                  <main className="showAndHideAnimation leftToRightAnimation">
                     <header>SCHOOL PROFILE DESCRIPTION</header>
                     <main>
                       <ul>
@@ -300,7 +293,7 @@ const ProfilePage: React.FunctionComponent = () => {
             <section className="forthSection">
               <header id="skills" className="title">Skills</header>
               <main>
-                <section className="skillSection">
+                <section className="skillSection showAndHideAnimation leftToRightAnimation">
                   <header className="skillsTitle">Front End Development Skills</header>
                   <main>
                     <table>
@@ -323,7 +316,7 @@ const ProfilePage: React.FunctionComponent = () => {
                     </table>
                   </main>
                 </section>
-                <section className="skillSection">
+                <section className="skillSection showAndHideAnimation rightToLeftAnimation">
                   <header className="skillsTitle">Back End Development Skills</header>
                   <main>
                     <table>
@@ -346,7 +339,7 @@ const ProfilePage: React.FunctionComponent = () => {
                     </table>
                   </main>
                 </section>
-                <section className="skillSection">
+                <section className="skillSection showAndHideAnimation leftToRightAnimation">
                   <header className="skillsTitle">Development Skills</header>
                   <main className="developmentSkillSection">
                     <section>
@@ -369,7 +362,7 @@ const ProfilePage: React.FunctionComponent = () => {
                     </section>
                   </main>
                 </section>
-                <section className="skillSection">
+                <section className="skillSection showAndHideAnimation rightToLeftAnimation">
                   <header className="skillsTitle">Language Skills</header>
                   <main className="languageSkillSection">
                     {
@@ -387,10 +380,13 @@ const ProfilePage: React.FunctionComponent = () => {
                 </section>
               </main>
             </section>
-            <section className="fifthSection">
+            <section id="projects" className="fifthSection">
               <header className="title">Projects</header>
               <main>
-                <div className="contentContainer">
+                 <div className="imageContainer showAndHideAnimation shrinkToNormalAnimation">
+                  <img src={project1} alt="project1" />
+                </div>
+                <div className="contentContainer showAndHideAnimation shrinkToNormalAnimation">
                   <header>View all projects</header>
                   <main>I made a web page for showcasing all my projects. Just click the button bellow and you can jump to view them.</main>
                   <footer>
@@ -398,9 +394,6 @@ const ProfilePage: React.FunctionComponent = () => {
                       <div className="goToProjectButton">go to project page</div>
                     </Link>
                   </footer>
-                </div>
-                <div className="imageContainer">
-                  <img src={project1} alt="project1" />
                 </div>
               </main>
             </section>

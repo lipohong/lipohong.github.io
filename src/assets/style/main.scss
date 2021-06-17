@@ -75,6 +75,27 @@ $liner-color: (
   joomla: (#1e3c72, #2a5298),
   blue-sky: (#56CCF2, #2F80ED)
 );
+.showAndHideAnimation {
+  position: relative;
+  transition: 1s;
+  opacity: 0;
+  &.leftToRightAnimation {
+    left: -2rem;
+  }
+  &.rightToLeftAnimation {
+    left: 2rem;
+  }
+  &.shrinkToNormalAnimation {
+    transform: scale(0.5);
+  }
+  &.show {
+    bottom: 0;
+    top: 0;
+    left: 0;
+    opacity: 1;
+    transform: scale(1);
+  }
+}
 
 @each $name, $values in $liner-color {
   .liner-color-#{$name} {

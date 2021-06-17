@@ -1,4 +1,5 @@
 import * as React from 'react';
+import * as smoothscroll from 'smoothscroll-polyfill';
 import { useEffect, Suspense }from 'react';
 import { Link } from "react-router-dom";
 import iblog1 from "../../assets/file/image/iblog1.png";
@@ -7,33 +8,17 @@ import iblog3 from "../../assets/file/image/iblog3.png";
 import iwebsiteHome from "../../assets/file/image/iwebsite-home.png";
 import project1 from "../../assets/file/image/iwebsite-project1.png";
 
-const threshold50 = 50;
-
 const ProjectPage: React.FunctionComponent = () => {
   const handleEffect = () => {
     const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);  //get viewpoint height
 
     // animate
-    const buttonList = document.querySelectorAll('.readMoreButton');
-    buttonList.forEach(button => {
-      const rect = button.getBoundingClientRect();
-      if (rect.top > vh) {
-        button.classList.remove('show');
-        button.classList.add('hide');
-      } else if (rect.top < vh - threshold50) {
-        button.classList.remove('hide');
-        button.classList.add('show');
-      }
-    });
-    const imageList = document.querySelectorAll('.imageAnimation');
-    imageList.forEach(image => {
-      const rect = image.getBoundingClientRect();
-      if (rect.top > vh) {
-        image.classList.remove('show');
-        image.classList.add('hide');
-      } else if (rect.top < vh - threshold50) {
-        image.classList.remove('hide');
-        image.classList.add('show');
+    const threshold50 = 50;
+    const animationElementList = document.querySelectorAll('.showAndHideAnimation');
+    animationElementList.forEach(animationElement => {
+      const rect = animationElement.getBoundingClientRect();
+      if (rect.top < vh - threshold50 && !animationElement.classList.contains('show')) {
+        animationElement.classList.add('show');
       }
     });
 
@@ -42,6 +27,15 @@ const ProjectPage: React.FunctionComponent = () => {
     const secondProject = document.querySelector('#secondProject');
     const secondProjectRect = secondProject.getBoundingClientRect();
     iwebsiteImage.style.top = String(`${secondProjectRect.top * 0.1}px`);
+  }
+
+  const handleGetStartClick = () => {
+    // scroll animation
+    const bodyScrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+    const targetSection = document.getElementById('secondSection');
+    const targetSectionRectTop  = targetSection.getBoundingClientRect().top;
+    const scrollTo = bodyScrollTop + targetSectionRectTop;   // add some space to make a proper position
+    window.scrollTo({ top: scrollTo, behavior: 'smooth' });
   }
 
   useEffect(() => {
@@ -53,25 +47,13 @@ const ProjectPage: React.FunctionComponent = () => {
       window.addEventListener('load', handleEffect);
       window.addEventListener('scroll', handleEffect);
     }
+    // fix scroll to smoothly not working for safari
+    smoothscroll.polyfill();
     return () => {
       window.removeEventListener('load', handleEffect);
       window.removeEventListener('scroll', handleEffect);
     }
   }, []);
-
-  const handleGetStartClick = () => {
-    // scroll animation
-    const bodyScrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-    const secondSection = document.getElementById('secondSection');
-    const secondSectionRect = secondSection.getBoundingClientRect();
-    const rectTop = secondSectionRect.top;
-    if (!window.requestAnimationFrame) {
-      window.scrollTo(0, bodyScrollTop + rectTop);  // for browser that not support requestAnimationFrame
-    } else if (rectTop > 0) {
-      window.requestAnimationFrame(handleGetStartClick);
-      window.scrollTo(0, bodyScrollTop + Math.ceil(rectTop / 10));
-    }
-  }
 
   return (
     <Suspense fallback={<main className="lazyLoading">loading...</main>}>
@@ -106,7 +88,7 @@ const ProjectPage: React.FunctionComponent = () => {
                   <li>Register / Login</li>
                   <li>Blog Posting Freely</li>
                 </ul>
-                <div className="readMoreButton">Read More</div>
+                <div className="readMoreButton showAndHideAnimation leftToRightAnimation">Read More</div>
               </main>
               <div className="backgroundCover"></div>
             </section>
@@ -120,7 +102,7 @@ const ProjectPage: React.FunctionComponent = () => {
                   <li>Mobile Friendly</li>
                   <li>Projects Showcase</li>
                 </ul>
-                <div id="readMoreButton2" className="readMoreButton">Read More</div>
+                <div id="readMoreButton2" className="readMoreButton showAndHideAnimation leftToRightAnimation">Read More</div>
               </main>
               <section className="imageContainer">
                 <img className="imageAnimation" id="iwebsiteImage" src={iwebsiteHome} alt="iwebsite-home" />
@@ -128,14 +110,14 @@ const ProjectPage: React.FunctionComponent = () => {
             </section>
             <section id="thirdProject" className="thirdProject">
               <div>
-                <img className="imageAnimation" id="iwebsiteImage" src={iwebsiteHome} alt="iwebsite-home" />
+                <img className="imageAnimation showAndHideAnimation shrinkToNormalAnimation" id="iwebsiteImage" src={iwebsiteHome} alt="iwebsite-home" />
                 <main className="projectDescription">
                   <header>
                     More are Comming Soon
                   </header>
                   <p>Please follow the website and get the latest updates</p>
                   <Link to='/'>
-                    <div className="readMoreButton">Back To Home</div>
+                    <div className="readMoreButton showAndHideAnimation leftToRightAnimation">Back To Home</div>
                   </Link>
                 </main>
                 <div className="backgroundCover"></div>
