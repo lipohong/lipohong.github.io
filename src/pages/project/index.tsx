@@ -6,6 +6,7 @@ import iblog1 from "../../assets/file/image/iblog1.png";
 import iblog2 from "../../assets/file/image/iblog2.png";
 import iblog3 from "../../assets/file/image/iblog3.png";
 import iwebsiteHome from "../../assets/file/image/iwebsite-home.png";
+import profile1 from "../../assets/file/image/iwebsite-profile1.png";
 import project1 from "../../assets/file/image/iwebsite-project1.png";
 
 const ProjectPage: React.FunctionComponent = () => {
@@ -65,6 +66,7 @@ const ProjectPage: React.FunctionComponent = () => {
           </main>
           <section className="imageContainer">
             <img src={project1} alt="project1" />
+            <img src={profile1} alt="profile1" />
             <img src={iwebsiteHome} alt="iwebsite-home" />
             <img src={iblog2} alt="iblog2" />
             <img src={iblog1} alt="iblog1" />
@@ -95,9 +97,10 @@ const ProjectPage: React.FunctionComponent = () => {
             <section id="secondProject" className="secondProject">
               <main className="projectDescription">
                 <header>iWebsite</header>
-                <p>iWebsite is a site for showcasing my projects</p>
+                <p>iWebsite is a site for showcasing my profile and projects</p>
                 <ul>
                   <li>HTML5 CSS3</li>
+                  <li>React Webpack</li>
                   <li>Parallax</li>
                   <li>Mobile Friendly</li>
                   <li>Projects Showcase</li>

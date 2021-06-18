@@ -5,6 +5,7 @@ import LinerColor from '../models/enum/linerColor';
 const OperationSign = React.lazy(() => import('../components/operationSign'));
 import OperationSignType from '../models/enum/operationSignType';
 import project1 from "../assets/file/image/iwebsite-project1.png";
+import profile1 from "../assets/file/image/iwebsite-profile1.png";
 
 
 const threshold50 = 50;
@@ -15,27 +16,31 @@ const HomePage: React.FunctionComponent = () => {
     const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);  //get viewpoint height
 
     // animate
-    const goToProjectButton = document.querySelector('#goToProjectButton');
-    const goToProjectButtonRect = goToProjectButton.getBoundingClientRect();
-    if (goToProjectButtonRect.top > vh) {
-      goToProjectButton.classList.remove('show');
-      goToProjectButton.classList.add('hide');
-    } else if (goToProjectButtonRect.top < vh - threshold50) {
-      goToProjectButton.classList.remove('hide');
-      goToProjectButton.classList.add('show');
-    }
+    const animationElementList = document.querySelectorAll('.showAndHideAnimation');
+    animationElementList.forEach(animationElement => {
+      const rect = animationElement.getBoundingClientRect();
+      if (rect.top < vh - threshold50 && !animationElement.classList.contains('show')) {
+        animationElement.classList.add('show');
+      } else if (rect.top > vh && !!animationElement.classList.contains('show')) {
+        animationElement.classList.remove('show');
+      }
+    });
     
     // paralax
     const operationSignGroup2 = document.getElementById('operationSignGroup2');
     const operationSignGroup3 = document.getElementById('operationSignGroup3');
     const operationSignGroup4= document.getElementById('operationSignGroup4');
+    const operationSignGroup5= document.getElementById('operationSignGroup5');
     const firstSection = document.querySelector('#firstSection');
     const secondSection = document.querySelector('#secondSection');
+    const thirdSection = document.querySelector('#thirdSection');
     const firstSectionRect = firstSection.getBoundingClientRect();
     const secondSectionRect = secondSection.getBoundingClientRect();
+    const thirdSectionRect = thirdSection.getBoundingClientRect();
     operationSignGroup2.style.top = String(`${firstSectionRect.top * 0.1}px`);
     operationSignGroup3.style.top = String(`${firstSectionRect.top * 0.1}px`);
-    operationSignGroup4.style.top = String(`${secondSectionRect.top * 0.1}px`);    
+    operationSignGroup4.style.top = String(`${secondSectionRect.top * 0.2}px`);    
+    operationSignGroup5.style.top = String(`${200 - thirdSectionRect.top * 0.2}px`);    
   }
 
   useEffect(() => {
@@ -61,7 +66,7 @@ const HomePage: React.FunctionComponent = () => {
             <section className="mainCover">
               <header>iWebsite</header>
               <main>
-                <h2>A site For Showcasing My Profile and Projects</h2>
+                <h2>A Site For Showcasing My Profile And Projects</h2>
                 <p>HTML | css | JavaScript | webpack | React.js | Node.js</p>
                 <p>Github Pages, Single Page Applications, Responsive, Parallax</p>
               </main>
@@ -100,13 +105,13 @@ const HomePage: React.FunctionComponent = () => {
         </section>
         <section id="secondSection" className="secondSection">
           <main>
-            <header>Projects</header>
-            <p>Showcase for all projects created</p>
+            <header>Projects Page</header>
+            <p>Showcase for all projects I created.</p>
             <Link to='/projects'>
-              <div id="goToProjectButton" className="goToProjectButton">GO</div>
+              <div id="goToProjectButton" className="homeButton goToProjectButton showAndHideAnimation leftToRightAnimation">GO</div>
             </Link>
           </main>
-          <div className="imageContainer">
+          <div className="imageContainer showAndHideAnimation shrinkToNormalAnimation">
             <img src={project1} alt="project1" />
           </div>
           <div className="backgroundCover"></div>
@@ -118,7 +123,22 @@ const HomePage: React.FunctionComponent = () => {
           </div>
         </section>
         <section id="thirdSection" className="thirdSection">
-          
+          <div className="imageContainer showAndHideAnimation shrinkToNormalAnimation">
+            <img src={profile1} alt="profile1" />
+          </div>
+          <main>
+            <header>Profile Page</header>
+            <p>A page introducing me.</p>
+            <Link to='/profile'>
+              <div id="goToProjectButton" className="homeButton goToProfileButton showAndHideAnimation rightToLeftAnimation">GO</div>
+            </Link>
+          </main>
+          <div id="operationSignGroup5" className="operationSignGroup-5">
+            <OperationSign type={OperationSignType.addition} size={3} color={LinerColor.piggyPink} rotation={90} zIndex={1} top={0} left={1.5} />
+            <OperationSign type={OperationSignType.addition} size={3} color={LinerColor.lawrencium} rotation={45} zIndex={2} top={1} left={5} />
+            <OperationSign type={OperationSignType.subtraction} size={3} color={LinerColor.megaTron} rotation={90} zIndex={3} top={3.5} left={4.5} />
+            <OperationSign type={OperationSignType.division} size={3} color={LinerColor.coolBlues} rotation={135} zIndex={4} top={2.5} left={-0.5} />
+          </div>
         </section>
       </main>
     </Suspense>

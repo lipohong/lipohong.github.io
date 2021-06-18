@@ -1,5 +1,18 @@
 .home {
+  $themeColor: rgb(22, 112, 85);
+  $buttonColor: rgb(255, 179, 14);
   min-height: 90vh;
+  .homeButton {
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0.1rem 0.1rem 1rem rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+    display: inline-block;
+    padding: 0.8rem 4rem;
+  }
   .firstSection {
     position: relative;
     width: 100%;
@@ -88,46 +101,17 @@
         font-size: 1.3rem;
       }
       .goToProjectButton {
-        transition: 1s;
-        text-align: center;
-        cursor: pointer;
-        background-image: linear-gradient(map-get($liner-color, 'aubergine'));
+        background-image: linear-gradient(map-get($liner-color, 'blue-sky'));
         background-color: purple;
-        box-shadow: 0.1rem 0.1rem 1rem rgba(0, 0, 0, 0.3);
-        border-radius: 5px;
-        font-size: 1.2rem;
-        font-weight: bold;
-        color: white;
-        display: inline-block;
-        padding: 0.8rem 4rem;
         &:hover {
-          background-image: linear-gradient(darken-colors('aubergine', 2%));
-        }
-        &.hide {
-          transform: scale(0);
-          opacity: 0;
-        }
-        &.show {
-          transform: scale(1);
-          opacity: 1;
+          background-color: darken(purple, 10);
+          background-image: linear-gradient(darken-colors('blue-sky', 10%));
         }
       }
     }
     .imageContainer {
       position: relative;
       display: inline-block;
-      @keyframes imageShowAnimation1 {
-        0% {
-          transform: scale(0);
-          opacity: 0;
-        }
-        100% {
-          transform: scale(1);
-          opacity: 1;
-        }
-      }
-      animation-duration: 1s;
-      animation-name: imageShowAnimation1;
       img {
         z-index: 1;
         display: inline-block;
@@ -158,14 +142,66 @@
     }
     .operationSignGroup-4 {
       position: absolute;
-      left: 40%;
+      left: 50%;
       z-index: 2;
     }
   }
   .thirdSection {
-    height: 40rem;
+    position: relative;
+    height: 50rem;
     background-color: #3494E6;
-    background-image: linear-gradient(map-get($liner-color, 'j-shine'));
+    background-image: linear-gradient(map-get($liner-color, 'amin'));
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    main {
+      z-index: 1;
+      margin: 5rem;
+      color: white;
+      header {
+        font-size: 2rem;
+      }
+      p {
+        font-size: 1.3rem;
+      }
+      .goToProfileButton {
+        background-color: purple;
+        background-image: linear-gradient(0deg, map-get($liner-color, 'memariani'));
+        &:hover {
+          background-color: darken(purple, 10);
+          background-image: linear-gradient(0deg, darken-colors('memariani', 5%));
+        }
+      }
+    }
+    .imageContainer {
+      position: relative;
+      display: inline-block;
+      img {
+        z-index: 1;
+        display: inline-block;
+        box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.3);
+        width: 30rem;
+      }
+      &::after {
+        position: absolute;
+        box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.3);
+        display: block;
+        background-color: $themeColor;
+        content: "";
+        width: 95%;
+        height: 100%;
+        top: 1rem;
+        left: 3rem;
+        z-index: -1;
+      }
+    }
+    .operationSignGroup-5 {
+      position: absolute;
+      left: 50%;
+      z-index: 2;
+    }
   }
 }
 /* x large screens */
@@ -234,7 +270,16 @@
       }
     }
     .thirdSection {
-      height: 30rem;
+      height: 40rem;
+      main {
+        .goToProjectButton {
+          padding: 0.8rem 3.8rem;
+        }
+      }
+      .operationSignGroup-5 {
+        left: 40%;
+        transform: scale(0.7);
+      }
     }
   }
 }
@@ -309,7 +354,25 @@
       }
     }
     .thirdSection {
-      height: 28rem;
+      height: 33rem;
+      main {
+        margin: 2rem;
+        .goToProfileButton {
+          padding: 0.7rem 3.5rem;
+        }
+      }
+      .imageContainer {
+        img {
+          width: 22rem;
+        }
+        &::after {
+          left: 2rem;
+        }
+      }
+      .operationSignGroup-5 {
+        left: 44%;
+        transform: scale(0.6);
+      }
     }
   }
 }
@@ -391,7 +454,33 @@
       }
     }
     .thirdSection {
-      height: 25rem;
+      height: auto;
+      flex-direction: column;
+      main {
+        p {
+          margin: 2rem 2rem 0 0;
+          display: inline;
+        }
+        .goToProfileButton {
+          position: relative;
+          display: inline;
+          top: -1rem;
+          padding: 0.7rem 3rem;
+        }
+      }
+      .imageContainer {
+        margin-top: 3rem;
+        img {
+          width: 22rem;
+        }
+        &::after {
+          left: 2rem;
+        }
+      }
+      .operationSignGroup-5 {
+        left: 15%;
+        transform: scale(0.5);
+      }
     }
   }
 }
@@ -478,7 +567,34 @@
       }
     }
     .thirdSection {
-      height: 23rem;
+      height: auto;
+      flex-direction: column;
+      main {
+        margin-top: 3rem;
+        header {
+          font-size: 1.8rem;
+        }
+        p {
+          font-size: 1.2rem;
+        }
+        .goToProfileButton {
+          padding: 0.8rem 4rem;
+        }
+      }
+      .imageContainer {
+        margin-top: 3rem;
+        img {
+          width: 80vw;
+        }
+        &::after {
+          top: 3vw;
+          left: 8vw;
+        }
+      }
+      .operationSignGroup-5 {
+        left: 5%;
+        transform: scale(0.4);
+      }
     }
   }
 }
