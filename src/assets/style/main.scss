@@ -107,6 +107,7 @@ $liner-color: (
 @import "profile.scss";
 @import "project.scss";
 @import "components.scss";
+@import "error.scss";
 
 /* x large screens */
 @media only screen and (min-width: $break-point-xl) {
