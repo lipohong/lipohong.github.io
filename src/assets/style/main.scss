@@ -12,7 +12,7 @@ body,
   font-family: Arial;
 }
 a {
-  text-decoration: none;
+  text-decoration: none !important;
 }
 .lazyLoading {
   font-size: 3rem;
@@ -106,8 +106,10 @@ $liner-color: (
 @import "home.scss";
 @import "profile.scss";
 @import "project.scss";
+@import "iBlogPage.scss";
 @import "components.scss";
 @import "error.scss";
+@import "~bootstrap/scss/bootstrap";
 
 /* x large screens */
 @media only screen and (min-width: $break-point-xl) {

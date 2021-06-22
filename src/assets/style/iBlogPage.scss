@@ -1,0 +1,56 @@
+.iBlogPage {
+  .header {
+    position: relative;
+    padding: 3rem 0;
+    background-color: blueviolet;
+    background-image: linear-gradient(45deg, map-get($liner-color, 'joomla'));
+    border-bottom-left-radius: 50% 10%;
+    border-bottom-right-radius: 50% 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.9;
+    z-index: 2;
+    main {
+      color: white;
+      header {
+        font-family: system-ui, cursive, sans-serif, Georgia, serif, "Gill Sans";
+        font-size: 2.5rem;
+      }
+    }
+    .imageContainer {
+      margin: 5rem;
+      display: flex;
+      img {
+        position: relative;
+        box-shadow: 1rem 1rem 1rem rgba(0, 0, 0, 0.3);
+        margin: -2rem;
+        width: 15rem;
+        height: 15rem;
+        transform: perspective(60rem) rotateY(45deg);
+      }
+    }
+  }
+  .content {
+    display: flex;
+    justify-content: center;
+    .title {
+      font-size: 3.5rem;
+      font-weight: bolder;
+      font-family: "Times New Roman", Times, serif;
+      margin: 1rem 0;
+    }
+    .container {
+      width: 80vw;
+      #firstCarousel {
+        width: 100%;
+        .carousel-caption {
+          background-color: rgba(0, 0, 0, 0.7);
+        }
+        .carousel-control-next-icon, .carousel-control-prev-icon {
+          background-color: black;
+        }
+      }
+    }
+  }
+}

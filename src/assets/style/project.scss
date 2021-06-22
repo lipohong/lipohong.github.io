@@ -210,6 +210,9 @@
     background-image: linear-gradient(map-get($liner-color, 'blue-sky'));
     border-radius: 5rem;
     transition: 1s;
+    a {
+      color: white;
+    }
     &:hover {
       background-image: linear-gradient(darken-colors('blue-sky', 5%));
     }

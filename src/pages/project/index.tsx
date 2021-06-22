@@ -90,7 +90,9 @@ const ProjectPage: React.FunctionComponent = () => {
                   <li>Register / Login</li>
                   <li>Blog Posting Freely</li>
                 </ul>
-                <div className="readMoreButton showAndHideAnimation leftToRightAnimation">Read More</div>
+                <div className="readMoreButton showAndHideAnimation leftToRightAnimation">
+                  <Link to='/projects/iblog'>Read More</Link>
+                </div>
               </main>
               <div className="backgroundCover"></div>
             </section>
