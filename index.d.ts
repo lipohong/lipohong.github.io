@@ -10,6 +10,10 @@ declare module '*.ico'{
     const value: any;
     export default value;
 }
+declare module '*.gif'{
+    const value: any;
+    export default value;
+}
 declare module '*.webm'{
     const value: any;
     export default value;
