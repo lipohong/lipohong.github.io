@@ -1,7 +1,8 @@
 .iBlogPage {
+  $themeColor: #3494E6;
   .header {
     position: relative;
-    padding: 3rem 0;
+    padding: 3rem;
     background-color: blueviolet;
     background-image: linear-gradient(45deg, map-get($liner-color, 'joomla'));
     border-bottom-left-radius: 50% 10%;
@@ -18,11 +19,33 @@
         font-size: 2.5rem;
       }
       main {
+        margin-top: 1rem;
         font-size: 1.5rem;
+        .visitWebsiteButton {
+          position: relative;
+          font-size: 1.2rem;
+          display: block;
+          cursor: pointer;
+          box-shadow: 0.3rem 0.3rem 1rem rgba(0, 0, 0, 0.3);
+          margin-top: 2rem;
+          font-family: sans-serif, Georgia, serif, "Gill Sans";
+          display: inline-block;
+          font-weight: bold;
+          text-align: center;
+          padding: 1rem 3rem;
+          background-color: aqua;
+          background-image: linear-gradient(map-get($liner-color, 'blue-sky'));
+          border-radius: 5rem;
+          transition: 1s;
+          color: white;
+          &:hover {
+            background-image: linear-gradient(darken-colors('blue-sky', 5%));
+          }
+        }
       }
     }
     .imageContainer {
-      margin: 5rem;
+      margin: 3rem 2rem;
       display: flex;
       align-items: center;
       img {
@@ -50,46 +73,355 @@
       font-size: 3rem;
       font-weight: bolder;
       font-family: "Times New Roman", Times, serif;
-      margin-top: 2rem;
-      text-align: center;
-      text-transform: uppercase;
-    }
-    .subtitle {
       margin: 2rem 0;
-      font-size: 2rem;
     }
     article {
       display: flex;
       align-items: center;
+      justify-content: center;
       .description {
+        position: relative;
+        color: black;
+        background-color: white;
         padding: 2rem;
         text-align: center;
+        z-index: 2;
+        box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.2);
+        border-radius: 1rem;
+        width: 30rem;
         header {
-          
           font-size: 2rem;
         }
         main {
           font-size: 1.3rem;
         }
-      }
-      &:not(:first-child) {
-        margin-top: 3rem;
-      }
-      img {
-        width: 50rem;
-      }
-    }
-    .container {
-      width: 80vw;
-      #firstCarousel {
-        width: 100%;
-        .carousel-caption {
-          background-color: rgba(0, 0, 0, 0.7);
+        &:nth-child(even) {
+          margin-left: -10rem;
         }
-        .carousel-control-next-icon, .carousel-control-prev-icon {
-          background-color: black;
+        &:nth-child(odd) {
+          margin-right: -10rem;
         }
       }
+      .imageContainer {
+        position: relative;
+        z-index: 1;
+        img {
+          width: 50rem;
+        }
+        &::after {
+          position: absolute;
+          box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.3);
+          display: block;
+          background-color: $themeColor;
+          content: "";
+          width: 95%;
+          height: 100%;
+          top: 1rem;
+          left: 4rem;
+          z-index: -1;
+        }
+      }
     }
+    hr {
+      margin: 4rem 10rem 3rem 10rem;
+      color: rgba(0, 0, 0, 0.2);
+      opacity: 1;
+    }
+    .stackContainer {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      row-gap: 2rem;
+      column-gap: 2rem;
+      .stackInfoContainer {
+        color: white;
+        background-color: $themeColor;
+        box-shadow: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.5);
+        display: inline-block;
+        padding: 0 2rem 4rem 2rem;
+        width: 25rem;
+        .bulletinContainer {
+          margin: 1rem 0;
+          .bulletin {
+            background-color: white;
+            margin: 0 auto;
+            width: 1rem;
+            height: 1rem;
+            box-shadow: 0.2rem 0.2rem 0.5rem rgba(0, 0, 0, 0.5);
+            border-radius: 100%;
+          }
+        }
+        header {
+          font-size: 1.5rem;
+          text-align: center;
+        }
+        ul {
+          margin-top: 0.5rem;
+          font-size: 1.3rem;
+        }
+      }
+    }
+    .linksContainer {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      row-gap: 2rem;
+      column-gap: 2rem;
+      a {
+        color: white;
+      }
+      .linkCard {
+        position: relative;
+        color: white;
+        background-color: $themeColor;
+        background-image: linear-gradient(90deg, map-get($liner-color, 'blue-sky'));
+        padding: 2rem 1rem;
+        display: inline-block;
+        font-size: 1.5rem;
+        border-radius: 0.5rem;
+        box-shadow: 0.2rem 0.2rem 1rem rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        span {
+          font-weight: 700;
+          margin: 0 1rem;
+        }
+        &:hover {
+          top: -1rem;
+        }
+      }
+    }
+  }
+  footer {
+    .toTopButton {
+      position: fixed;
+      right: 0;
+      bottom: 4rem;
+      cursor: pointer;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-color: transparent transparent $themeColor transparent;
+      border-width: 0 2rem 3rem 2rem;
+      transition: 0.5s;
+      opacity: 0.5;
+      z-index: 100;
+      span {
+        color: white;
+        position: relative;
+        top: 1.4rem;
+        right: 0.6rem;
+        font-size: 0.8rem;
+      }
+      &:hover {
+        opacity: 1;
+      }
+      &.hide {
+        opacity: 0;
+      }
+    }
+  }
+  /* large screens */
+  @media only screen and (max-width: $break-point-xl) and (min-width: $break-point-lg) {
+    .header {
+      border-bottom-left-radius: 50% 9%;
+      border-bottom-right-radius: 50% 9%;
+      main {
+        header {
+          font-size: 2rem;
+        }
+        main {
+          font-size: 1.3rem;
+          .visitWebsiteButton {
+            margin-top: 1rem;
+            font-size: 1.2rem;
+            padding: 1rem 2.5rem;
+          }
+        }
+      }
+      .imageContainer {
+        img {
+          width: 12rem;
+          height: 12rem;
+          &:first-child {
+            width: 13rem;
+            height: 13rem;
+          }
+          &:last-child {
+            width: 13rem;
+            height: 13rem;
+          }
+        }
+      }
+    }
+    .content {
+      .title {
+        font-size: 2.5rem;
+      }
+      article {
+        .description {
+          padding: 2rem;
+          text-align: center;
+          z-index: 2;
+          width: 30rem;
+          header {
+            font-size: 2rem;
+          }
+          main {
+            font-size: 1.3rem;
+          }
+          &:nth-child(even) {
+            margin-left: -10rem;
+          }
+          &:nth-child(odd) {
+            margin-right: -10rem;
+          }
+        }
+        .imageContainer {
+          position: relative;
+          z-index: 1;
+          img {
+            width: 40rem;
+          }
+          &::after {
+            position: absolute;
+            box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.3);
+            display: block;
+            background-color: $themeColor;
+            content: "";
+            width: 95%;
+            height: 100%;
+            top: 1rem;
+            left: 4rem;
+            z-index: -1;
+          }
+        }
+      }
+      hr {
+        margin: 4rem 10rem 3rem 10rem;
+        color: rgba(0, 0, 0, 0.2);
+        opacity: 1;
+      }
+      .stackContainer {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        row-gap: 2rem;
+        column-gap: 2rem;
+        .stackInfoContainer {
+          color: white;
+          background-color: $themeColor;
+          box-shadow: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.5);
+          display: inline-block;
+          padding: 0 2rem 4rem 2rem;
+          width: 25rem;
+          .bulletinContainer {
+            margin: 1rem 0;
+            .bulletin {
+              background-color: white;
+              margin: 0 auto;
+              width: 1rem;
+              height: 1rem;
+              box-shadow: 0.2rem 0.2rem 0.5rem rgba(0, 0, 0, 0.5);
+              border-radius: 100%;
+            }
+          }
+          header {
+            font-size: 1.5rem;
+            text-align: center;
+          }
+          ul {
+            margin-top: 0.5rem;
+            font-size: 1.3rem;
+          }
+        }
+      }
+      .linksContainer {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        row-gap: 2rem;
+        column-gap: 2rem;
+        a {
+          color: white;
+        }
+        .linkCard {
+          position: relative;
+          color: white;
+          background-color: $themeColor;
+          background-image: linear-gradient(90deg, map-get($liner-color, 'blue-sky'));
+          padding: 2rem 1rem;
+          display: inline-block;
+          font-size: 1.5rem;
+          border-radius: 0.5rem;
+          box-shadow: 0.2rem 0.2rem 1rem rgba(0, 0, 0, 0.2);
+          cursor: pointer;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          span {
+            font-weight: 700;
+            margin: 0 1rem;
+          }
+          &:hover {
+            top: -1rem;
+          }
+        }
+      }
+    }
+    footer {
+      .toTopButton {
+        position: fixed;
+        right: 0;
+        bottom: 4rem;
+        cursor: pointer;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-color: transparent transparent $themeColor transparent;
+        border-width: 0 2rem 3rem 2rem;
+        transition: 0.5s;
+        opacity: 0.5;
+        z-index: 100;
+        span {
+          color: white;
+          position: relative;
+          top: 1.4rem;
+          right: 0.6rem;
+          font-size: 0.8rem;
+        }
+        &:hover {
+          opacity: 1;
+        }
+        &.hide {
+          opacity: 0;
+        }
+      }
+    }
+  }
+  /* medium-sized screens */
+  @media only screen and (max-width: $break-point-lg) and (min-width: $break-point-md) {
+    .header {
+      border-bottom-left-radius: 50% 8%;
+      border-bottom-right-radius: 50% 8%;
+      main {
+        header {
+          font-size: 1.8rem;
+        }
+        main {
+          font-size: 1.3rem;
+          .visitWebsiteButton {
+            font-size: 1.2rem;
+            padding: 1rem 2.5rem;
+          }
+        }
+      }
+    }
+  }
+  /* small screens */
+  @media only screen and (max-width: $break-point-md) and (min-width: $break-point-sm) {
+      
+  }
+  /* x small screens */
+  @media only screen and (max-width: $break-point-sm) {
+      
   }
 }

@@ -78,6 +78,9 @@ $liner-color: (
   &.shrinkToNormalAnimation {
     transform: scale(0.5);
   }
+  &.hugeToNormalAnimation {
+    transform: scale(1.2);
+  }
   &.show {
     bottom: 0;
     top: 0;

@@ -4,7 +4,6 @@ import { HashRouter as Router } from "react-router-dom";
 
 import "./assets/style/main.scss";
 import "./assets/file/image/favicon.ico";
-import 'bootstrap/dist/css/bootstrap.min.css';
 import RouterConfiguration from './routes/routerConfiguration';
 import SiteBar from './components/siteBar';
 import Foot from './components/foot';
