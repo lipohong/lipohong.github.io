@@ -171,7 +171,58 @@
     margin-top: 2rem;
     .container {
       width: 80vw;
-      .firstSection {
+      .projectsSection {
+        position: relative;
+        height: 40rem;
+        main {
+          .imageContainer {
+            position: relative;
+            left: 10rem;
+            top: 0rem;
+            z-index: 1;
+            img {
+              width: 40rem;
+              box-shadow: 1rem 1rem 1rem rgba(0, 0, 0, 0.3);
+            }
+          }
+          .contentContainer {
+            position: relative;
+            background-color: white;
+            padding: 3rem;
+            top: -25rem;
+            left: -5rem;
+            z-index: 2;
+            box-shadow: 1rem 1rem 1rem rgba(0, 0, 0, 0.1);
+            width: 40rem;
+            header {
+              display: block;
+              color: $themeColor;
+              font-size: 1.5rem;
+            }
+            main {
+              display: block;
+              margin-top: 1rem;
+              font-size: 1.2rem;
+            }
+            footer {
+              margin-top: 2rem;
+              .goToProjectButton {
+                cursor: pointer;
+                display: inline-block;
+                padding: 1rem 2rem;
+                color: white;
+                text-transform: capitalize;
+                background-color: $themeColor;
+                box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.1);
+                &:hover {
+                  background-color: darken($themeColor, 2);
+                }
+              }
+            }
+          }
+        }
+      }
+      .summarySection {
         position: relative;
         display: flex;
         justify-content: center;
@@ -267,7 +318,7 @@
           }
         }
       }
-      .forthSection {
+      .skillsSection {
         main {
           display: grid;
           grid-template-columns: 1fr 1fr;
@@ -359,51 +410,6 @@
           }
         }
       }
-      .fifthSection {
-        position: relative;
-        .imageContainer {
-          position: relative;
-          left: 10rem;
-          top: 0rem;
-          z-index: 1;
-          img {
-            width: 40rem;
-            box-shadow: 1rem 1rem 1rem rgba(0, 0, 0, 0.3);
-          }
-        }
-        .contentContainer {
-          position: relative;
-          background-color: white;
-          padding: 3rem;
-          top: -25rem;
-          left: -5rem;
-          z-index: 2;
-          box-shadow: 1rem 1rem 1rem rgba(0, 0, 0, 0.1);
-          header {
-            color: $themeColor;
-            font-size: 1.5rem;
-          }
-          main {
-            font-size: 1.2rem;
-            width: 20rem;
-          }
-          footer {
-            margin-top: 2rem;
-            .goToProjectButton {
-              cursor: pointer;
-              display: inline-block;
-              padding: 1rem 2rem;
-              color: white;
-              text-transform: capitalize;
-              background-color: $themeColor;
-              box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.1);
-              &:hover {
-                background-color: darken($themeColor, 2);
-              }
-            }
-          }
-        }
-      }
     }
   }
   footer {
@@ -471,7 +477,39 @@
       padding: 0;
       .container {
         width: 85vw;
-        .firstSection {
+        .projectsSection {
+          height: 35rem;
+          main {
+            .imageContainer {
+              left: 8rem;
+              top: 0;
+              img {
+                width: 35rem;
+              }
+            }
+            .contentContainer {
+              position: relative;
+              padding: 1.5rem;
+              top: -23rem;
+              left: -8rem;
+              header {
+                font-size: 1.7rem;
+              }
+              main {
+                font-size: 1.2rem;
+                display: block;
+                margin-top: 1rem;
+              }
+              footer {
+                margin-top: 2rem;
+                .goToProjectButton {
+                  padding: 1rem 1.5rem;
+                }
+              }
+            }
+          }
+        }
+        .summarySection {
           main {
             margin-right: 0rem;
             header {
@@ -515,7 +553,7 @@
             }
           }
         }
-        .forthSection {
+        .skillsSection {
           main {
             grid-template-columns: 1fr 1fr;
             section {
@@ -530,35 +568,6 @@
                     margin: 0;
                   }
                 }
-              }
-            }
-          }
-        }
-        .fifthSection {
-          .imageContainer {
-            left: 8rem;
-            top: 0;
-            img {
-              width: 35rem;
-            }
-          }
-          .contentContainer {
-            position: relative;
-            padding: 1.5rem;
-            top: -23rem;
-            left: -8rem;
-            width: 25rem;
-            header {
-              font-size: 1.7rem;
-            }
-            main {
-              font-size: 1.2rem;
-              width: 80%;
-            }
-            footer {
-              margin-top: 2rem;
-              .goToProjectButton {
-                padding: 1rem 1.5rem;
               }
             }
           }
@@ -598,7 +607,40 @@
       padding: 0;
       .container {
         width: 90vw;
-        .firstSection {
+        .projectsSection {
+          height: 30rem;
+          main {
+            .imageContainer {
+              left: 5rem;
+              top: 0;
+              img {
+                width: 30rem;
+              }
+            }
+            .contentContainer {
+              position: relative;
+              padding: 1.5rem;
+              top: -20rem;
+              left: -5rem;
+              width: 25rem;
+              header {
+                font-size: 1.5rem;
+              }
+              main {
+                font-size: 1rem;
+                display: block;
+                margin-top: 1rem;
+              }
+              footer {
+                margin-top: 2rem;
+                .goToProjectButton {
+                  padding: 1rem 1.5rem;
+                }
+              }
+            }
+          }
+        }
+        .summarySection {
           main {
             margin-right: 0rem;
             header {
@@ -642,7 +684,7 @@
             }
           }
         }
-        .forthSection {
+        .skillsSection {
           main {
             grid-template-columns: 1fr;
             column-gap: 0;
@@ -671,35 +713,6 @@
                     }
                   }
                 }
-              }
-            }
-          }
-        }
-        .fifthSection {
-          .imageContainer {
-            left: 5rem;
-            top: 0;
-            img {
-              width: 30rem;
-            }
-          }
-          .contentContainer {
-            position: relative;
-            padding: 1.5rem;
-            top: -20rem;
-            left: -5rem;
-            width: 25rem;
-            header {
-              font-size: 1.5rem;
-            }
-            main {
-              font-size: 1rem;
-              width: 80%;
-            }
-            footer {
-              margin-top: 2rem;
-              .goToProjectButton {
-                padding: 1rem 1.5rem;
               }
             }
           }
@@ -765,7 +778,41 @@
       padding: 0;
       .container {
         width: 90vw;
-        .firstSection {
+        .projectsSection {
+          height: auto;
+          main {
+            display: block;
+            .imageContainer {
+              left: 0;
+              top: 0;
+              img {
+                width: 80vw;
+              }
+            }
+            .contentContainer {
+              position: relative;
+              padding: 1.5rem;
+              top: -3rem;
+              left: 10%;
+              width: 60vw;
+              header {
+                font-size: 1.3rem;
+              }
+              main {
+                display: block;
+                font-size: 1rem;
+                width: 100%;
+              }
+              footer {
+                margin-top: 2rem;
+                .goToProjectButton {
+                  padding: 1rem;
+                }
+              }
+            }
+          }
+        }
+        .summarySection {
           display: block;
           main {
             margin-right: 0rem;
@@ -810,7 +857,7 @@
             }
           }
         }
-        .forthSection {
+        .skillsSection {
           main {
             grid-template-columns: 1fr;
             column-gap: 0;
@@ -839,35 +886,6 @@
                     }
                   }
                 }
-              }
-            }
-          }
-        }
-        .fifthSection {
-          .imageContainer {
-            left: 0;
-            top: 0;
-            img {
-              width: 80vw;
-            }
-          }
-          .contentContainer {
-            position: relative;
-            padding: 1.5rem;
-            top: -6rem;
-            left: 0;
-            width: 50vw;
-            header {
-              font-size: 1.3rem;
-            }
-            main {
-              font-size: 1rem;
-              width: 100%;
-            }
-            footer {
-              margin-top: 2rem;
-              .goToProjectButton {
-                padding: 1rem;
               }
             }
           }
@@ -934,7 +952,39 @@
       padding: 0;
       .container {
         width: 90vw;
-        .firstSection {
+        .projectsSection {
+          height: auto;
+          main {
+            .imageContainer {
+              left: 0;
+              top: 0;
+              img {
+                width: 80vw;
+              }
+            }
+            .contentContainer {
+              position: relative;
+              padding: 1.5rem;
+              top: -3rem;
+              left: 1rem;
+              width: 70vw;
+              header {
+                font-size: 1.3rem;
+              }
+              main {
+                font-size: 1rem;
+                width: 100%;
+              }
+              footer {
+                margin-top: 2rem;
+                .goToProjectButton {
+                  padding: 1rem;
+                }
+              }
+            }
+          }
+        }
+        .summarySection {
           display: block;
           main {
             margin-right: 0rem;
@@ -970,7 +1020,7 @@
             }
           }
         }
-        .forthSection {
+        .skillsSection {
           main {
             grid-template-columns: 1fr;
             column-gap: 0;
@@ -1012,35 +1062,6 @@
                     }
                   }
                 }
-              }
-            }
-          }
-        }
-        .fifthSection {
-          .imageContainer {
-            left: 0;
-            top: 0;
-            img {
-              width: 80vw;
-            }
-          }
-          .contentContainer {
-            position: relative;
-            padding: 1.5rem;
-            top: -3rem;
-            left: 1rem;
-            width: 70vw;
-            header {
-              font-size: 1.3rem;
-            }
-            main {
-              font-size: 1rem;
-              width: 100%;
-            }
-            footer {
-              margin-top: 2rem;
-              .goToProjectButton {
-                padding: 1rem;
               }
             }
           }

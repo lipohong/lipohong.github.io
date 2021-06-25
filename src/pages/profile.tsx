@@ -12,10 +12,10 @@ const ProfilePage: React.FunctionComponent = () => {
   const data = {
     navBar: [
       { content: 'Summary', dataName: 'summary' },
+      { content: 'Projects', dataName: 'projects' },
       { content: 'Experience', dataName: 'workExperience' },
       { content: 'Education', dataName: 'education' },
       { content: 'Skills', dataName: 'skills' },
-      { content: 'Projects', dataName: 'projects' },
     ],
     frontendSkills: [
       { name: 'HTML', stars: 4 },
@@ -165,7 +165,7 @@ const ProfilePage: React.FunctionComponent = () => {
         </nav>
         <main>
           <div className='container'>
-            <section id="summary" className="firstSection">
+            <section id="summary" className="summarySection">
               <main>
                 <header>
                   <hr />
@@ -191,7 +191,26 @@ const ProfilePage: React.FunctionComponent = () => {
                 <img src={profile} title="profile" alt="profile"></img>
               </div>
             </section>
-            <section className="secondSection">
+            <section id="projects" className="projectsSection">
+              <header className="title">Projects</header>
+              <main>
+                <div>
+                  <div className="imageContainer showAndHideAnimation shrinkToNormalAnimation">
+                    <img src={project1} alt="project1" />
+                  </div>
+                  <div className="contentContainer showAndHideAnimation shrinkToNormalAnimation">
+                    <header>View all projects</header>
+                    <main>I made a web page for showcasing all my projects. Just click the button bellow and you can jump to view them.</main>
+                    <footer>
+                      <Link to='/projects'>
+                        <div className="goToProjectButton">go to project page</div>
+                      </Link>
+                    </footer>
+                  </div>
+                </div>
+              </main>
+            </section>
+            <section className="workExperienceSection">
               <header id="workExperience" className="title">Work Experience</header>
               <main>
                 <article>
@@ -240,7 +259,7 @@ const ProfilePage: React.FunctionComponent = () => {
                 </article>
               </main>
             </section>
-            <section className="thirdSection">
+            <section className="educationSection">
               <header id="education" className="title">Education</header>
               <main>
                 <article>
@@ -290,7 +309,7 @@ const ProfilePage: React.FunctionComponent = () => {
                 </article>
               </main>
             </section>
-            <section className="forthSection">
+            <section className="skillsSection">
               <header id="skills" className="title">Skills</header>
               <main>
                 <section className="skillSection showAndHideAnimation leftToRightAnimation">
@@ -378,23 +397,6 @@ const ProfilePage: React.FunctionComponent = () => {
                     }
                   </main>
                 </section>
-              </main>
-            </section>
-            <section id="projects" className="fifthSection">
-              <header className="title">Projects</header>
-              <main>
-                 <div className="imageContainer showAndHideAnimation shrinkToNormalAnimation">
-                  <img src={project1} alt="project1" />
-                </div>
-                <div className="contentContainer showAndHideAnimation shrinkToNormalAnimation">
-                  <header>View all projects</header>
-                  <main>I made a web page for showcasing all my projects. Just click the button bellow and you can jump to view them.</main>
-                  <footer>
-                    <Link to='/projects'>
-                      <div className="goToProjectButton">go to project page</div>
-                    </Link>
-                  </footer>
-                </div>
               </main>
             </section>
           </div>
