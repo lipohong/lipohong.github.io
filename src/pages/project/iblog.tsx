@@ -181,11 +181,13 @@ const iBlogPage: React.FunctionComponent = () => {
                           </>
                         }
                       </article>
-                      { index + 1 < data.features.length ? <hr /> : <></> }
+                      { index + 1 < data.features.length ? <hr className="showAndHideAnimation" /> : <></> }
                     </React.Fragment>
                   ))
                 }
               </main>
+            </section>
+            <section>
               <header>
                 <div className="title">Technical Stack</div>
               </header>
