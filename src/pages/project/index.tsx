@@ -90,9 +90,9 @@ const ProjectPage: React.FunctionComponent = () => {
                   <li>Register / Login</li>
                   <li>Blog Posting Freely</li>
                 </ul>
-                <div className="readMoreButton showAndHideAnimation leftToRightAnimation">
-                  <Link to='/projects/iblog'>Read More</Link>
-                </div>
+                <Link to='/projects/iblog'>
+                  <div className="readMoreButton showAndHideAnimation leftToRightAnimation">Read More</div>
+                </Link>
               </main>
               <div className="backgroundCover"></div>
             </section>
@@ -107,7 +107,9 @@ const ProjectPage: React.FunctionComponent = () => {
                   <li>Mobile Friendly</li>
                   <li>Projects Showcase</li>
                 </ul>
-                <div id="readMoreButton2" className="readMoreButton showAndHideAnimation leftToRightAnimation">Read More</div>
+                <Link to='/projects/iwebsite'>
+                  <div className="readMoreButton showAndHideAnimation leftToRightAnimation">Read More</div>
+                </Link>
               </main>
               <section className="imageContainer">
                 <img className="imageAnimation" id="iwebsiteImage" src={iwebsiteHome} alt="iwebsite-home" />
