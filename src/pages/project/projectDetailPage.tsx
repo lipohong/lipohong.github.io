@@ -224,7 +224,7 @@ const ProjectDetailPage: React.FunctionComponent<RouteComponentProps<ProjectDeta
 
   return (
     <Suspense fallback={<main className="lazyLoading">loading...</main>}>
-      <main className="iBlogPage">
+      <main className="projectDetailPage">
         <header className="header">
           <main>
             <header>{ data[_slug] && data[_slug].header.name }</header>
