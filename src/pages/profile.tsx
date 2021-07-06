@@ -23,7 +23,7 @@ const ProfilePage: React.FunctionComponent = () => {
       { name: 'scss', stars: 3 },
       { name: 'JavaScript', stars: 4 },
       { name: 'Vue.js', stars: 4 },
-      { name: 'Nuxt.js', stars: 3 },
+      { name: 'Nuxt.js', stars: 4 },
       { name: 'React.js', stars: 3 },
       { name: 'Responsive Design', stars: 3 },
     ],
@@ -31,11 +31,13 @@ const ProfilePage: React.FunctionComponent = () => {
       { name: 'Node.js', stars: 4 },
       { name: 'Express.js', stars: 4 },
       { name: 'MongoDB', stars: 4 },
+      { name: 'TypeScript', stars: 3 },
+      { name: 'Microservice architecture', stars: 3 },
       { name: 'MySQL', stars: 3 },
     ],
     developmentSkills: [
-      ['TypeScript', 'Git', 'Webpack', 'Docker'],
-      [ 'Server Side Rendering', 'Agile', 'SEO', 'MVC', 'RESTful api']
+      ['Python', 'React Native', 'Git', 'Webpack', 'Docker', 'Jira'],
+      ['Server Side Rendering', 'Agile', 'MVC', 'MVVM', 'RESTful api']
     ],
     languageSkills: [
       { name: 'cantonese', percent: 100 },
@@ -228,10 +230,11 @@ const ProfilePage: React.FunctionComponent = () => {
                     <header>JOB DESCRIPTION</header>
                     <main>
                       <ul>
-                        <li>Features development for the admin panel of the e-commerce website.</li>
-                        <li>In charge of module by module development both from front end and back end for the project.</li>
-                        <li>Performance enhancement for the code.</li>
-                        <li>Bug fix for the code.</li>
+                        <li>Work for a start-up online shopping mall project(Vue.js + Node.js, microservice architecture).</li>
+                        <li>In charge of both front-end and back-end development for the admin and merchant panel.</li>
+                        <li>Transfering designs from designers into web pages.</li>
+                        <li>RESTful API developing and testing.</li>
+                        <li>Bug fixing for both front-end pages and back-end API.</li>
                       </ul>
                     </main>
                   </main>
@@ -244,7 +247,7 @@ const ProfilePage: React.FunctionComponent = () => {
                       <span>2018<small>May</small></span>
                     </section>
                     <section className="firstRow">Process Engineer</section>
-                    <section className="secondRow">BOE Varitronix Limited</section>
+                    <section className="secondRow">Varitronix Limited</section>
                     <section className="thirdRow">Kwun Tong, Kowloon, Hong Kong</section>
                   </aside>
                   <main className="showAndHideAnimation leftToRightAnimation">
