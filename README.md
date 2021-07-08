@@ -2,7 +2,7 @@
 ### A website to showcase my profile and projects
 ---
 
-## <center>[![iWebsite](src/assets/file/image/iwebsite-home.png)](https://lipohong.github.io "Live Demo")</center>
+## <center>[![iWebsite](src/assets/file/image/iwebsite-home.png)](https://www.lipohong.site "Live Demo")</center>
 
 ## Features
 - Responsive  
