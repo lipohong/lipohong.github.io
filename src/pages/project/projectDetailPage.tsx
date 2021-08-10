@@ -36,7 +36,7 @@ const ProjectDetailPage: React.FunctionComponent<RouteComponentProps<ProjectDeta
       header: {
         name: 'iBlog',
         description: 'iBlog is a blogging website for stories sharing.',
-        address: 'http://lipohong.site',
+        address: 'http://blog.lipohong.website',
         images: {
           iblog2, iblog1, iblog3,
         }
@@ -100,7 +100,7 @@ const ProjectDetailPage: React.FunctionComponent<RouteComponentProps<ProjectDeta
         { header: 'Containerization', items: ['docker'] },
       ],
       links: [
-        { icon: mdiSearchWeb, content: 'Visit Website', address: 'http://lipohong.site' },
+        { icon: mdiSearchWeb, content: 'Visit Website', address: 'http://blog.lipohong.website' },
         { icon: mdiGithub, content: 'Project in Github', address: 'https://github.com/lipohong/iBlog' },
         { icon: mdiBook, content: 'Document For the Project', address: 'https://github.com/lipohong/iBlog/blob/master/README.md' },
       ]
@@ -109,7 +109,7 @@ const ProjectDetailPage: React.FunctionComponent<RouteComponentProps<ProjectDeta
       header: {
         name: 'iWebsite',
         description: 'iWebsite is a website to showcase my profile and projects',
-        address: 'https://lipohong.github.io',
+        address: 'https://www.lipohong.website',
         images: {
           iwebsiteProfile1, iwebsiteHome, iwebsiteProject2,
         }
@@ -154,7 +154,7 @@ const ProjectDetailPage: React.FunctionComponent<RouteComponentProps<ProjectDeta
         { header: 'Website Hosting', items: ['Github Pages'] },
       ],
       links: [
-        { icon: mdiSearchWeb, content: 'Visit Website', address: 'https://lipohong.github.io' },
+        { icon: mdiSearchWeb, content: 'Visit Website', address: 'https://www.lipohong.website' },
         { icon: mdiGithub, content: 'Project in Github', address: 'https://github.com/lipohong/lipohong.github.io' },
         { icon: mdiBook, content: 'Document For the Project', address: 'https://github.com/lipohong/lipohong.github.io/blob/main/README.md' },
       ]
