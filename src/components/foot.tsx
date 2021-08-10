@@ -13,8 +13,8 @@ const Foot: React.FunctionComponent = () => {
       <main className="contactInfo">
         <header>CONTACT INFO</header>
         <main>
-          <section><Icon path={mdiPhone} size={1} /> +852 9048 3591</section>
-          <section><Icon path={mdiEmail} size={1} /> lipohong@hotmail.com</section>
+          <section><Icon path={mdiPhone} size={1} /> +12 1234 5789</section>
+          <section><Icon path={mdiEmail} size={1} /> xxxxxxxx@xxx.com</section>
         </main>
       </main>
       <section className="copyRightInfo">iWebsite<sup>©</sup> 2021 by Stan Li</section>
