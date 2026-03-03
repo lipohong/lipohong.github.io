@@ -3,7 +3,6 @@ title: "[Forwarded] When the Bullet Points Vanished | [轉] 子彈符號失蹤�
 date: 2026-03-02 18:37:37 +0800
 categories: [Frontend, CSS]
 tags: [css, debug]     # TAG names should always be lowercase
-pin: true
 toc: true
 image:
   path: /assets/img/posts/2026-03-02/bullet_point.jpg
