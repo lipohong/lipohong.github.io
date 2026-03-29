@@ -28,33 +28,7 @@ These are two fundamental concepts in key management:
 
 ### The Relationship
 
-```
-┌────────────────────────────────────────────────────────┐
-│                   Key Hierarchy                        │
-├────────────────────────────────────────────────────────┤
-│                                                        │
-│        ┌─────────────────────┐                         │
-│        │   Master Password   │  (You remember this)   │
-│        └──────────┬──────────┘                         │
-│                   │                                     │
-│                   │  PBKDF2 / Argon2                    │
-│                   │  (Key derivation)                  │
-│                   ▼                                     │
-│        ┌─────────────────────┐                         │
-│        │   KEK (Key          │  (Never stored         │
-│        │   Encryption Key)   │   in plaintext)        │
-│        └──────────┬──────────┘                         │
-│                   │                                     │
-│                   │  AES-256-GCM                        │
-│                   │  (Encryption)                       │
-│                   ▼                                     │
-│        ┌─────────────────────┐                         │
-│        │   DEK (Data         │  → TOTP Secret          │
-│        │   Encryption Key)   │  → Encrypted backup     │
-│        └─────────────────────┘                         │
-│                                                        │
-└────────────────────────────────────────────────────────┘
-```
+![Key Hierarchy](/assets/img/posts/2026-03-29/kek-hierarchy-en.svg)
 
 ---
 
@@ -105,91 +79,15 @@ If you store your TOTP secret directly:
 
 ### 1. Initial Setup (First Time)
 
-```
-┌─────────────────────────────────────────────────────┐
-│         1. TOTP Secret Generation & Encryption      │
-├─────────────────────────────────────────────────────┤
-│                                                     │
-│   Server                      User's Device         │
-│  ┌──────────────┐             ┌──────────────┐     │
-│  │ TOTP Secret  │─────────────>│ Derive KEK   │     │
-│  │ (DEK)        │   (QR code)  │ from password│    │
-│  └──────────────┘             └───────┬───────┘     │
-│                                      │              │
-│                                      │ AES-256      │
-│                                      ▼              │
-│                               ┌──────────────┐      │
-│                               │ Encrypt DEK  │      │
-│                               │ with KEK     │      │
-│                               └───────┬───────┘      │
-│                                       │              │
-│                                       ▼              │
-│                               ┌──────────────┐      │
-│                               │ Store        │      │
-│                               │ encrypted    │      │
-│                               │ DEK locally  │      │
-│                               └──────────────┘      │
-│                                                     │
-└─────────────────────────────────────────────────────┘
-```
+![Initial Setup](/assets/img/posts/2026-03-29/kek-initial-setup-en.svg)
 
 ### 2. Normal Login (Using TOTP)
 
-```
-┌─────────────────────────────────────────────────────┐
-│            2. Daily TOTP Generation                 │
-├─────────────────────────────────────────────────────┤
-│                                                     │
-│   User enters            Device decrypts           │
-│   password ───────────>  DEK from KEK              │
-│                           │                         │
-│                           │ HMAC-SHA-1              │
-│                           ▼                         │
-│                    ┌──────────────┐                │
-│                    │ Generate     │                │
-│                    │ TOTP code    │                │
-│                    │ (6 digits)  │                │
-│                    └──────────────┘                │
-│                                                     │
-└─────────────────────────────────────────────────────┘
-```
+![Daily TOTP Generation](/assets/img/posts/2026-03-29/kek-daily-totp-en.svg)
 
 ### 3. Backup/Restore (Cross-Device)
 
-```
-┌─────────────────────────────────────────────────────┐
-│            3. Backup & Restore                     │
-├─────────────────────────────────────────────────────┤
-│                                                     │
-│   BACKUP (Export):                                  │
-│   ┌──────────────┐             ┌──────────────┐     │
-│   │ Encrypted    │─────────────>│ QR Code /    │     │
-│   │ DEK + KEK   │             │ JSON file    │     │
-│   │ (from local)│             │ (user saves) │     │
-│   └──────────────┘             └──────────────┘     │
-│                                                     │
-│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─    │
-│                                                     │
-│   RESTORE (Import):                                 │
-│   ┌──────────────┐             ┌──────────────┐     │
-│   │ QR Code /    │─────────────>│ Derive KEK   │     │
-│   │ JSON file    │             │ from password│    │
-│   └──────────────┘             └───────┬───────┘     │
-│                                      │              │
-│                                      │ AES-256      │
-│                                      ▼              │
-│                               ┌──────────────┐      │
-│                               │ Decrypt DEK  │      │
-│                               │ with KEK     │      │
-│                               └───────┬───────┘      │
-│                                       │              │
-│                                       ▼              │
-│                               ┌──────────────┐      │
-│                               │ TOTP works!  │      │
-│                               └──────────────┘      │
-│                                                     │
-└─────────────────────────────────────────────────────┘
-```
+![Backup & Restore](/assets/img/posts/2026-03-29/kek-backup-restore-en.svg)
 
 ---
 
@@ -205,25 +103,7 @@ If you store your TOTP secret directly:
 
 ### The Encryption Process in Action
 
-```
-1Password's Encryption Flow:
-┌────────────────────────────────────────────────────────┐
-│                                                        │
-│  User: "mypassword123"                                │
-│                                                        │
-│  ┌──────────┐   Argon2id   ┌──────────┐               │
-│  │ Password │─────────────>│   KEK    │               │
-│  └──────────┘  (slow hash) └────┬─────┘               │
-│                                │                      │
-│                                │ AES-256-GCM          │
-│                                ▼                      │
-│                        ┌──────────────┐              │
-│  TOTP Secret: "XXX..." │   Encrypted  │              │
-│  (this is DEK)         │      DEK      │              │
-│                        └──────────────┘              │
-│                                                        │
-└────────────────────────────────────────────────────────┘
-```
+![1Password Encryption Flow](/assets/img/posts/2026-03-29/kek-1password-flow-en.svg)
 
 ---
 
@@ -255,31 +135,15 @@ If you store your TOTP secret directly:
 
 ## Summary: The Security Chain
 
-```
-┌─────────────────────────────────────────────────────┐
-│           Complete Security Chain                   │
-├─────────────────────────────────────────────────────┤
-│                                                     │
-│   [Master Password]                                 │
-│          │                                          │
-│          ▼  (Key Derivation - slow, expensive)     │
-│   [KEK - Key Encryption Key]                       │
-│          │                                          │
-│          ▼  (Symmetric Encryption - fast)          │
-│   [DEK - Data Encryption Key]                       │
-│          │                                          │
-│          ▼  (HMAC-SHA-1)                           │
-│   [TOTP Code]                                       │
-│                                                     │
-│   Each layer has a specific purpose:                │
-│   • Password: Something you know                    │
-│   • KEK derivation: Prevents brute force          │
-│   • KEK: Never stored, protects DEK                │
-│   • DEK: The actual TOTP secret                   │
-│   • TOTP: Time-based one-time codes                │
-│                                                     │
-└─────────────────────────────────────────────────────┘
-```
+![Complete Security Chain](/assets/img/posts/2026-03-29/kek-security-chain-en.svg)
+
+Each layer has a specific purpose:
+
+- **Password**: Something you know
+- **KEK derivation**: Prevents brute force
+- **KEK**: Never stored, protects DEK
+- **DEK**: The actual TOTP secret
+- **TOTP**: Time-based one-time codes
 
 ---
 
@@ -318,34 +182,7 @@ This is how modern password managers protect not just your passwords, but also y
 
 ### 兩者既關係
 
-```
-┌────────────────────────────────────────────────────────┐
-│                   密鑰層次結構                          │
-├────────────────────────────────────────────────────────┤
-│                                                        │
-│        ┌─────────────────────┐                         │
-│        │   主密碼 (Master     │  (你自己記得)           │
-│        │   Password)         │                         │
-│        └──────────┬──────────┘                         │
-│                   │                                     │
-│                   │  PBKDF2 / Argon2                    │
-│                   │  (密鑰衍生)                          │
-│                   ▼                                     │
-│        ┌─────────────────────┐                         │
-│        │   KEK (密鑰加密密鑰) │  (永遠唔會以明文        │
-│        │                     │   儲存)                 │
-│        └──────────┬──────────┘                         │
-│                   │                                     │
-│                   │  AES-256-GCM                        │
-│                   │  (加密)                              │
-│                   ▼                                     │
-│        ┌─────────────────────┐                         │
-│        │   DEK (數據加密密鑰) │  → TOTP 密鑰          │
-│        │                     │  → 加密既備份          │
-│        └─────────────────────┘                         │
-│                                                        │
-└────────────────────────────────────────────────────────┘
-```
+![密鑰層次結構](/assets/img/posts/2026-03-29/kek-hierarchy-cn.svg)
 
 ---
 
@@ -396,90 +233,15 @@ This is how modern password managers protect not just your passwords, but also y
 
 ### 1. 首次設定
 
-```
-┌─────────────────────────────────────────────────────┐
-│         1. TOTP 密鑰生成同加密                        │
-├─────────────────────────────────────────────────────┤
-│                                                     │
-│   伺服器                      用戶設備               │
-│  ┌──────────────┐             ┌──────────────┐     │
-│  │ TOTP 密鑰    │─────────────>│ 從密碼衍生   │     │
-│  │ (DEK)        │   (QR code)  │ KEK          │     │
-│  └──────────────┘             └───────┬───────┘     │
-│                                      │              │
-│                                      │ AES-256      │
-│                                      ▼              │
-│                               ┌──────────────┐      │
-│                               │ 用 KEK 加密   │      │
-│                               │ DEK           │      │
-│                               └───────┬───────┘      │
-│                                       │              │
-│                                       ▼              │
-│                               ┌──────────────┐      │
-│                               │ 本地儲存      │      │
-│                               │ 加密既 DEK   │      │
-│                               └──────────────┘      │
-│                                                     │
-└─────────────────────────────────────────────────────┘
-```
+![首次設定](/assets/img/posts/2026-03-29/kek-initial-setup-cn.svg)
 
 ### 2. 正常登入（使用 TOTP）
 
-```
-┌─────────────────────────────────────────────────────┐
-│            2. 日常 TOTP 生成                          │
-├─────────────────────────────────────────────────────┤
-│                                                     │
-│   用戶輸入              設備用 KEK                   │
-│   密碼 ─────────────> 解密 DEK                      │
-│                           │                         │
-│                           │ HMAC-SHA-1              │
-│                           ▼                         │
-│                    ┌──────────────┐                │
-│                    │ 生成 TOTP    │                │
-│                    │ 密碼         │                │
-│                    │ (6 位數)     │                │
-│                    └──────────────┘                │
-│                                                     │
-└─────────────────────────────────────────────────────┘
-```
+![日常 TOTP 生成](/assets/img/posts/2026-03-29/kek-daily-totp-cn.svg)
 
 ### 3. 備份/還原（跨設備）
 
-```
-┌─────────────────────────────────────────────────────┐
-│            3. 備份同還原                              │
-├─────────────────────────────────────────────────────┤
-│                                                     │
-│   備份 (Export):                                    │
-│   ┌──────────────┐             ┌──────────────┐     │
-│   │ 加密既 DEK   │─────────────>│ QR Code /    │     │
-│   │ + KEK        │             │ JSON 檔案    │     │
-│   │ (從本地)     │             │ (用戶保存)    │     │
-│   └──────────────┘             └──────────────┘     │
-│                                                     │
-│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─    │
-│                                                     │
-│   還原 (Import):                                    │
-│   ┌──────────────┐             ┌──────────────┐     │
-│   │ QR Code /    │─────────────>│ 從密碼衍生   │     │
-│   │ JSON 檔案    │             │ KEK          │     │
-│   └──────────────┘             └───────┬───────┘     │
-│                                      │              │
-│                                      │ AES-256      │
-│                                      ▼              │
-│                               ┌──────────────┐      │
-│                               │ 用 KEK 解密   │      │
-│                               │ DEK           │      │
-│                               └───────┬───────┘      │
-│                                       │              │
-│                                       ▼              │
-│                               ┌──────────────┐      │
-│                               │ TOTP 得咗！  │      │
-│                               └──────────────┘      │
-│                                                     │
-└─────────────────────────────────────────────────────┘
-```
+![備份同還原](/assets/img/posts/2026-03-29/kek-backup-restore-cn.svg)
 
 ---
 
@@ -495,25 +257,7 @@ This is how modern password managers protect not just your passwords, but also y
 
 ### 加密過程實例
 
-```
-1Password 既加密流程:
-┌────────────────────────────────────────────────────────┐
-│                                                        │
-│  用戶: "mypassword123"                                │
-│                                                        │
-│  ┌──────────┐   Argon2id   ┌──────────┐               │
-│  │ 密碼     │─────────────>│   KEK    │               │
-│  └──────────┘  (慢既 hash) └────┬─────┘               │
-│                                │                      │
-│                                │ AES-256-GCM          │
-│                                ▼                      │
-│                        ┌──────────────┐              │
-│  TOTP 密鑰: "XXX..."   │   加密既     │              │
-│  (呢個係 DEK)          │      DEK     │              │
-│                        └──────────────┘              │
-│                                                        │
-└────────────────────────────────────────────────────────┘
-```
+![1Password 加密流程](/assets/img/posts/2026-03-29/kek-1password-flow-cn.svg)
 
 ---
 
@@ -545,31 +289,15 @@ This is how modern password managers protect not just your passwords, but also y
 
 ## 總結：安全鏈
 
-```
-┌─────────────────────────────────────────────────────┐
-│           完整既安全鏈                               │
-├─────────────────────────────────────────────────────┤
-│                                                     │
-│   [主密碼]                                          │
-│          │                                          │
-│          ▼  (密鑰衍生 - 慢，要運算)                 │
-│   [KEK - 密鑰加密密鑰]                              │
-│          │                                          │
-│          ▼  (對稱加密 - 快)                         │
-│   [DEK - 數據加密密鑰]                              │
-│          │                                          │
-│          ▼  (HMAC-SHA-1)                           │
-│   [TOTP 密碼]                                       │
-│                                                     │
-│   每層都有特定用途:                                 │
-│   • 密碼：你知道既嘢                                 │
-│   • KEK 衍生：防止暴力破解                          │
-│   • KEK：唔儲存明文，保護 DEK                        │
-│   • DEK：實際既 TOTP 密鑰                          │
-│   • TOTP：時間型一次性密碼                          │
-│                                                     │
-└─────────────────────────────────────────────────────┘
-```
+![完整既安全鏈](/assets/img/posts/2026-03-29/kek-security-chain-cn.svg)
+
+每層都有特定用途:
+
+- **密碼**：你知道既嘢
+- **KEK 衍生**：防止暴力破解
+- **KEK**：唔儲存明文，保護 DEK
+- **DEK**：實際既 TOTP 密鑰
+- **TOTP**：時間型一次性密碼
 
 ---
 
