@@ -1,5 +1,5 @@
 ---
-title: "What are TOTP and HOTP? The Principles Behind One-Time Password Algorithms | TOTP、HOTP 究竟係啲咩？ —— 一次性密碼認證算法背後既原理"
+title: "What are TOTP and HOTP? The Principles Behind One-Time Password Algorithms | TOTP、HOTP 究竟係啲咩？ —— 一次性密碼認證算法背後嘅原理"
 date: 2026-03-29 13:58:17 +0800
 categories: [Security, Technology]
 tags: [2fa, totp, hotp, otp, security,assisted_by_ai]
@@ -94,15 +94,15 @@ Whether HOTP or TOTP, the core is **key + one-way function**, ensuring that even
 
 ## 背景：點解會出現一次性密碼？
 
-傳統既登入方式靠「密碼」呢樣唔係所有人都知既嘢。但正如之前篇文講，密碼好易洩露、猜測、甚至被竊取。有咩方法可以做到「我用咗呢個密碼之後，呢個密碼就唔可以再用」？
+傳統嘅登入方式靠「密碼」呢樣唔係所有人都知嘅嘢。但正如之前篇文講，密碼好易洩露、猜測、甚至被竊取。有咩方法可以做到「我用咗呢個密碼之後，呢個密碼就唔可以再用」？
 
-呢個就係 **OTP (One-Time Password)** 既概念——每 次登入都用一個全新、一次性既密碼。咁即係點運作既呢？
+呢個就係 **OTP (One-Time Password)** 嘅概念——每 次登入都用一個全新、一次性嘅密碼。咁即係點運作嘅呢？
 
 ---
 
-## HOTP：一切既起點
+## HOTP：一切嘅起點
 
-**HOTP (HMAC-based One-Time Password)** 係 2005 年由 IETF 標準化既算法（RFC 4226），係所有現代 2FA 算法既根源。
+**HOTP (HMAC-based One-Time Password)** 係 2005 年由 IETF 標準化嘅算法（RFC 4226），係所有現代 2FA 算法嘅根源。
 
 ### 核心概念
 
@@ -124,9 +124,9 @@ HOTP = Truncate(HMAC-SHA-1(密鑰, 計數器))
 
 ---
 
-## TOTP：時間驅動既進化
+## TOTP：時間驅動嘅進化
 
-**TOTP (Time-based One-Time Password)** 係 HOTP 既改良版，2008 年標準化（RFC 6238）。最大既改變係：用「時間」取代「計數器」。
+**TOTP (Time-based One-Time Password)** 係 HOTP 嘅改良版，2008 年標準化（RFC 6238）。最大嘅改變係：用「時間」取代「計數器」。
 
 ### 核心公式
 
@@ -145,7 +145,7 @@ TOTP = Truncate(HMAC-SHA-1(密鑰, T))
 
 ## 點解要用 30 秒？
 
-![30 秒窗口既設計考量](/assets/img/posts/2026-03-29/totp-30s-window-design-cn.svg)
+![30 秒窗口嘅設計考量](/assets/img/posts/2026-03-29/totp-30s-window-design-cn.svg)
 
 ---
 
@@ -154,10 +154,10 @@ TOTP = Truncate(HMAC-SHA-1(密鑰, T))
 ### TOTP 常見用例
 - Google Authenticator、Microsoft Authenticator
 - 銀行 App 登入
-- 密碼管理器既二次認證
+- 密碼管理器嘅二次認證
 
 ### HOTP 常見用例
-- 傳統既銀行實體 security token（按一次生成一次）
+- 傳統嘅銀行實體 security token（按一次生成一次）
 - 某些 Smart Card 系統
 
 ---
@@ -172,4 +172,4 @@ TOTP = Truncate(HMAC-SHA-1(密鑰, T))
 | 優點 | 無需同步時間 | 無需同步計數器 |
 | 缺點 | 計數器可能 drift | 時鐘需同步 |
 
-無論 HOTP 定 TOTP，核心都係用 **密鑰 + 單向函數**，確保即使有人截獲咗某次既 OTP，都唔可以重用或者推算下一次既密碼—— 就係咁簡單既數學原理，保障到你既帳戶安全。
+無論 HOTP 定 TOTP，核心都係用 **密鑰 + 單向函數**，確保即使有人截獲咗某次嘅 OTP，都唔可以重用或者推算下一次嘅密碼—— 就係咁簡單嘅數學原理，保障到你嘅帳戶安全。

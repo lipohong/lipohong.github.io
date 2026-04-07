@@ -1,5 +1,5 @@
 ---
-title: "Understanding KEK and DEK: How Password Managers Secure Your TOTP Secrets | 拆解 KEK 同 DEK：密碼管理器點樣保護你既 TOTP 密鑰"
+title: "Understanding KEK and DEK: How Password Managers Secure Your TOTP Secrets | 拆解 KEK 同 DEK：密碼管理器點樣保護你嘅 TOTP 密鑰"
 date: 2026-03-27 18:29:42 +0800
 categories: [Security, Technology]
 tags: [2fa, totp, kek, dek, encryption, password-manager]
@@ -162,25 +162,25 @@ This is how modern password managers protect not just your passwords, but also y
 
 上篇文講咗 TOTP 點樣用密鑰生成一次性密碼。但係有個問題：**呢條密鑰嘅源頭係邊？佢點樣安全咁储存？**
 
-呢個就係 **KEK (Key Encryption Key)** 同 **DEK (Data Encryption Key)** 登場既時候。
+呢個就係 **KEK (Key Encryption Key)** 同 **DEK (Data Encryption Key)** 登場嘅時候。
 
 ---
 
 ## 咩係 KEK 同 DEK？
 
-呢兩個係密鑰管理既基礎概念：
+呢兩個係密鑰管理嘅基礎概念：
 
 **DEK (Data Encryption Key)**  
-- 用嚟加密實際既數據
-- 喺 TOTP 上下文：就係生成你一次性密碼既嗰條密鑰
+- 用嚟加密實際嘅數據
+- 喺 TOTP 上下文：就係生成你一次性密碼嘅嗰條密鑰
 - 直接參與 HMAC-SHA-1 運算
 
 **KEK (Key Encryption Key)**  
 - 用嚟加密/解密其他密鑰（包括 DEK）
 - 通常由主密碼衍生出嚟
-- 永遠唔會以明文形式離開你既設備
+- 永遠唔會以明文形式離開你嘅設備
 
-### 兩者既關係
+### 兩者嘅關係
 
 ![密鑰層次結構](/assets/img/posts/2026-03-29/kek-hierarchy-cn.svg)
 
@@ -188,13 +188,13 @@ This is how modern password managers protect not just your passwords, but also y
 
 ## 點解要用兩層？
 
-### 直接儲存既問題
+### 直接儲存嘅問題
 
 如果你直接儲存 TOTP 密鑰：
 
 ```
 ┌─────────────────────────────────────────────────────┐
-│          ❌ 唔好既做法：直接儲存                       │
+│          ❌ 唔好嘅做法：直接儲存                       │
 ├─────────────────────────────────────────────────────┤
 │                                                     │
 │   設備儲存:                                          │
@@ -202,34 +202,34 @@ This is how modern password managers protect not just your passwords, but also y
 │   │  TOTP 密鑰 = "JBSWY3DPEHPK3PXP"       │      │
 │   └─────────────────────────────────────────┘      │
 │                                                     │
-│   風險：如果設備被入侵，攻擊者就可以拎到你所有既      │
+│   風險：如果設備被入侵，攻擊者就可以拎到你所有嘅      │
 │   2FA 密鑰！                                        │
 │                                                     │
 └─────────────────────────────────────────────────────┘
 ```
 
-### 用 KEK 加密既方案
+### 用 KEK 加密嘅方案
 
 ```
 ┌─────────────────────────────────────────────────────┐
-│          ✅ 好既做法：KEK-DEK 加密                   │
+│          ✅ 好嘅做法：KEK-DEK 加密                   │
 ├─────────────────────────────────────────────────────┤
 │                                                     │
 │   設備儲存:                                          │
 │   ┌─────────────────────────────────────────┐      │
-│   │  加密既 DEK = AES-256-GCM(           │      │
+│   │  加密嘅 DEK = AES-256-GCM(           │      │
 │   │    key=KEK, data="JBSWY3DPEHPK3PXP") │      │
 │   └─────────────────────────────────────────┘      │
 │                                                     │
-│   即使設備被入侵，攻擊者都只係拎到加密既數據 ——       │
-│   冇 KEK 既話一啲用都冇                               │
+│   即使設備被入侵，攻擊者都只係拎到加密嘅數據 ——       │
+│   冇 KEK 嘅話一啲用都冇                               │
 │                                                     │
 └─────────────────────────────────────────────────────┘
 ```
 
 ---
 
-## 完整既 TOTP + KEK/DEK 工作流程
+## 完整嘅 TOTP + KEK/DEK 工作流程
 
 ### 1. 首次設定
 
@@ -245,15 +245,15 @@ This is how modern password managers protect not just your passwords, but also y
 
 ---
 
-## 現實世界既應用
+## 現實世界嘅應用
 
-### 有 TOTP 支持既密碼管理器
+### 有 TOTP 支持嘅密碼管理器
 
 | 密碼管理器 | KEK/DEK 方案 |
 |----------|-------------|
 | 1Password | 主密碼 → Argon2 → KEK → 加密 DEK |
 | Bitwarden | 主密碼 → PBKDF2 → KEK → 加密 DEK |
-| iCloud Keychain | 設備綁定既 KEK + 可選密碼 |
+| iCloud Keychain | 設備綁定嘅 KEK + 可選密碼 |
 
 ### 加密過程實例
 
@@ -263,11 +263,11 @@ This is how modern password managers protect not just your passwords, but also y
 
 ## 點解唔直接儲存密碼？
 
-### 常見既誤解
+### 常見嘅誤解
 
 ```
 ┌─────────────────────────────────────────────────────┐
-│         ❌ 誤解：「我相信我既手機」                   │
+│         ❌ 誤解：「我相信我嘅手機」                   │
 ├─────────────────────────────────────────────────────┤
 │                                                     │
 │   現實:                                             │
@@ -277,9 +277,9 @@ This is how modern password managers protect not just your passwords, but also y
 │   • 零日漏洞存在                                    │
 │                                                     │
 │   用 KEK/DEK:                                      │
-│   • 即使攻擊者拎到加密既數據                        │
-│   • 佢仍然需要你既主密碼                            │
-│   • 而且衍生 KEK 係故意慢既                         │
+│   • 即使攻擊者拎到加密嘅數據                        │
+│   • 佢仍然需要你嘅主密碼                            │
+│   • 而且衍生 KEK 係故意慢嘅                         │
 │     （防止暴力破解）                                │
 │                                                     │
 └─────────────────────────────────────────────────────┘
@@ -289,23 +289,23 @@ This is how modern password managers protect not just your passwords, but also y
 
 ## 總結：安全鏈
 
-![完整既安全鏈](/assets/img/posts/2026-03-29/kek-security-chain-cn.svg)
+![完整嘅安全鏈](/assets/img/posts/2026-03-29/kek-security-chain-cn.svg)
 
 每層都有特定用途:
 
-- **密碼**：你知道既嘢
+- **密碼**：你知道嘅嘢
 - **KEK 衍生**：防止暴力破解
 - **KEK**：唔儲存明文，保護 DEK
-- **DEK**：實際既 TOTP 密鑰
+- **DEK**：實際嘅 TOTP 密鑰
 - **TOTP**：時間型一次性密碼
 
 ---
 
 ## 重點整理
 
-1. **DEK = 你既 TOTP 密鑰** — 實際生成密碼既嗰條
-2. **KEK = 從你既主密碼衍生** — 永遠唔會以明文儲存
-3. **兩層加密**意味住即使你既設備被入侵，攻擊者都無法访问你既 2FA，除非有你既密碼
+1. **DEK = 你嘅 TOTP 密鑰** — 實際生成密碼嘅嗰條
+2. **KEK = 從你嘅主密碼衍生** — 永遠唔會以明文儲存
+3. **兩層加密**意味住即使你嘅設備被入侵，攻擊者都無法访问你嘅 2FA，除非有你嘅密碼
 4. **密鑰衍生**（PBKDF2、Argon2）令暴力破解變得不可行
 
-呢個就係現代密碼管理器點樣保護你既密碼 — 同埋你最珍惜既 2FA 密鑰。
+呢個就係現代密碼管理器點樣保護你嘅密碼 — 同埋你最珍惜嘅 2FA 密鑰。
