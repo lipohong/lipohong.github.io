@@ -30,4 +30,5 @@ assets/js/dist
 *.drawio
 *.bkp
 *.dtmp
-
+_posts/**/**.yaml
+assets/img/posts/**/**.yaml
