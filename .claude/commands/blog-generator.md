@@ -1,12 +1,10 @@
 Based on requirement to generate a blog by AI
 
-Usage: /blog-generator $PATH | $REQUIREMENTS
+Usage: /blog-generator $REQUIREMENTS
 
-$PATH should be the path to the source material file and the path of the source material files.
+Please write a new blog according to $REQUIREMENTS.
 
-Refer to $PATH please write a new blog according to $REQUIREMENTS
-
-Please stick to the following rules:
+Please also stick to the following rules:
 
 1. Learn the pattern of the post under _posts of the project first;
 2. Please align with the way (English version + Traditional Chinese with Cantonese verbal expression version) of the blog post created under _posts of the project;
