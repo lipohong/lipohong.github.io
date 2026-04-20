@@ -1,6 +1,6 @@
 Based on requirement to generate a blog by AI
 
-用法：/blog-generator $PATH | $REQUIREMENTS
+Usage: /blog-generator $PATH | $REQUIREMENTS
 
 $PATH should be the path to the source material file and the path of the source material files.
 
