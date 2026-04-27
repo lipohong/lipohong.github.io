@@ -1,10 +1,5 @@
 {
   "permissions": {
-    "allow": [
-      "Bash(npm install:*)",
-      "Bash(where drawio:*)",
-      "Bash(where \"draw.io\")",
-      "Read(//c/Program Files/**)"
-    ]
+    "allow": ["Bash", "WebFetch", "Read"]
   }
 }
