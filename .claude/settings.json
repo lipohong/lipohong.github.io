@@ -1,5 +1,5 @@
 {
   "permissions": {
-    "allow": ["Bash", "WebFetch", "Read"]
+    "allow": ["Bash", "WebFetch", "Write", "Read"]
   }
 }
