@@ -3,6 +3,7 @@ title: "SSO Series Part 1: Enterprise Architecture, Protocol Deep Dive, and Secu
 date: 2026-04-27 18:00:00 +0800
 categories: [Security, SSO Series]
 tags: [sso, oauth2, oidc, saml, security, architecture, nodejs, typescript, design-patterns, assisted_by_ai]
+mermaid: true
 toc: true
 ---
 

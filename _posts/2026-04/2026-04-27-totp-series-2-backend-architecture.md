@@ -3,6 +3,7 @@ title: "TOTP Series Part 2: The Definitive Guide to Backend Architecture, Envelo
 date: 2026-04-27 10:30:00 +0800
 categories: [Backend, TOTP Series]
 tags: [totp, backend, database, nestjs, typeorm, security, encryption, clean-code, architecture, assisted_by_ai]
+mermaid: true
 toc: true
 ---
 
